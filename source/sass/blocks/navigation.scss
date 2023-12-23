@@ -1,0 +1,150 @@
+.navigation__wrapper {
+  white-space: nowrap;
+  display: flex;
+  justify-content: space-between;
+  width: 320px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @include vp-768 {
+    width: 768px;
+  }
+
+  @include vp-1440 {
+    width: 1239px;
+  }
+}
+
+.navigation__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+
+  &--desktop {
+    display: none;
+
+    @include vp-1440 {
+      display: flex;
+      margin-right: 15px;
+    }
+  }
+}
+
+.navigation__item {
+  display: flex;
+
+  &--tablet {
+    display: none;
+
+    @include vp-768 {
+      display: flex;
+    }
+  }
+
+  &--select {
+    & button,
+    & ul {
+      width: 66px;
+    }
+  }
+
+  &--decoration {
+    border-radius: 10px;
+    border: 1px solid $color-burnt-orange;
+  }
+
+  button {
+    display: flex;
+    border: none;
+    background-color: transparent;
+  }
+}
+
+.navigation__select {
+  &-list {
+    display: none;
+
+    &--active {
+      display: block;
+    }
+  }
+
+  & button {
+    position: relative;
+
+    &::after {
+      content: url(./../../img/svg/arrow.svg);
+      position: absolute;
+      right: 0;
+      width: 9px;
+      height: 5px;
+    }
+  }
+}
+
+.navigation__item-name {
+  position: relative;
+
+  &--tablet {
+    display: none;
+
+    @include vp-768 {
+      display: block;
+    }
+  }
+}
+
+.navigation__button {
+  border: none;
+  background-color: transparent;
+
+  @include vp-1440 {
+    display: none;
+  }
+}
+
+.navigation {
+  &--minor {
+    background-color: $color-alice-blue;
+    min-height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    border-bottom: 1px solid $color-gainsboro;
+
+    & .navigation__item-name {
+      margin-right: 5px;
+    }
+
+    & .navigation__list {
+      gap: 35px;
+    }
+
+    & .navigation__img {
+      width: 64px;
+      height: 18px;
+    }
+  }
+
+  &--main {
+    .navigation__wrapper {
+      padding: 30px 0;
+    }
+
+    .navigation__item {
+      padding: 10px;
+
+      &--decoration button {
+        display: flex;
+        gap: 10px;
+      }
+    }
+
+    .navigation__img {
+      margin-right: auto;
+    }
+  }
+}
