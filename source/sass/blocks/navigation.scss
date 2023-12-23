@@ -51,8 +51,10 @@
   }
 
   &--decoration {
-    border-radius: 10px;
-    border: 1px solid $color-burnt-orange;
+    @include vp-768 {
+      border-radius: 10px;
+      border: 1px solid $color-burnt-orange;
+    }
   }
 
   button {
@@ -145,6 +147,8 @@
 
     .navigation__img {
       margin-right: auto;
+      margin-top: auto;
+      margin-bottom: auto;
     }
   }
 }

@@ -611,9 +611,11 @@ button,
 .navigation__item--select button, .navigation__item--select ul {
   width: 66px;
 }
-.navigation__item--decoration {
-  border-radius: 10px;
-  border: 1px solid #FE7333;
+@media (min-width: 768px) {
+  .navigation__item--decoration {
+    border-radius: 10px;
+    border: 1px solid #FE7333;
+  }
 }
 .navigation__item button {
   display: -webkit-box;
@@ -701,6 +703,8 @@ button,
 }
 .navigation--main .navigation__img {
   margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 /* @mixin hover-focus {
