@@ -29,10 +29,12 @@
                 Ваш город:
               </div>
               <div class="navigation__select">
-                <button class="navigation__select-button" type="button">Москва</button>
-                <ul class="navigation__select-list">
-                  <li>Москва</li>
-                  <li>Санкт-Петербург</li>
+                <button class="navigation__select-button" type="button" data-button="change-city">
+                  <div>Москва</div>
+                </button>
+                <ul class="navigation__select-list visually-hidden">
+                  <li class="navigation__select-item navigation__select-item--active">Москва</li>
+                  <li class="navigation__select-item">Санкт-Петербург</li>
                 </ul>
               </div>
             </div>
@@ -45,34 +47,26 @@
       </div>
       <div class="navigation navigation--main">
         <nav class="navigation__wrapper">
-          <button class="navigation__button">
-            <svg width="24" height="16" viewBox="0 0 24 16" role="img">
-            <use href="img/sprite.svg#burger-menu"></use>
-          </svg>
-        </button>
-        <button class="navigation__button navigation__button--close visually-hidden">
-          <svg width="19" height="19" viewBox="0 0 19 19" role="img">
-            <use href="img/sprite.svg#close-menu"></use>
-          </svg>
-        </button>
+          <button class="navigation__button" data-button="navigation"></button>
           <div class="navigation__img">
             <a href="index.html">
               <picture>
                 <source media="(min-width: 1440px)" srcset="./img/svg/logo-desktop.svg" width="194" height="72">
                 <source media="(min-width: 768px)" srcset="./img/svg/logo.svg" width="178" height="24">
                 <img src="./img/svg/logo.svg" width="134" height="18" alt="Логотип Car-total.">
-            </picture>
               </picture>
             </a>
           </div>
-          <ul class="navigation__list navigation__list--desktop">
-            <li class="navigation__item"><a href="#">Аукционы</a></li>
-            <li class="navigation__item"><a href="#">О нас</a></li>
-            <li class="navigation__item"><a href="#">Вопросы и ответы</a></li>
-            <li class="navigation__item"><a href="#">Правила</a></li>
-            <li class="navigation__item"><a href="#">Новости</a></li>
-            <li class="navigation__item"><a href="#">Контакты</a></li>
-          </ul>
+          <div class="navigation__list-wrapper">
+            <ul class="navigation__list navigation__list--desktop">
+              <li class="navigation__item"><a href="#">Аукционы</a></li>
+              <li class="navigation__item"><a href="#">О нас</a></li>
+              <li class="navigation__item"><a href="#">Вопросы и ответы</a></li>
+              <li class="navigation__item"><a href="#">Правила</a></li>
+              <li class="navigation__item"><a href="#">Новости</a></li>
+              <li class="navigation__item"><a href="#">Контакты</a></li>
+            </ul>
+          </div>
           <ul class="navigation__list">
             <li class="navigation__item">
               <button type="button">
@@ -98,6 +92,118 @@
         </nav>
       </div>
     </header>
+    <main>
+      <section class="hero">
+        <h1 class="visually-hidden">Сайт Car-Total.</h1>
+        <div class="container container--wide">
+          <div class="hero__container">
+            <div class="hero__text-wrapper">
+              <h2 class="hero__title">Car-Total</h2>
+              <p class="hero__text">— аукцион битых автомобилей по лучшим ценам</p>
+              <button class="hero__button">Перейти в аукцион</button>
+            </div>
+            <div class="hero__img-wrapper">
+              <picture>
+                <source media="(min-width: 1440px)" srcset="./img/svg/solution.svg" width="554" height="385">
+                <source media="(min-width: 768px)" srcset="./img/svg/solution.svg" width="378" height="263">
+                <img src="./img/svg/solution.svg" width="303" height="211"
+                  alt="Декоративное изображение главного блока.">
+              </picture>
+            </div>
+          </div>
+          <div class="hero__advantages">
+            <h2 class="visually-hidden">Преимущества</h2>
+            <ul class="hero__advantages-list">
+              <li class="hero__advantages-item">
+                <svg width="48" height="48" viewBox="0 0 48 48" role="img">
+                  <use href="img/sprite.svg#clients"></use>
+                </svg>
+                <h3 class="hero__advantages-title">Более 1 000 клиентов ежедневно</h3>
+                <p class="hero__advantages-text">Ваш автомобиль увидит множество платежеспособных потенциальных
+                  покупателей</p>
+              </li>
+              <li class="hero__advantages-item">
+                <svg width="48" height="48" viewBox="0 0 48 48" role="img">
+                  <use href="img/sprite.svg#online"></use>
+                </svg>
+                <h3 class="hero__advantages-title">Онлайн участие в торгах</h3>
+                <p class="hero__advantages-text">У участников интернет-торгов есть возможность добавить ставки в режиме
+                  онлайн</p>
+              </li>
+              <li class="hero__advantages-item">
+                <svg width="48" height="48" viewBox="0 0 48 48" role="img">
+                  <use href="img/sprite.svg#fast"></use>
+                </svg>
+                <h3 class="hero__advantages-title">Быстрые сделки</h3>
+                <p class="hero__advantages-text">Удобная продажа и покупка битых авто в максимально сжатые сроки
+                  по выгодной цене</p>
+              </li>
+              <li class="hero__advantages-item">
+                <svg width="48" height="48" viewBox="0 0 48 48" role="img">
+                  <use href="img/sprite.svg#evacuation"></use>
+                </svg>
+                <h3 class="hero__advantages-title">Эвакуация</h3>
+                <p class="hero__advantages-text">Покупая битые автомобили на торговой площадке, вы всегда можете
+                  воспользоваться услугами эвакуации</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="lots">
+        <div class="container container--wide">
+          <div class="lots__main-wrapper">
+            <h2 class="lots__title title__main-page">Популярные лоты</h2>
+            <a class="lots__link link__main-page" href="#">Все лоты</a>
+          </div>
+          <div class="swiper" data-slider="lots-swiper">
+            <ul class="lots__list swiper-wrapper">
+              <li class="lots__item swiper-slide">
+                <div class="lots__img-wrapper">
+                  <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167"
+                    alt="Логотип Car-total.">
+                </div>
+                <div class="lots__text-wrapper">
+                  <div class="lots__extra-inf-wrapper">
+                    <p>Лот № 12674681</p>
+                    <svg width="14" height="18" viewBox="0 0 14 18" role="img">
+                      <use href="img/sprite.svg#like"></use>
+                    </svg>
+                  </div>
+                  <div class="lots__description">
+                    <h3 class="lots__lot-name">BMW M2 Competition</h3>
+                    <p class="lots__description-item">Начальная цена <span>1 222 000 ₽</span></p>
+                    <p class="lots__description-item">Местоположение <span>Санкт-Петербург</span></p>
+                  </div>
+                  <div class="lots__timer">
+                    До окончания торгов
+                    Таймер (в разработке)
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer__container">
+        <div class="container container--footer">
+          <ul class="footer__navigation-list">
+            <li class="footer__navigation-item"><a href="#">Аукционы</a></li>
+            <li class="footer__navigation-item"><a href="#">О нас</a></li>
+            <li class="footer__navigation-item"><a href="#">Вопросы и ответы</a></li>
+            <li class="footer__navigation-item"><a href="#">Новости</a></li>
+            <li class="footer__navigation-item"><a href="#">Контакты</a></li>
+          </ul>
+          <div class="footer__copyright">
+            <p class="footer__copyright-text">© 2010-2023, САО «РЕСО-Гарантия»</p>
+            <p class="footer__copyright-text">© All photos, graphics and imageson this site remain the copyright of
+              CAR-TOTAL.COM</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 
   <script src="js/vendor.min.js"></script>
