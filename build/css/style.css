@@ -1405,7 +1405,8 @@ button,
   }
 }
 .container--wide {
-  width: 320px;
+  width: 100%;
+  max-width: 320px;
 }
 @media (min-width: 768px) {
   .container--wide {
@@ -1513,6 +1514,8 @@ button,
   margin: 0 auto;
   padding: 0 20px;
   position: relative;
+  width: 100%;
+  max-width: 320px;
 }
 @media (min-width: 768px) {
   .navigation__wrapper {

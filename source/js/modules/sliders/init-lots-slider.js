@@ -9,7 +9,7 @@ const initLotsSlider = () => {
         prevEl: '.swiper-button-prev',
       },
       keyboard: true,
-      loop: true,
+      // loop: true,
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
