@@ -9,23 +9,22 @@
 }
 
 .lots__list {
-  transform: none !important;
+  padding: 0 0 30px;
+}
 
-  @include vp-1440 {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 24px;
-  }
+.lots__container {
+  padding: 20px;
 }
 
 .lots__item {
   box-shadow: 0 4px 26px 0 #00000014;
+  background-color: $color-default-white;
   border-radius: 15px;
-  width: 100% !important;
 }
 
 .lots__img-wrapper {
   width: 100%;
+  border-radius: 15px;
 }
 
 .lots__text-wrapper {
@@ -35,6 +34,8 @@
 .lots__img {
   object-fit: contain;
   width: 100%;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
 }
 
 .lots__extra-inf-wrapper {
@@ -105,4 +106,19 @@
 .lots__timer {
   color: red;
   padding: 10px 0;
+}
+
+
+.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+  bottom: 10px;
+  z-index: 500;
+}
+
+.swiper-pagination-bullet {
+  background-color: $color-gainsboro;
+  opacity: 100%;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: $color-burnt-atlantis;
 }

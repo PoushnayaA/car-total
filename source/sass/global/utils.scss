@@ -41,6 +41,10 @@
     }
   }
 
+  // &--lots {
+  //   padding: 30px 0;
+  // }
+
   &--footer {
     @include vp-1440 {
       display: flex;

@@ -1,43 +1,37 @@
-// const sliderLots = document.querySelector('[data-slider="lots-swiper"]');
-// // const buttonNext = document.querySelector('[data-jury="jury-button-next"]');
-// // const buttonPrev = document.querySelector('[data-jury="jury-button-prev"]');
+const sliderLots = document.querySelector('[data-slider="lots-swiper"]');
 
-// const initLotsSlider = () => {
-//   if (sliderLots) {
-//     // eslint-disable-next-line
-//     new Swiper(sliderLots, {
-//       // navigation: {
-//       //   nextEl: buttonNext,
-//       //   prevEl: buttonPrev,
-//       // },
+const initLotsSlider = () => {
+  if (sliderLots) {
+    // eslint-disable-next-line
+    new Swiper(sliderLots, {
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      keyboard: true,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        1440: {
+          slidesPerView: 4,
+          // spaceBetween: 24,
+        },
 
-//       // pagination: {
-//       //   el: '.swiper-pagination',
-//       // },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 40,
+        },
 
-//       loop: true,
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 40,
+        },
+      },
+    });
+  }
+};
 
-//       breakpoints: {
-//         // 1366: {
-//         //   initialSlide: 0,
-//         //   slidesPerView: 4,
-//         //   spaceBetween: 40,
-//         // },
-
-//         768: {
-//           initialSlide: 2,
-//           slidesPerView: 2,
-//           spaceBetween: 32,
-//         },
-
-//         320: {
-//           initialSlide: 0,
-//           slidesPerView: 1,
-//           // spaceBetween: 20,
-//         },
-//       },
-//     });
-//   }
-// };
-
-// export {initLotsSlider};
+export {initLotsSlider};

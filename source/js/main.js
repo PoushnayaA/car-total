@@ -7,19 +7,13 @@ import {initLotsSlider} from './modules/sliders/init-lots-slider';
 // ---------------------------------
 
 window.addEventListener('DOMContentLoaded', () => {
-
-  // Utils
-  // ---------------------------------
-
   iosVhFix();
 
   // Modules
   // ---------------------------------
 
   window.addEventListener('load', () => {
-
     initLotsSlider();
-
     initModals();
     const form = new Form();
     window.form = form;
