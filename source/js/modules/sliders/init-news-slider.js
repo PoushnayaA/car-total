@@ -1,9 +1,9 @@
-const sliderLots = document.querySelector('[data-slider="lots-swiper"]');
+const sliderNews = document.querySelector('[data-slider="news-swiper"]');
 
-const initLotsSlider = () => {
-  if (sliderLots) {
+const initNewsSlider = () => {
+  if (sliderNews) {
     // eslint-disable-next-line
-    new Swiper(sliderLots, {
+    new Swiper(sliderNews, {
       keyboard: true,
       // loop: true,
       pagination: {
@@ -17,7 +17,7 @@ const initLotsSlider = () => {
         },
 
         768: {
-          slidesPerView: 2,
+          slidesPerView: 3,
           spaceBetween: 40,
         },
 
@@ -30,4 +30,4 @@ const initLotsSlider = () => {
   }
 };
 
-export {initLotsSlider};
+export {initNewsSlider};

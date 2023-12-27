@@ -26,15 +26,15 @@
   }
 
   @include vp-1440 {
-    width: 1240px;
+    width: 1220px;
   }
 
   &--wide {
-    // width: 320px;
     width: 100%;
     max-width: 320px;
 
     @include vp-768 {
+      max-width: none;
       width: 728px;
     }
 
@@ -43,9 +43,32 @@
     }
   }
 
-  // &--lots {
-  //   padding: 30px 0;
-  // }
+  &--news,
+  &--lots {
+    max-width: 280px;
+
+    @include vp-768 {
+      max-width: none;
+      width: 768px;
+    }
+
+    @include vp-1440 {
+      width: 1280px;
+    }
+  }
+
+  &--about {
+    max-width: 280px;
+
+    @include vp-768 {
+      max-width: none;
+      width: 728px;
+    }
+
+    @include vp-1440 {
+      width: 1240px;
+    }
+  }
 
   &--footer {
     @include vp-1440 {

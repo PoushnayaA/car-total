@@ -61,6 +61,19 @@ button {
   cursor: pointer;
 }
 
+.button-auctions {
+  background-color: $color-burnt-orange;
+  display: block;
+  border-radius: 15px;
+  padding: 24px 32px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  border: none;
+  color: $color-default-white;
+}
+
 input:-webkit-autofill {
   box-shadow: inset 0 0 0 1000px $color-default-white;
 
