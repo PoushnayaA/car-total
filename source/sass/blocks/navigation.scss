@@ -1,0 +1,222 @@
+.navigation__wrapper {
+  white-space: nowrap;
+  display: flex;
+  justify-content: space-between;
+  width: 320px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+
+  @include vp-768 {
+    max-width: none;
+    width: 768px;
+  }
+
+  @include vp-1440 {
+    width: 1239px;
+  }
+}
+
+.navigation__list {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+
+  &--desktop {
+    display: none;
+
+    @include vp-1440 {
+      display: flex;
+      margin-right: 15px;
+    }
+  }
+
+  &--open {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    background-color: red;
+  }
+}
+
+.navigation__item {
+  display: flex;
+
+  &--tablet {
+    display: none;
+
+    @include vp-768 {
+      display: flex;
+    }
+  }
+
+  &--select {
+    position: relative;
+
+    & button {
+      width: 66px;
+    }
+  }
+
+  &--decoration {
+    @include vp-768 {
+      border-radius: 10px;
+      border: 1px solid $color-burnt-orange;
+    }
+  }
+
+  &--active a {
+    color: $color-burnt-orange;
+  }
+
+  button {
+    display: flex;
+    border: none;
+    background-color: transparent;
+  }
+}
+
+.navigation__select {
+  &-list {
+    padding: 10px;
+    position: absolute;
+    width: 90%;
+    top: 100%;
+    left: 40%;
+    border-radius: 10px;
+    background-color: $color-default-white;
+    box-shadow: 0 4px 26px 0 #00000014;
+    z-index: 100;
+  }
+}
+
+.navigation__select-button {
+  position: relative;
+
+  & div {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &::after {
+    content: url(./../../img/svg/arrow.svg);
+    position: absolute;
+    right: -10px;
+    width: 9px;
+    height: 5px;
+    top: 0;
+    z-index: 3;
+  }
+
+  &--open-nav {
+    &::after {
+      rotate: 180deg;
+      top: auto;
+      bottom: 0;
+    }
+  }
+}
+
+.navigation__item-name {
+  position: relative;
+
+  &--tablet {
+    display: none;
+
+    @include vp-768 {
+      display: block;
+    }
+  }
+}
+
+// .navigation__list-wrapper {
+//   position: relative;
+// }
+
+.navigation__button {
+  border: none;
+  background-color: transparent;
+  position: relative;
+  width: 32px;
+  height: 32px;
+  margin: auto 0;
+
+  @include vp-1440 {
+    display: none;
+  }
+
+  &::after {
+    content: url(./../../img/svg/burger-menu.svg);
+    position: absolute;
+    top: 10%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &--active {
+    &::after {
+    content: url(./../../img/svg/close-menu.svg);
+    }
+  }
+}
+
+.navigation {
+  &--minor {
+    background-color: $color-alice-blue;
+    min-height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    border-bottom: 1px solid $color-gainsboro;
+
+    & .navigation__item-name {
+      margin-right: 5px;
+    }
+
+    & .navigation__list {
+      gap: 35px;
+    }
+
+    & .navigation__img {
+      width: 64px;
+      height: 18px;
+    }
+  }
+
+  &--main {
+    .navigation__wrapper {
+      padding: 30px 20px;
+    }
+
+    .navigation__item {
+      padding: 10px;
+
+      &--decoration button {
+        display: flex;
+        gap: 10px;
+      }
+    }
+
+    .navigation__img {
+      margin-right: auto;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+  }
+}
+
+.navigation__select-item {
+  cursor: pointer;
+  padding: 5px 0;
+
+  &--active {
+    color: $color-burnt-orange;
+  }
+}
