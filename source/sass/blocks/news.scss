@@ -93,3 +93,46 @@
     }
   }
 }
+
+.news--news-card-page {
+  .news__container {
+    padding: 0;
+  }
+
+  .news__title {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 31px;
+    color: $color-burnt-atlantis;
+
+    @include vp-768 {
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 31px;
+    }
+  }
+
+  .news__text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  .news__text--main {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 27px;
+  }
+
+  .news__link {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 27px;
+    color: $color-burnt-orange;
+    text-align: center;
+
+    @include vp-768 {
+      text-align: left;
+    }
+  }
+}
