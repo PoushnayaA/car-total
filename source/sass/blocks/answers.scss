@@ -55,15 +55,15 @@
   margin-bottom: 3px;
 }
 
-.accordion__element.is-active .accordion__button {
-  &::before {
-    background-color: $color-default-white;
-  }
+// .accordion__element.is-active .accordion__button {
+//   &::before {
+//     background-color: $color-default-white;
+//   }
 
-  &::after {
-    display: none;
-  }
-}
+//   &::after {
+//     display: none;
+//   }
+// }
 
 .accordion__element.is-disabled .accordion__button {
   // border: 1px solid $color-sapphire-30;
@@ -121,6 +121,10 @@
   &::before {
     rotate: 180deg;
   }
+}
+
+.accordion__button:active {
+  background-color: $color-default-white;
 }
 
 .accordion__container {
