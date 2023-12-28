@@ -2851,6 +2851,166 @@ button,
   display: none;
 }
 
+.answers__main-wrapper {
+  position: relative;
+  padding: 10px 0;
+}
+.answers__main-wrapper::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: #E0E0E0;
+}
+
+.answers__text--main {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+  color: #292929;
+}
+@media (min-width: 768px) {
+  .answers__text--main {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 31px;
+  }
+}
+
+.answers__text--simple {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #686868;
+}
+@media (min-width: 768px) {
+  .answers__text--simple {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 27px;
+  }
+}
+
+.accordion {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.accordion__element {
+  border: 1px solid #E0E0E0;
+  border-radius: 15px;
+  margin: 10px 0 10px;
+}
+
+.accordion__element.is-active {
+  margin-bottom: 3px;
+}
+
+.accordion__element.is-active .accordion__button::before {
+  background-color: #ffffff;
+}
+.accordion__element.is-active .accordion__button::after {
+  display: none;
+}
+
+.accordion__element.is-disabled .accordion__button {
+  pointer-events: none;
+  cursor: default;
+}
+.accordion__element.is-disabled .accordion__button::before, .accordion__element.is-disabled .accordion__button::after {
+  opacity: 0.3;
+}
+
+.accordion__container {
+  position: relative;
+  padding: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 100%;
+}
+
+.accordion__text-title {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.accordion__wrapper {
+  padding: 0 0 25px;
+  max-width: 1240px;
+}
+
+.accordion__text-content {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #43B02A;
+}
+
+.accordion__button {
+  margin: auto 16px;
+  width: 18px;
+  height: 18px;
+  border: none;
+  background-color: #ffffff;
+}
+.accordion__button::before {
+  content: url("./../../img/svg/arrow.svg");
+  position: absolute;
+  display: block;
+}
+
+.accordion__element.is-active .accordion__button::before {
+  rotate: 180deg;
+}
+
+.accordion__container {
+  position: relative;
+}
+.accordion__container::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: -1px;
+  height: 1px;
+  background-color: #E0E0E0;
+}
+
+.accordion__content {
+  padding: 0 16px 0;
+}
+
+.accordion__element.is-active .accordion__content {
+  padding: 16px;
+}
+
+[data-accordion=element].is-active > [data-accordion=content] {
+  max-height: 100%;
+}
+
+[data-accordion=parent].no-transition [data-accordion=content] {
+  -webkit-transition: none;
+  transition: none;
+}
+
+[data-accordion=content] {
+  max-height: 0;
+  -webkit-transition: max-height 0.3s;
+  transition: max-height 0.3s;
+  overflow: hidden;
+}
+
 footer {
   margin-top: 30px;
 }

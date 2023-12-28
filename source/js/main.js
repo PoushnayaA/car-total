@@ -5,6 +5,8 @@ import {Form} from './modules/form-validate/form';
 import {initLotsSlider} from './modules/sliders/init-lots-slider';
 import {initNewsSlider} from './modules/sliders/init-news-slider';
 
+import {initAccordions} from './modules/accordion/init-accordion';
+
 // ---------------------------------
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -17,6 +19,7 @@ window.addEventListener('DOMContentLoaded', () => {
     initLotsSlider();
     initNewsSlider();
     initModals();
+    initAccordions();
     const form = new Form();
     window.form = form;
     form.init();
