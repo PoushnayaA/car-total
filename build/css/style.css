@@ -2909,13 +2909,6 @@ button,
   margin-bottom: 3px;
 }
 
-.accordion__element.is-active .accordion__button::before {
-  background-color: #ffffff;
-}
-.accordion__element.is-active .accordion__button::after {
-  display: none;
-}
-
 .accordion__element.is-disabled .accordion__button {
   pointer-events: none;
   cursor: default;
@@ -2959,19 +2952,28 @@ button,
 
 .accordion__button {
   margin: auto 16px;
-  width: 18px;
-  height: 18px;
+  width: 80px;
+  height: 20px;
+  display: block;
   border: none;
   background-color: #ffffff;
+  position: relative;
 }
 .accordion__button::before {
   content: url("./../../img/svg/arrow.svg");
   position: absolute;
-  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .accordion__element.is-active .accordion__button::before {
   rotate: 180deg;
+}
+
+.accordion__button:active {
+  background-color: #ffffff;
 }
 
 .accordion__container {

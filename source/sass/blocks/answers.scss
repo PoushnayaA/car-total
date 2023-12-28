@@ -105,15 +105,20 @@
 
 .accordion__button {
   margin: auto 16px;
-  width: 18px;
-  height: 18px;
+  width: 80px;
+  height: 20px;
+  display: block;
   border: none;
   background-color: $color-default-white;
+  position: relative;
 
   &::before {
     content: url("./../../img/svg/arrow.svg");
     position: absolute;
-    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 }
 
