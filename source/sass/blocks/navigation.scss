@@ -7,10 +7,10 @@
   padding: 0 20px;
   position: relative;
   width: 100%;
-  max-width: 320px;
+  min-width: 320px;
 
   @include vp-768 {
-    max-width: none;
+    min-width: none;
     width: 768px;
   }
 
@@ -24,6 +24,7 @@
   gap: 20px;
   justify-content: center;
   align-items: center;
+  margin-right: 20px;
 
   &--desktop {
     display: none;
@@ -32,6 +33,10 @@
       display: flex;
       margin-right: 15px;
     }
+  }
+
+  &--main {
+    margin-right: 0;
   }
 
   &--open {
@@ -153,8 +158,7 @@
   &::after {
     content: url(./../../img/svg/burger-menu.svg);
     position: absolute;
-    top: 10%;
-    bottom: 0;
+    top: 25%;
     left: 0;
     right: 0;
   }
@@ -177,7 +181,8 @@
     border-bottom: 1px solid $color-gainsboro;
 
     & .navigation__item-name {
-      margin-right: 5px;
+      display: flex;
+      margin: auto 5px auto 0;
     }
 
     & .navigation__list {
@@ -192,7 +197,7 @@
 
   &--main {
     .navigation__wrapper {
-      padding: 30px 20px;
+      padding: 10px;
     }
 
     .navigation__item {
@@ -205,9 +210,7 @@
     }
 
     .navigation__img {
-      margin-right: auto;
-      margin-top: auto;
-      margin-bottom: auto;
+      margin: auto auto auto 16px;
     }
   }
 }
@@ -219,4 +222,9 @@
   &--active {
     color: $color-burnt-orange;
   }
+}
+
+.navigation__select-button {
+  padding: 0;
+  padding-left: 13px;
 }

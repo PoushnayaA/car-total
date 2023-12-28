@@ -1293,6 +1293,7 @@ button {
   text-align: center;
   border: none;
   color: #ffffff;
+  width: 229px;
 }
 
 input:-webkit-autofill {
@@ -1405,11 +1406,12 @@ button,
 
 .container {
   margin: 0 auto;
-  width: 280px;
+  min-width: 280px;
 }
 @media (min-width: 768px) {
   .container {
     width: 728px;
+    min-width: none;
   }
 }
 @media (min-width: 1440px) {
@@ -1419,11 +1421,11 @@ button,
 }
 .container--wide {
   width: 100%;
-  max-width: 320px;
+  min-width: 320px;
 }
 @media (min-width: 768px) {
   .container--wide {
-    max-width: none;
+    min-width: none;
     width: 728px;
   }
 }
@@ -1433,31 +1435,17 @@ button,
   }
 }
 .container--news, .container--lots {
-  max-width: 280px;
+  min-width: 280px;
 }
 @media (min-width: 768px) {
   .container--news, .container--lots {
-    max-width: none;
+    min-width: none;
     width: 768px;
   }
 }
 @media (min-width: 1440px) {
   .container--news, .container--lots {
     width: 1280px;
-  }
-}
-.container--about {
-  max-width: 280px;
-}
-@media (min-width: 768px) {
-  .container--about {
-    max-width: none;
-    width: 728px;
-  }
-}
-@media (min-width: 1440px) {
-  .container--about {
-    width: 1240px;
   }
 }
 @media (min-width: 1440px) {
@@ -1557,11 +1545,11 @@ button,
   padding: 0 20px;
   position: relative;
   width: 100%;
-  max-width: 320px;
+  min-width: 320px;
 }
 @media (min-width: 768px) {
   .navigation__wrapper {
-    max-width: none;
+    min-width: none;
     width: 768px;
   }
 }
@@ -1582,6 +1570,7 @@ button,
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-right: 20px;
 }
 .navigation__list--desktop {
   display: none;
@@ -1593,6 +1582,9 @@ button,
     display: flex;
     margin-right: 15px;
   }
+}
+.navigation__list--main {
+  margin-right: 0;
 }
 .navigation__list--open {
   display: block;
@@ -1704,8 +1696,7 @@ button,
 .navigation__button::after {
   content: url(./../../img/svg/burger-menu.svg);
   position: absolute;
-  top: 10%;
-  bottom: 0;
+  top: 25%;
   left: 0;
   right: 0;
 }
@@ -1729,7 +1720,10 @@ button,
   border-bottom: 1px solid #E0E0E0;
 }
 .navigation--minor .navigation__item-name {
-  margin-right: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto 5px auto 0;
 }
 .navigation--minor .navigation__list {
   gap: 35px;
@@ -1739,7 +1733,7 @@ button,
   height: 18px;
 }
 .navigation--main .navigation__wrapper {
-  padding: 30px 20px;
+  padding: 10px;
 }
 .navigation--main .navigation__item {
   padding: 10px;
@@ -1751,9 +1745,7 @@ button,
   gap: 10px;
 }
 .navigation--main .navigation__img {
-  margin-right: auto;
-  margin-top: auto;
-  margin-bottom: auto;
+  margin: auto auto auto 16px;
 }
 
 .navigation__select-item {
@@ -1762,6 +1754,11 @@ button,
 }
 .navigation__select-item--active {
   color: #FE7333;
+}
+
+.navigation__select-button {
+  padding: 0;
+  padding-left: 13px;
 }
 
 .hero__container {
@@ -1823,10 +1820,13 @@ button,
   grid-template-columns: repeat(auto-fill, 1fr);
   gap: 16px;
   margin: -40px auto 0;
-  width: 280px;
+  min-width: 280px;
+  padding: 0 20px;
 }
 @media (min-width: 768px) {
   .hero__advantages-list {
+    min-width: none;
+    padding: 0;
     width: 688px;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -1897,7 +1897,7 @@ button,
   position: absolute;
   right: 20px;
   left: 20px;
-  top: -33px;
+  top: -23px;
 }
 @media (min-width: 768px) {
   .hero__img-wrapper {
@@ -1910,6 +1910,9 @@ button,
     right: 105px;
     left: auto;
   }
+}
+.hero__img-wrapper img {
+  margin: 0 auto;
 }
 
 .hero__advantages-title {
@@ -2312,6 +2315,7 @@ button,
 .about {
   border-radius: 15px;
   background-color: #ffffff;
+  padding: 0 20px;
 }
 
 .about__container {
@@ -2337,11 +2341,13 @@ button,
 }
 
 .about__img-wrapper {
-  width: 248px;
+  min-width: 248px;
+  width: 100%;
   height: 100%;
 }
 @media (min-width: 768px) {
   .about__img-wrapper {
+    min-width: none;
     width: 336px;
     min-height: 360px;
   }
@@ -2356,9 +2362,8 @@ button,
 .about__img {
   -o-object-fit: cover;
      object-fit: cover;
-  width: 248px;
-  min-height: 186px;
-  height: 100%;
+  height: 186px;
+  width: 100%;
   border-radius: 15px;
 }
 @media (min-width: 768px) {

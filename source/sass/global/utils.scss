@@ -19,10 +19,11 @@
 
 .container {
   margin: 0 auto;
-  width: 280px;
+  min-width: 280px;
 
   @include vp-768 {
     width: 728px;
+    min-width: none;
   }
 
   @include vp-1440 {
@@ -31,10 +32,10 @@
 
   &--wide {
     width: 100%;
-    max-width: 320px;
+    min-width: 320px;
 
     @include vp-768 {
-      max-width: none;
+      min-width: none;
       width: 728px;
     }
 
@@ -45,28 +46,15 @@
 
   &--news,
   &--lots {
-    max-width: 280px;
+    min-width: 280px;
 
     @include vp-768 {
-      max-width: none;
+      min-width: none;
       width: 768px;
     }
 
     @include vp-1440 {
       width: 1280px;
-    }
-  }
-
-  &--about {
-    max-width: 280px;
-
-    @include vp-768 {
-      max-width: none;
-      width: 728px;
-    }
-
-    @include vp-1440 {
-      width: 1240px;
     }
   }
 
