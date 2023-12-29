@@ -8,11 +8,17 @@
   width: 100%;
   min-width: 320px;
   max-width: 1240px;
+  // z-index: 2;
 
   @include vp-1440 {
     width: 1240px;
     padding: 0;
   }
+}
+
+.navigation {
+  z-index: 200;
+  opacity: 100%;
 }
 
 .navigation__list-wrapper {
@@ -27,6 +33,7 @@
   justify-content: center;
   align-items: center;
   margin-right: 20px;
+  z-index: 500;
 
   @include vp-1440 {
     margin-right: 0;
@@ -50,7 +57,6 @@
     position: absolute;
     top: 100%;
     left: 0%;
-    z-index: 500;
     background-color: $color-default-white;
     box-shadow: 0 4px 26px 0 #00000014;
     width: 100%;
