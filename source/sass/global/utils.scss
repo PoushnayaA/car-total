@@ -17,6 +17,32 @@
   }
 }
 
+.page {
+  position: relative;
+}
+
+.page__header {
+  z-index: 600;
+}
+
+.main {
+  &--dark {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 30%;
+      background-color: $color-nero;
+      z-index: 10;
+    }
+  }
+}
+
 .container {
   margin: 0 auto;
   min-width: 280px;
@@ -33,19 +59,24 @@
   &--wide {
     width: 100%;
     min-width: 320px;
+    max-width: 1240px;
 
-    @include vp-768 {
-      min-width: none;
-      width: 728px;
-    }
+    // @include vp-768 {
+    //   min-width: none;
+    //   width: 728px;
+    // }
 
     @include vp-1440 {
-      width: 1240px;
+      // width: 1240px;
     }
   }
 
-  &--news,
   &--lots {
+    min-width: 280px;
+    max-width: 1280px;
+  }
+
+  &--news {
     min-width: 280px;
 
     @include vp-768 {
@@ -54,15 +85,18 @@
     }
 
     @include vp-1440 {
-      width: 1280px;
+      width: 1240px;
     }
   }
 
   &--footer {
+    // padding: 0 20px;
+
     @include vp-1440 {
       display: flex;
       flex-direction: row-reverse;
       justify-content: space-between;
+      width: 1240px;
     }
   }
 }
@@ -127,6 +161,7 @@
   font-size: 24px;
   font-weight: 500;
   line-height: 31px;
+  margin: 5px 0;
 
   @include vp-768 {
     font-size: 32px;

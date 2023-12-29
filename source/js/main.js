@@ -1,6 +1,4 @@
 import {iosVhFix} from './utils/ios-vh-fix';
-import {initModals} from './modules/modals/init-modals';
-import {Form} from './modules/form-validate/form';
 
 import {initLotsSlider} from './modules/sliders/init-lots-slider';
 import {initNewsSlider} from './modules/sliders/init-news-slider';
@@ -18,11 +16,7 @@ window.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('load', () => {
     initLotsSlider();
     initNewsSlider();
-    initModals();
     initAccordions();
-    const form = new Form();
-    window.form = form;
-    form.init();
   });
 });
 
@@ -48,6 +42,7 @@ const buttonNavigation = document.querySelector('[data-button="navigation"]');
 buttonNavigation.addEventListener('click', function () {
   buttonNavigation.classList.toggle('navigation__button--active');
   document.querySelector('.navigation__list--desktop').classList.toggle('navigation__list--open');
+  document.querySelector('main').classList.toggle('main--dark');
 });
 
 const buttonFilter = document.querySelector('[data-button="change-filter"]');

@@ -130,16 +130,25 @@
 .lots--lots-page {
   & .container {
     position: relative;
+    padding: 0 20px;
+
+    @include vp-1440 {
+      padding: 10px 0;
+    }
 
     &::before {
       content: "";
       position: absolute;
       height: 1px;
-      width: 100%;
       background-color: $color-gainsboro;
       top: 0;
-      left: 0;
+      left: 20px;
+      right: 20px;
+
+      @include vp-1440 {
+        left: 0;
       right: 0;
+      }
     }
   }
 

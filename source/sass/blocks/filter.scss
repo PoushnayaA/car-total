@@ -22,17 +22,16 @@
     content: url(./../../img/svg/arrow.svg);
     position: absolute;
     right: -10px;
-    width: 9px;
-    height: 5px;
-    top: 0;
+    width: 12px;
+    height: 100%;
+    top: 3px;
     z-index: 3;
   }
 
   &--open-nav {
     &::after {
       rotate: 180deg;
-      top: auto;
-      bottom: 0;
+      top: -4px;
     }
   }
 }
@@ -60,11 +59,13 @@
 }
 
 .filter__container {
+  padding: 10px 20px;
+
   @include vp-768 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
-    padding: 20px 0;
+    padding: 20px;
     grid-template-areas:
     "category region"
     " status brand"
@@ -74,6 +75,7 @@
   }
 
   @include vp-1440 {
+    padding: 10px 0;
     grid-template-columns: repeat(12, 1fr);
     grid-template-areas:
     "category category category category region region region region status status status status"
@@ -189,7 +191,6 @@ max-height: 56px;
 
 .select-wrapper::before {
   content: "";
-
   position: absolute;
   top: 50%;
   right: 15px;
@@ -304,4 +305,14 @@ max-height: 56px;
 
 .dropdown__input-hidden {
   display: none;
+}
+
+.filter-sorting__select-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & svg {
+    margin-right: 4px;
+  }
 }

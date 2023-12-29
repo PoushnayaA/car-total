@@ -1,19 +1,32 @@
-.rules {}
-
-.rules__container {}
-
 .rules__main-wrapper {
   position: relative;
-  padding: 10px 0;
+  padding: 10px 20px;
 
   &::after {
     content: "";
     position: absolute;
-    left: 0;
-    right: 0;
+    left: 20px;
+    right: 20px;
     bottom: 0;
     height: 1px;
     background-color: $color-gainsboro;
+
+    @include vp-1440 {
+     left: 0;
+     right: 0;
+    }
+  }
+
+  @include vp-1440 {
+    padding: 10px 0;
+  }
+}
+
+.rules .accordion {
+  padding: 20px;
+
+  @include vp-1440 {
+    padding: 20px 0;
   }
 }
 
