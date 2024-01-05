@@ -1,8 +1,13 @@
+// .hero {
+//   z-index: 50000;
+// }
+
 .hero__container {
-  margin-top: 20px;
+  // margin-top: 20px;
+
   background-color: $color-alice-blue;
   border-radius: 50px;
-  overflow: hidden;
+  // overflow: hidden;
   position: relative;
   display: flex;
   flex-direction: column-reverse;
@@ -11,7 +16,7 @@
 
   @include vp-768 {
     flex-direction: row;
-    padding-top: 0;
+    padding-top: 20px;
   }
 
   &::after {
@@ -123,11 +128,13 @@
   @include vp-768 {
     right: 20px;
     left: auto;
+    top: 15px;
   }
 
   @include vp-1440 {
     right: 105px;
     left: auto;
+    top: 15px;
   }
 
   & img {

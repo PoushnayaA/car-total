@@ -23,6 +23,7 @@
 
 .page__header {
   z-index: 600;
+  margin-bottom: 20px;
 }
 
 .main {
@@ -39,6 +40,10 @@
       opacity: 30%;
       background-color: $color-nero;
       z-index: 10;
+
+      @include vp-1440 {
+        display: none;
+      }
     }
   }
 }
@@ -60,6 +65,8 @@
     width: 100%;
     min-width: 320px;
     max-width: 1240px;
+    overflow: visible;
+
 
     // @include vp-768 {
     //   min-width: none;

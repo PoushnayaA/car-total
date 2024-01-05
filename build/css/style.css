@@ -1411,6 +1411,7 @@ button,
 
 .page__header {
   z-index: 600;
+  margin-bottom: 20px;
 }
 
 .main--dark {
@@ -1426,6 +1427,11 @@ button,
   opacity: 30%;
   background-color: #292929;
   z-index: 10;
+}
+@media (min-width: 1440px) {
+  .main--dark::after {
+    display: none;
+  }
 }
 
 .container {
@@ -1447,6 +1453,7 @@ button,
   width: 100%;
   min-width: 320px;
   max-width: 1240px;
+  overflow: visible;
 }
 .container--lots {
   min-width: 280px;
@@ -1595,6 +1602,8 @@ button,
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-transition: property duration timing-function delay;
+  transition: property duration timing-function delay;
   gap: 20px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -1603,7 +1612,6 @@ button,
       -ms-flex-align: center;
           align-items: center;
   margin-right: 20px;
-  z-index: 500;
 }
 @media (min-width: 1440px) {
   .navigation__list {
@@ -1627,12 +1635,13 @@ button,
 .navigation__list--open {
   display: block;
   position: absolute;
-  top: 100%;
+  top: 130%;
   left: 0%;
   background-color: #ffffff;
   -webkit-box-shadow: 0 4px 26px 0 rgba(0, 0, 0, 0.0784313725);
           box-shadow: 0 4px 26px 0 rgba(0, 0, 0, 0.0784313725);
   width: 100%;
+  z-index: 200;
 }
 .navigation__list--open a {
   font-size: 18px;
@@ -1696,7 +1705,7 @@ button,
   background-color: #ffffff;
   -webkit-box-shadow: 0 4px 26px 0 rgba(0, 0, 0, 0.0784313725);
           box-shadow: 0 4px 26px 0 rgba(0, 0, 0, 0.0784313725);
-  z-index: 100;
+  z-index: 800;
 }
 
 .navigation__select-button {
@@ -1747,15 +1756,60 @@ button,
     display: none;
   }
 }
-.navigation__button::after {
-  content: url(./../../img/svg/burger-menu.svg);
+.navigation__button span {
+  display: block;
   position: absolute;
-  top: 25%;
-  left: 0;
-  right: 0;
+  background-color: #292929;
+  height: 4px;
+  width: 30px;
+  top: 18px;
+  left: 5px;
+  right: 5px;
+  -webkit-transition-duration: 0.3s, 0.1s;
+          transition-duration: 0.3s, 0.1s;
+  -webkit-transition-delay: 0.3s, 0s;
+          transition-delay: 0.3s, 0s;
 }
-.navigation__button--active::after {
-  content: url(./../../img/svg/close-menu.svg);
+.navigation__button span::before {
+  position: absolute;
+  display: block;
+  height: 4px;
+  top: -10px;
+  width: 100%;
+  background-color: #292929;
+  content: "";
+  -webkit-transition-duration: 0.3s, 0.3s;
+          transition-duration: 0.3s, 0.3s;
+  -webkit-transition-delay: 0.3s, 0s;
+          transition-delay: 0.3s, 0s;
+}
+.navigation__button span::after {
+  position: absolute;
+  display: block;
+  height: 4px;
+  bottom: -10px;
+  width: 100%;
+  background-color: #292929;
+  content: "";
+  -webkit-transition-duration: 0.3s, 0.3s;
+          transition-duration: 0.3s, 0.3s;
+  -webkit-transition-delay: 0.3s, 0s;
+          transition-delay: 0.3s, 0s;
+}
+.navigation__button--active span {
+  background: none;
+}
+.navigation__button--active span::after {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  top: 0;
+}
+.navigation__button--active span::before {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+  top: 0;
 }
 
 .navigation--minor {
@@ -1805,6 +1859,10 @@ button,
 }
 .navigation--main .navigation__img {
   margin: auto auto auto 16px;
+  z-index: 300;
+}
+.navigation--main .navigation__img img {
+  opacity: 100%;
 }
 @media (min-width: 1440px) {
   .navigation--main .navigation__img {
@@ -1825,11 +1883,15 @@ button,
   padding-left: 13px;
 }
 
+@media (min-width: 1440px) {
+  .navigation__list--desktop.navigation__list--open {
+    display: none;
+  }
+}
+
 .hero__container {
-  margin-top: 20px;
   background-color: #F2F4F5;
   border-radius: 50px;
-  overflow: hidden;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1847,7 +1909,7 @@ button,
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    padding-top: 0;
+    padding-top: 20px;
   }
 }
 .hero__container::after {
@@ -1970,12 +2032,14 @@ button,
   .hero__img-wrapper {
     right: 20px;
     left: auto;
+    top: 15px;
   }
 }
 @media (min-width: 1440px) {
   .hero__img-wrapper {
     right: 105px;
     left: auto;
+    top: 15px;
   }
 }
 .hero__img-wrapper img {
