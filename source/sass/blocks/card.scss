@@ -1,0 +1,282 @@
+.card-page {
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: $color-default-white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .card__photo-list {
+    padding-bottom: 20px;
+  }
+
+  .swiper-pagination-bullets {
+    bottom: 0px;
+    z-index: 500;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+
+  .mySwiper2 {
+    height: 100%;
+    width: 100%;
+  }
+
+  .mySwiper3 {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 24px 0;
+    overflow: hidden;
+  }
+
+  .mySwiper3 .swiper-slide {
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+  }
+
+  .mySwiper3 .swiper-slide-thumb-active {
+    opacity: 1;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .swiper--desktop,
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+
+    @include vp-1440 {
+      display: block;
+    }
+  }
+
+  .swiper--desktop {
+    @include vp-1440 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .swiper-wrapper {
+      @include vp-1440 {
+        // display: flex;
+        // flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 24px;
+      }
+    }
+  }
+
+  .swiper-pagination {
+    display: block;
+
+    @include vp-1440 {
+      display: none;
+    }
+  }
+}
+
+
+.card__text-wrapper a {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+  color: $color-burnt-orange;
+}
+
+.card__text-wrapper--mobile {
+  display: block;
+  @include vp-1440 {
+    display: none;
+  }
+}
+
+.card__text-wrapper--desktop {
+  display: none;
+  @include vp-1440 {
+    display: block;
+  }
+}
+
+.card__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card__title {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+  color: $color-nero;
+}
+
+.card__discription {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 31px;
+  color: $color-nero;
+}
+
+.card__print {}
+
+.card__date {
+  padding: 30px;
+  color: red;
+}
+
+.card__information-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 1fr);
+  gap: 20px;
+
+  @include vp-768 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include vp-1440 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card__information-item {
+  padding: 15px 10px;
+  border: 1px solid $color-gainsboro;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card__information {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #686868;
+
+  &--price {
+    color: $color-nero;
+  }
+}
+
+.card__information-wrapper {
+  @include vp-1440 {
+    width: 50%;
+  }
+}
+.card__slider {
+  @include vp-1440 {
+    max-width: 608px;
+    max-height: 456px;
+  }
+}
+
+.mySwiper2 .swiper-slide {
+  @include vp-1440 {
+    max-width: 608px;
+    max-height: 456px;
+  }
+}
+
+.mySwiper2 .swiper-wrapper {
+  width: 280px !important;
+  margin: 0 !important;
+  @include vp-1440 {
+    max-width: 608px;
+    max-height: 456px;
+  }
+}
+
+.card__information-title {
+font-size: 24px;
+font-weight: 400;
+line-height: 31px;
+color: #686868;
+}
+
+.card__information--extra {
+  .card__information-list--border .card__information-item {
+    border: none;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -12%;
+      width: 100%;
+      height: 1px;
+      background-color: $color-gainsboro;
+
+    }
+
+    &:last-child::after {
+      width: 100%;
+
+      @include vp-768 {
+        width: 105%;
+      }
+      @include vp-1440 {
+        width: 100%;
+      }
+    }
+  }
+
+  .card__information-list--last .card__information-item {
+    &::after {
+      @include vp-768 {
+        content: none;
+      }
+
+    }
+
+    &:last-child::after {
+      content: none;
+    }
+  }
+}
+
+.card__information-list--last .card__information-item {
+  flex-direction: column;
+
+  a {
+    color: $color-burnt-atlantis;
+  }
+}
+
+.lots__photo-item--hidden {
+  display: none !important;
+}
+
+.lots__more-button {
+  display: none;
+
+  @include vp-1440 {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    border: none;
+    background-color: $color-default-white;
+font-size: 18px;
+font-weight: 500;
+line-height: 27px;
+text-align: center;
+color: $color-burnt-orange;
+  }
+}

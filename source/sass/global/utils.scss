@@ -83,6 +83,20 @@
     max-width: 1280px;
   }
 
+  &--lot-card {
+    // min-width: 280px;
+    // max-width: 1280px;
+    padding: 0 20px;
+
+    @include vp-1440 {
+      padding: 0;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      gap: 20px;
+    }
+  }
+
   &--news {
     min-width: 280px;
 
