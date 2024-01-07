@@ -93,7 +93,6 @@
   }
 }
 
-
 .card__text-wrapper a {
   font-size: 18px;
   font-weight: 500;
@@ -103,6 +102,7 @@
 
 .card__text-wrapper--mobile {
   display: block;
+
   @include vp-1440 {
     display: none;
   }
@@ -110,6 +110,7 @@
 
 .card__text-wrapper--desktop {
   display: none;
+
   @include vp-1440 {
     display: block;
   }
@@ -135,7 +136,8 @@
   color: $color-nero;
 }
 
-.card__print {}
+.card__print {
+}
 
 .card__date {
   padding: 30px;
@@ -180,6 +182,7 @@
     width: 50%;
   }
 }
+
 .card__slider {
   @include vp-1440 {
     max-width: 608px;
@@ -197,6 +200,7 @@
 .mySwiper2 .swiper-wrapper {
   width: 280px !important;
   margin: 0 !important;
+
   @include vp-1440 {
     max-width: 608px;
     max-height: 456px;
@@ -204,10 +208,10 @@
 }
 
 .card__information-title {
-font-size: 24px;
-font-weight: 400;
-line-height: 31px;
-color: #686868;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 31px;
+  color: #686868;
 }
 
 .card__information--extra {
@@ -223,7 +227,6 @@ color: #686868;
       width: 100%;
       height: 1px;
       background-color: $color-gainsboro;
-
     }
 
     &:last-child::after {
@@ -232,6 +235,7 @@ color: #686868;
       @include vp-768 {
         width: 105%;
       }
+
       @include vp-1440 {
         width: 100%;
       }
@@ -243,7 +247,6 @@ color: #686868;
       @include vp-768 {
         content: none;
       }
-
     }
 
     &:last-child::after {
@@ -273,10 +276,52 @@ color: #686868;
     width: 100%;
     border: none;
     background-color: $color-default-white;
-font-size: 18px;
-font-weight: 500;
-line-height: 27px;
-text-align: center;
-color: $color-burnt-orange;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 27px;
+    text-align: center;
+    color: $color-burnt-orange;
+  }
+}
+
+.card-page-print {
+  .card__text-wrapper {
+    min-width: 520px;
+    max-width: 1280px;
+    width: 100%;
+    margin: 20px auto;
+  }
+
+  .card__information-list {
+    grid-template-columns: 1fr;
+  }
+
+  .card__information-wrapper {
+    width: 100%;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+
+  .lot-print__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  }
+
+  .lot-print__item {
+    &--main {
+      grid-column: 1 / 4;
+      grid-row: 1 / 3;
+    }
+
+    img {
+      border-radius: 15px;
+    }
+  }
+}
+
+.page--print {
+  .container--footer {
+    flex-direction: row;
   }
 }

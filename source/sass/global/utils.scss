@@ -66,16 +66,6 @@
     min-width: 320px;
     max-width: 1240px;
     overflow: visible;
-
-
-    // @include vp-768 {
-    //   min-width: none;
-    //   width: 728px;
-    // }
-
-    @include vp-1440 {
-      // width: 1240px;
-    }
   }
 
   &--lots {
@@ -84,8 +74,6 @@
   }
 
   &--lot-card {
-    // min-width: 280px;
-    // max-width: 1280px;
     padding: 0 20px;
 
     @include vp-1440 {
@@ -95,6 +83,15 @@
       justify-content: space-between;
       gap: 20px;
     }
+  }
+
+  &--lot-card-print {
+    min-width: 520px;
+    max-width: 1280px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
   }
 
   &--news {
@@ -108,6 +105,13 @@
     @include vp-1440 {
       width: 1240px;
     }
+  }
+
+  &--contacts {
+    width: 100%;
+    min-width: 320px;
+    max-width: 1280px;
+    padding: 20px;
   }
 
   &--footer {
