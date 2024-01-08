@@ -17,6 +17,10 @@
   }
 }
 
+main {
+  margin-top: 45px;
+}
+
 .page {
   position: relative;
 }
@@ -115,7 +119,6 @@
   }
 
   &--footer {
-    // padding: 0 20px;
 
     @include vp-1440 {
       display: flex;

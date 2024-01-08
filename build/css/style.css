@@ -1405,6 +1405,10 @@ button,
           flex-grow: 1;
 }
 
+main {
+  margin-top: 45px;
+}
+
 .page {
   position: relative;
 }
@@ -1709,7 +1713,13 @@ button,
   position: relative;
 }
 .navigation__item--select button {
-  width: 66px;
+  width: 55px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 @media (min-width: 768px) {
   .navigation__item--decoration {
@@ -1756,6 +1766,7 @@ button,
   content: url(./../../img/svg/arrow.svg);
   position: absolute;
   right: -10px;
+  top: -1px;
   width: 9px;
   height: 100%;
   z-index: 3;
@@ -1802,9 +1813,9 @@ button,
   display: block;
   position: absolute;
   background-color: #292929;
-  height: 4px;
-  width: 30px;
-  top: 18px;
+  height: 3px;
+  width: 22px;
+  top: 13px;
   left: 5px;
   right: 5px;
   -webkit-transition-duration: 0.3s, 0.1s;
@@ -1815,8 +1826,8 @@ button,
 .navigation__button span::before {
   position: absolute;
   display: block;
-  height: 4px;
-  top: -10px;
+  height: 3px;
+  top: -7px;
   width: 100%;
   background-color: #292929;
   content: "";
@@ -1828,8 +1839,8 @@ button,
 .navigation__button span::after {
   position: absolute;
   display: block;
-  height: 4px;
-  bottom: -10px;
+  height: 3px;
+  bottom: -7px;
   width: 100%;
   background-color: #292929;
   content: "";
@@ -1856,7 +1867,7 @@ button,
 
 .navigation--minor {
   background-color: #F2F4F5;
-  min-height: 46px;
+  min-height: 45px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1873,10 +1884,11 @@ button,
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: auto 5px auto 0;
+  margin: auto 0;
 }
 .navigation--minor .navigation__list {
   gap: 35px;
+  margin-right: 15px;
 }
 .navigation--minor .navigation__img {
   width: 64px;
@@ -1889,9 +1901,6 @@ button,
   .navigation--main .navigation__wrapper {
     padding: 10px 0;
   }
-}
-.navigation--main .navigation__item {
-  padding: 10px;
 }
 .navigation--main .navigation__item--decoration button {
   display: -webkit-box;
@@ -1922,7 +1931,6 @@ button,
 
 .navigation__select-button {
   padding: 0;
-  padding-left: 13px;
 }
 
 @media (min-width: 1440px) {
@@ -3186,6 +3194,8 @@ button,
   font-weight: 400;
   line-height: 24px;
   margin: 0;
+  text-align: left;
+  width: 100%;
 }
 
 .accordion__wrapper {
@@ -3201,8 +3211,9 @@ button,
 }
 
 .accordion__button {
-  margin: auto 16px;
-  height: 20px;
+  margin: auto 36px auto 0;
+  height: 100%;
+  width: 100%;
   display: block;
   border: none;
   background-color: #ffffff;
@@ -3212,8 +3223,7 @@ button,
   content: url("./../../img/svg/arrow.svg");
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
+  right: -15px;
   bottom: 0;
 }
 
@@ -3315,6 +3325,7 @@ button,
   font-size: 18px;
   font-weight: 400;
   line-height: 27px;
+  text-align: left;
   color: #43B02A;
 }
 @media (min-width: 768px) {
@@ -3324,7 +3335,8 @@ button,
   }
 }
 .rules .accordion__button {
-  width: 40px;
+  width: 100%;
+  height: 100%;
 }
 .rules .accordion__text-content {
   font-size: 16px;
