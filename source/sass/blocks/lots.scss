@@ -1,12 +1,12 @@
 .lots {
-  margin: 30px 0;
+  margin: 84px 0 41px;
 }
 
 .lots__main-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 20px 4px;
 }
 
 .lots__list {
@@ -14,7 +14,7 @@
 }
 
 .lots__container {
-  padding: 20px;
+  padding: 21px;
 }
 
 .lots__item {
@@ -25,16 +25,18 @@
 
 .lots__img-wrapper {
   width: 100%;
+  height: 168px;
   border-radius: 15px;
 }
 
 .lots__text-wrapper {
-  padding: 10px;
+  padding: 9px 16px;
 }
 
 .lots__img {
-  object-fit: contain;
+  object-fit: cover;
   width: 100%;
+  height: 100%;
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
 }
@@ -50,10 +52,14 @@
   padding: 5px 0;
   position: relative;
 
+  svg {
+    width: 21px;
+  }
+
   &::after {
     content: "";
     position: absolute;
-    bottom: 0;
+    bottom: 3px;
     left: 0;
     height: 1px;
     width: 100%;
@@ -69,7 +75,7 @@
 }
 
 .lots__description {
-  padding: 5px 0;
+  padding: 9px 0 6px;
   position: relative;
 
   &::after {
@@ -96,17 +102,20 @@
   font-weight: 400;
   line-height: 17px;
   color: #686868;
+  margin-top: 7px;
+  margin-bottom: 8px;
 }
 
 .lots__description-item span {
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
+  margin-left: 4px;
 }
 
 .lots__timer {
   color: red;
-  padding: 10px 0;
+  padding: 3px 0 13px;
 }
 
 
@@ -114,7 +123,7 @@
 .swiper-pagination-bullets.swiper-pagination-horizontal,
 .swiper-pagination-custom,
 .swiper-pagination-fraction {
-  bottom: 10px;
+  bottom: 14px;
   z-index: 500;
 }
 
@@ -147,7 +156,7 @@
 
       @include vp-1440 {
         left: 0;
-      right: 0;
+        right: 0;
       }
     }
   }
@@ -205,3 +214,40 @@
     color: $color-burnt-atlantis;
   }
 }
+
+
+.countdown-title {
+  margin-bottom: 10px;
+}
+
+.countdown {
+  display: flex;
+
+  span {
+    color: $color-burnt-atlantis;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
+  }
+
+  .countdown-decoration {
+    margin: 0 4px;
+  }
+}
+
+.countdown-number {
+  border-radius: 6px;
+  background-color: $color-burnt-atlantis;
+  padding: 4px;
+
+  span {
+    color: $color-default-white;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
+  }
+}
+
+.countdown-time {}
+
+.countdown-text {}

@@ -19,12 +19,6 @@
   cursor: pointer;
 }
 
-.container--news-page {
-
-  @include vp-768 {
-    padding: 0 20px;
-  }
-}
 
 .news {
   margin: 30px 0;
@@ -38,14 +32,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.news__main-wrapper--main-page {
-  padding: 0 20px;
-
-  @include vp-768 {
-    padding: 0;
-  }
 }
 
 .news__list {

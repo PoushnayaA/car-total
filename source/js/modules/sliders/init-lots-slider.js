@@ -16,14 +16,14 @@ const initLotsSlider = () => {
           spaceBetween: 24,
         },
 
-        768: {
-          slidesPerView: 3,
-          spaceBetween: 40,
-        },
+        // 768: {
+        //   slidesPerView: 2,
+        //   spaceBetween: 40,
+        // },
 
         500: {
           slidesPerView: 2,
-          spaceBetween: 20,
+          spaceBetween: 40,
         },
 
         320: {
