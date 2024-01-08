@@ -19,7 +19,15 @@
 
 main {
   margin-top: 45px;
+
+  @include vp-1440 {
+    margin-top: 80px;
+  }
 }
+
+// footer {
+//   margin-top: 65px !important;
+// }
 
 .page {
   position: relative;
@@ -127,9 +135,15 @@ main {
     }
   }
 
+  &--about {
+    @include vp-1440 {
+      width: 1240px;
+    }
+  }
+
   &--news-page {
     padding: 0 20px;
-}
+  }
 }
 
 .visually-hidden {

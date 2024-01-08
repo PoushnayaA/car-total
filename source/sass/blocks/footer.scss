@@ -1,38 +1,41 @@
 footer {
-  margin-top: 30px;
+  margin-top: 65px;
+
+  @include vp-768 {
+    margin-top: 81px;
+  }
+
+  @include vp-1440 {
+    margin-top: 120px;
+  }
 }
 
 .footer__container {
   background-color: $color-burnt-atlantis;
   display: flex;
   padding: 15px;
-
-  @include vp-768 {
-
-  }
-
-  @include vp-1440 {
-
-  }
 }
 
 .footer__navigation-list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 13px;
   font-size: 18px;
   font-weight: 500;
   line-height: 27px;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
 
   @include vp-768 {
     flex-direction: row;
     justify-content: center;
+    gap: 33px;
+    margin-bottom: 32px;
   }
 
   @include vp-1440 {
-
+    align-items: center;
+    margin: auto 0 auto auto;
   }
 }
 
@@ -51,17 +54,14 @@ footer {
 .footer__copyright {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 9px;
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
+  margin-left: 6px;
 
   @include vp-768 {
-
-  }
-
-  @include vp-1440 {
-
+    margin-left: 0;
   }
 }
 

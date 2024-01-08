@@ -184,6 +184,11 @@
   height: 32px;
   margin: auto 0;
 
+  @include vp-768 {
+    width: 48px;
+    height: 48px;
+  }
+
   @include vp-1440 {
     display: none;
   }
@@ -200,6 +205,12 @@
     transition-duration: 0.3s, 0.1s;
     transition-delay: 0.3s, 0s;
 
+    @include vp-768 {
+      width: 36px;
+      height: 4px;
+      top: 22px;
+    }
+
     &::before {
       position: absolute;
       display: block;
@@ -210,6 +221,11 @@
       content: "";
       transition-duration: 0.3s, 0.3s;
       transition-delay: 0.3s, 0s;
+
+      @include vp-768 {
+        height: 4px;
+        top: -9px;
+      }
     }
 
     &::after {
@@ -222,6 +238,11 @@
       content:"";
       transition-duration: 0.3s, 0.3s;
       transition-delay: 0.3s, 0s;
+
+      @include vp-768 {
+        height: 4px;
+        bottom: -9px;
+      }
     }
   }
 
@@ -252,19 +273,42 @@
     font-size: 14px;
     border-bottom: 1px solid $color-gainsboro;
 
+    @include vp-768 {
+      min-height: 51px;
+    }
+
     & .navigation__item-name {
       display: flex;
       margin: auto  0;
+
+      &--phone {
+        @include vp-768 {
+          margin-right: 4px;
+        }
+      }
     }
 
     & .navigation__list {
       gap: 35px;
       margin-right: 15px;
+
+      @include vp-768 {
+        margin-right: 0;
+        margin-top: -2px;
+      }
+      @include vp-1440 {
+        gap: 52px;
+      }
     }
 
     & .navigation__img {
       width: 64px;
       height: 18px;
+
+      @include vp-768 {
+        width: 81px;
+        height: 23px;
+      }
     }
   }
 
@@ -272,23 +316,48 @@
     .navigation__wrapper {
       padding: 10px 20px;
 
+      @include vp-768 {
+        padding: 24px 20px;
+      }
+
       @include vp-1440 {
-        padding: 10px 0;
+        padding: 25px 0;
       }
     }
 
     .navigation__item {
-      // padding: 10px;
-
       &--decoration button {
         display: flex;
+        justify-content: flex-end;
         gap: 10px;
+        padding: 17px;
+        min-width: 200px;
+
+        @include vp-768 {
+          justify-content: center;
+        }
+
+        @include vp-1440 {
+          width: 219px;
+        }
+      }
+
+      a {
+        @include vp-1440 {
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 27px;
+              }
       }
     }
 
     .navigation__img {
       margin: auto auto auto 16px;
       z-index: 300;
+
+      @include vp-768 {
+        margin-left: 32px;
+      }
 
       & img {
         opacity: 100%;

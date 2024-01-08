@@ -18,7 +18,7 @@ const initNewsSlider = () => {
 
         768: {
           slidesPerView: 3,
-          spaceBetween: 40,
+          spaceBetween: 20,
         },
 
         320: {

@@ -1,4 +1,8 @@
-
+.hero {
+  @include vp-768 {
+    padding: 0 20px;
+  }
+}
 .hero__container {
   background-color: $color-alice-blue;
   border-radius: 50px;
@@ -11,6 +15,11 @@
   @include vp-768 {
     flex-direction: row;
     padding-top: 20px;
+    padding-bottom: 78px;
+  }
+
+  @include vp-1440 {
+    padding-bottom: 118px;
   }
 
   &::after {
@@ -53,14 +62,16 @@
 
   @include vp-768 {
     min-width: none;
-    // padding: 0;
-    // max-width: 1030px;
+    margin-top: -44px;
+    gap: 16px;
     flex-direction: row;
     grid-template-columns: repeat(4, 1fr);
   }
 
   @include vp-1440 {
-
+    padding: 0;
+    margin-top: -65px;
+    gap: 22px;
     grid-template-columns: repeat(4, 1 fr);
   }
 }
@@ -72,6 +83,10 @@
   z-index: 6;
   padding: 16px;
   padding-bottom: 2px;
+
+  @include vp-1440 {
+    padding: 23px 23px 10px;
+  }
 }
 
 .hero__title {
@@ -99,6 +114,12 @@
   @include vp-768 {
     font-size: 24px;
     line-height: 31px;
+    margin-top: 2px;
+    margin-bottom: 22px;
+  }
+
+  @include vp-1440 {
+    margin-bottom: 32px;
   }
 }
 
@@ -108,10 +129,11 @@
 
   @include vp-768 {
     width: 391px;
+    padding: 0 20px;
   }
 
   @include vp-1440 {
-    padding: 48px 105px;
+    padding: 35px 105px;
     width: 561px;
   }
 }
@@ -124,15 +146,15 @@
   z-index: 2;
 
   @include vp-768 {
-    right: 20px;
+    right: 13px;
     left: auto;
-    top: 15px;
+    top: -12px;
   }
 
   @include vp-1440 {
     right: 105px;
     left: auto;
-    top: 15px;
+    top: -33px;
   }
 
   & img {

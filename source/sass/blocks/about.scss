@@ -9,12 +9,17 @@
   padding: 15px;
   display: flex;
   flex-direction: column;
-  border-radius: 15px;
+  border-radius: 30px;
 
   @include vp-768 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
+    padding-bottom: 30px;
+  }
+
+  @include vp-1440 {
+    padding: 60px 40px 65px;
   }
 }
 
@@ -26,8 +31,7 @@
 
   @include vp-768 {
     min-width: none;
-    // width: 336px;
-    height: 360px;
+    height: 100%;
   }
 
   @include vp-1440 {
@@ -45,7 +49,12 @@
 
   @include vp-768 {
     // width: 336px;
-    height: 360px;
+    // height: 360px;
+    height: 100%;
+
+    img {
+      height: 100%;
+    }
   }
 
   @include vp-1440 {
@@ -63,6 +72,7 @@
 
   @include vp-768 {
     margin-left: auto;
+    display: block;
     // width: 336px;
   }
 
@@ -75,11 +85,27 @@
   font-size: 24px;
   font-weight: 500;
   line-height: 31px;
-  margin: 10px 0;
+  margin: 23px 0 15px;
 
   @include vp-768 {
     font-size: 32px;
     line-height: 42px;
+    margin-top: 15px;
+  }
+
+  @include vp-1440 {
+    margin-top: 0;
+    margin-bottom: 18px;
+  }
+}
+
+.about__button {
+  width: 100%;
+  margin: 33px 0 0;
+
+  @include vp-768 {
+    margin-top: 24px;
+    width: 229px;
   }
 }
 
@@ -87,10 +113,13 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
+  margin-bottom: 0;
+  margin-top: 0;
 
   @include vp-768 {
     font-size: 14px;
     line-height: 17px;
+    margin-bottom: 10px;
   }
 
   @include vp-1440 {

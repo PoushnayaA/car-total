@@ -72,6 +72,10 @@ button {
   color: $color-default-white;
   width: 229px;
   cursor: pointer;
+
+  @include vp-1440 {
+    padding: 20px 32px;
+  }
 }
 
 input:-webkit-autofill {
