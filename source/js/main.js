@@ -11,6 +11,25 @@ import { initAccordions } from './modules/accordion/init-accordion';
 window.addEventListener('DOMContentLoaded', () => {
   iosVhFix();
 
+  const loginForm = document.querySelector('.log-in__navigation-item--login');
+  const registrationForm = document.querySelector('.log-in__navigation-item--registration');
+
+  loginForm.addEventListener('click', function () {
+    document.querySelector('.log-in__navigation-item--active').classList.remove('log-in__navigation-item--active');
+    loginForm.classList.add('log-in__navigation-item--active');
+    document.querySelector('.log-in__form--main').classList.add('.log-in__form--active');
+    document.querySelector('.log-in__form--main').classList.remove('visually-hidden');
+    document.querySelector('.log-in__form--registration').classList.add('visually-hidden');
+  });
+
+  registrationForm.addEventListener('click', function () {
+    document.querySelector('.log-in__navigation-item--active').classList.remove('log-in__navigation-item--active');
+    registrationForm.classList.add('log-in__navigation-item--active');
+    document.querySelector('.log-in__form--registration').classList.add('.log-in__form--active');
+    document.querySelector('.log-in__form--registration').classList.remove('visually-hidden');
+    document.querySelector('.log-in__form--main').classList.add('visually-hidden');
+  });
+
   function getTimeRemaining(endtime) {
     var t = Date.parse(endtime) - Date.parse(new Date());
     var seconds = Math.floor((t / 1000) % 60);
@@ -49,19 +68,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const elements = document.querySelectorAll('.lots__timer');
   elements.forEach(i => initializeClock('.countdown', i.dataset.deadline, i.id));
-  // initializeClock('countdown', element.dataset.deadline);
-
-
-
-
-
-
 
   window.addEventListener('load', () => {
     setTimeout(initLotsSlider(), 1000);
     setTimeout(initNewsSlider(), 1000);
     setTimeout(initAccordions(), 1000);
     setTimeout(initPhotoSlider(), 1000);
+    // setTimeout(checkForm(document.querySelector('.log-in__form--active')), 1000);
 
     const btnText = document.querySelector('.lots__more-button');
     btnText.addEventListener('click', function () {

@@ -1,19 +1,24 @@
 .rules__main-wrapper {
   position: relative;
-  padding: 10px 20px;
+  padding: 0 20px;
 
   &::after {
     content: "";
     position: absolute;
     left: 20px;
     right: 20px;
-    bottom: 0;
+    bottom: -23px;
     height: 1px;
     background-color: $color-gainsboro;
+
+    @include vp-768 {
+      bottom: -36px;
+    }
 
     @include vp-1440 {
       left: 0;
       right: 0;
+      bottom: -23px;
     }
   }
 
@@ -23,10 +28,14 @@
 }
 
 .rules .accordion {
-  padding: 20px;
+  padding: 20px 20px 0;
+
+  @include vp-768 {
+    padding-top: 30px;
+  }
 
   @include vp-1440 {
-    padding: 20px 0;
+    padding: 52px 0 0;
   }
 }
 
@@ -35,11 +44,18 @@
   font-weight: 400;
   line-height: 24px;
   color: #686868;
+  margin-top: 34px;
+  margin-bottom: 15px;
 
   @include vp-768 {
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
+    margin-top: 50px;
+  }
+
+  @include vp-1440 {
+    margin-top: 65px;
   }
 }
 
@@ -59,9 +75,9 @@
   }
 
   .accordion__button {
-    // width: 40px;
     width: 100%;
     height: 100%;
+    padding: 0;
   }
 
   .accordion__text-content {
@@ -70,4 +86,14 @@
     line-height: 24px;
     color: $color-nero;
   }
+
+  .accordion__content {
+    padding: 6px 16px;
+  }
 }
+
+.accordion__container {
+  position: relative;
+}
+
+

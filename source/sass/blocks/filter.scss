@@ -11,6 +11,9 @@
   border: none;
   display: flex;
   background-color: $color-default-white;
+font-size: 18px;
+font-weight: 400;
+line-height: 27px;
 
   & div {
     white-space: nowrap;
@@ -24,7 +27,7 @@
     right: -10px;
     width: 12px;
     height: 100%;
-    top: 3px;
+    top: 0;
     z-index: 3;
   }
 
@@ -58,14 +61,23 @@
   }
 }
 
+.filter__main-wrapper {
+  padding: 0 20px;
+
+  @include vp-1440 {
+    padding: 12px 0 48px;
+  }
+}
+
 .filter__container {
-  padding: 10px 20px;
+  padding: 27px 20px;
+
 
   @include vp-768 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    padding: 20px;
+    gap: 10px 20px;
+    padding: 45px 20px 25px;
     grid-template-areas:
     "category region"
     " status brand"
@@ -85,6 +97,8 @@
 }
 
 .filter__option-wrapper {
+  margin-bottom: 25px;
+
   &--category {
     grid-area: category;
   }
@@ -132,10 +146,13 @@
   font-weight: 400;
   line-height: 24px;
   color: $color-nero;
+  margin-bottom: 7px;
 }
 
 .filter__submit {
-  margin-top: auto;
+  // margin-top: auto;
+  width: 100%;
+  margin: 9px 0;
   border: none;
   background-color: $color-burnt-orange;
   color: $color-default-white;
@@ -146,6 +163,16 @@ text-align: center;
 padding: 16px 32px;
 border-radius: 15px;
 max-height: 56px;
+
+@include vp-768 {
+  margin: auto 0;
+}
+
+@include vp-1440 {
+  margin-top: 10px;
+  padding: 23px 32px;
+  max-height: none;
+}
 }
 
 .filter__reset {
@@ -244,7 +271,7 @@ max-height: 56px;
   right: 20px;
   width: 9px;
   height: 5px;
-  top: 30%;
+  top: 27%;
   z-index: 1;
   pointer-events: none;
 }
@@ -265,7 +292,8 @@ max-height: 56px;
   top: 110%;
 
   margin: 0;
-  padding: 0;
+
+  padding: 18px 2px 6px 6px;
   list-style-type: none;
 
   background: #FFFFFF;
@@ -289,9 +317,8 @@ max-height: 56px;
 .dropdown__list-item {
   margin: 0;
   padding: 0;
-  padding: 13px 20px;
+  padding: 8px 20px;
   cursor: pointer;
-
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -313,6 +340,6 @@ max-height: 56px;
   align-items: center;
 
   & svg {
-    margin-right: 4px;
+    margin-right: 10px;
   }
 }

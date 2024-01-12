@@ -1,6 +1,18 @@
 .contacts {
   .accordion__element {
     border: none;
+    margin: 9px 0 20px;
+    padding: 0;
+  }
+
+  .accordion__content,
+  .accordion__element.is-active .accordion__content {
+    // padding: 14px 0 !important;
+    padding: 0 0 3px;
+  }
+
+  .accordion__button {
+    padding: 0;
   }
 
   .accordion__container::after {
@@ -10,15 +22,35 @@
   .accordion__container {
     padding: 0;
   }
+
+  .accordion__text-content {
+    line-height: 21px;
+    margin-bottom: 9px;
+  }
+
+  .accordion__button::before {
+    bottom: 35%;
+
+    @include vp-768 {
+      right: -15px;
+    }
+  }
 }
 
 .contacts__list {
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
+  margin-top: 50px;
+
+  @include vp-768 {
+    margin-top: 83px;
+    gap: 27px;
+  }
 
   @include vp-1440 {
     grid-template-columns: 1fr 1fr;
+    margin-top: 100px;
   }
 }
 
@@ -26,33 +58,74 @@
   background-color: $color-default-white;
   border-radius: 15px;
   box-shadow: 0px 4px 26px 0px #00000014;
-  padding: 16px;
+  padding: 16px 16px 26px;
+}
+
+.contacts__clarification {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+  color: $color-burnt-atlantis;
+  margin: 33px 0;
+
+  @include vp-768 {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 31px;
+    margin-top: 50px;
+  }
+
+  @include vp-1440 {
+    margin-top: 65px;
+  }
+}
+
+.contacts__main-wrapper {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -23px;
+    height: 1px;
+    background-color: $color-gainsboro;
+
+    @include vp-768 {
+      bottom: -50px;
+    }
+  }
+
+  @include vp-1440 {
+    margin-top: 45px;
+  }
 }
 
 .contacts__wrapper {
   position: relative;
 
-  &:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    height: 1px;
-    width: 100%;
-    background-color: #F2F4F5;
-    top: 100%;
-    left: 0;
-    right: 0;
-  }
+}
+
+.contacts__wrapper--links {
+  padding: 7px 0;
+}
+
+.contacts__content-wrapper .contacts__text {
+  margin-left: 10px;
 }
 
 .contacts__title {
   font-size: 18px;
   font-weight: 500;
   line-height: 27px;
+  margin-top: 5px;
 
   &--extra {
     font-size: 14px;
     font-weight: 500;
     line-height: 17px;
+    margin-bottom: 14px;
   }
 }
 
@@ -61,6 +134,7 @@
   font-weight: 400;
   line-height: 17px;
   color: $color-nero;
+  margin-top: auto;
 
   &--break {
     color: $color-burnt-orange;
@@ -68,7 +142,14 @@
 
   &--map {
     color: $color-burnt-atlantis;
+    text-decoration: underline;
   }
+}
+
+.contacts__content-wrapper {
+  display: flex;
+  align-items: baseline;
+  margin: 3px 0 9px;
 }
 
 .contacts__text-content {
@@ -80,5 +161,66 @@
 
   &--link {
     color: $color-burnt-atlantis;
+  }
+
+
+  @include vp-768 {
+    padding: 50px 0 0px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 27px;
+  }
+}
+
+.contacts__wrapper--city {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    background-color: #F2F4F5;
+    top: 140%;
+    left: 0;
+    right: 0;
+  }
+}
+
+.contacts__wrapper--timetable {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    background-color: #F2F4F5;
+    top: 140%;
+    left: 0;
+    right: 0;
+
+    @include vp-768 {
+      top: 100%;
+    }
+  }
+}
+
+.contacts__wrapper--links {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    background-color: #F2F4F5;
+    top: 140%;
+    left: 0;
+    right: 0;
+
+    @include vp-768 {
+      top: 100%;
+    }
   }
 }

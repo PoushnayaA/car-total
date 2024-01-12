@@ -11,3 +11,86 @@
 //     width: 1239px;
 //   }
 // }
+
+.print-main {
+  margin-top: 0;
+}
+
+.page--print {
+  .card__title {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    margin-top: 18px;
+    margin-bottom: 18px;
+  }
+
+  .container {
+    width: 1040px;
+  }
+
+  .card__discription {
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 62px;
+  }
+
+  .card__container {
+    align-items: flex-start;
+  }
+
+  .card__logo {
+    margin-top: 20px;
+  }
+
+  .card__information-item {
+    padding: 15px 15px 12px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 27px;
+  }
+
+  .card__information {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 27px;
+  }
+
+  .card__information-list {
+    gap: 16px;
+  }
+
+  .card__information-list--last {
+    .card__information-item {
+      padding: 23px 0 0px;
+    }
+
+    .card__information-item:last-child {
+      padding: 13px 0 0px;
+    }
+
+    .card__information--extra {
+      margin-bottom: 5px;
+    }
+  }
+
+  .lot-print__list {
+    gap: 24px !important;
+  }
+
+  footer {
+    margin-top: 40px;
+  }
+}
+
+.page--login {
+  height: 100vh;
+
+  footer {
+    margin-top: 30px;
+
+    @include vp-768 {
+      margin-top: 52px;
+    }
+  }
+}

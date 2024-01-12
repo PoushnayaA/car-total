@@ -40,7 +40,7 @@
               </div>
             </div>
             <div class="navigation__item navigation__item--tablet">
-              <div class="navigation__item-name">Офис и стоянка:</div>
+              <div class="navigation__item-name navigation__item-name--phone">Офис и стоянка:</div>
               <a href="tel:+74997024331">8 499 702 43 31</a>
             </div>
           </div>
@@ -70,7 +70,7 @@
               <li class="navigation__item navigation__item--active"><a href="#">Контакты</a></li>
             </ul>
           </div>
-          <ul class="navigation__list">
+          <ul class="navigation__list navigation__list--svg">
             <li class="navigation__item visually-hidden">
               <button type="button">
                 <svg width="16" height="16" viewBox="0 0 16 16" role="img">
@@ -82,57 +82,55 @@
               </button>
             </li>
             <li class="navigation__item navigation__item--decoration">
-              <button type="button">
+              <a class="navigation__item-link" href="log-in.html">
                 <svg width="16" height="19" viewBox="0 0 16 19" role="img">
                   <use href="img/sprite.svg#log-in"></use>
                 </svg>
                 <div class="navigation__item-name navigation__item-name--tablet">
                   Личный кабинет
                 </div>
-              </button>
+              </a>
             </li>
           </ul>
         </nav>
       </div>
     </header>
-    <main>
+    <main class="custom-main">
       <h1 class="visually-hidden">Сайт Car-Total.</h1>
       <section class="contacts">
         <div class="container container--contacts">
           <div class="contacts__main-wrapper">
             <h2 class="title__main-page">Контакты</h2>
-            <p class="">График работы в праздничные дни просим уточнять в компании</p>
+            <p class="contacts__clarification">График работы в праздничные дни просим уточнять в компании</p>
           </div>
           <div class="contacts__container">
             <ul class="contacts__list">
               <li class="contacts__item">
-                <div class="contacts__wrapper">
+                <div class="contacts__wrapper contacts__wrapper--city">
                   <h3 class="contacts__title">Офис Москва</h3>
                 </div>
-                <div class="contacts__wrapper">
+                <div class="contacts__wrapper contacts__wrapper--links">
                   <p class="contacts__text">
-                    117105, г. Москва, Нагорный пр., д. 6,
-                    м. "Нагатинская", "Тульская"
+                    117105, г. Москва, Нагорный пр., д. 6,<br>м.&nbsp;"Нагатинская", "Тульская"
                   </p>
-                  <div>
+                  <div class="contacts__content-wrapper">
                     <svg width="16" height="16" viewBox="0 0 16 16" role="img">
                       <use href="img/sprite.svg#phone"></use>
                     </svg>
                     <a class="contacts__text" href="tel:+74997024331">(499) 702-43-31 доб.3</a>
                   </div>
-                  <div>
+                  <div class="contacts__content-wrapper">
                     <svg width="16" height="16" viewBox="0 0 16 16" role="img">
                       <use href="img/sprite.svg#mail"></use>
                     </svg>
                     <a class="contacts__text" href="mailto:car-total@reso.ru">car-total@reso.ru</a>
                   </div>
                 </div>
-                <div class="accordion contacts__wrapper" data-accordion="parent">
+                <div class="accordion contacts__wrapper contacts__wrapper--timetable" data-accordion="parent">
                   <div class="accordion__element" data-accordion="element">
                     <div class="accordion__container">
-                      <p class="accordion__text-title contacts__title--extra">Режим работы</p>
                       <button class="accordion__button" type="button" data-accordion="button"
-                        aria-label="Открыть"></button>
+                        aria-label="Открыть"><p class="accordion__text-title contacts__title--extra">Режим работы</p></button>
                     </div>
                     <div class="accordion__content" data-accordion="content">
                       <div class="accordion__wrapper">
@@ -155,26 +153,26 @@
                 </div>
               </li>
               <li class="contacts__item">
-                <div class="contacts__wrapper">
+                <div class="contacts__wrapper contacts__wrapper--city">
                   <h3 class="contacts__title">Стоянка Москва</h3>
                 </div>
-                <div class="contacts__wrapper">
+                <div class="contacts__wrapper contacts__wrapper--links">
                   <p class="contacts__text">
-                    г. Москва, Шоссейный проезд 28, м. "Текстильщики"
+                    г. Москва, Шоссейный проезд 28,<br>м.&nbsp;"Текстильщики"
                   </p>
-                  <div>
+                  <div class="contacts__content-wrapper">
                     <svg width="16" height="16" viewBox="0 0 16 16" role="img">
                       <use href="img/sprite.svg#phone"></use>
                     </svg>
                     <a class="contacts__text" href="tel:+74997024331">(499) 702-43-31 доб.2</a>
                   </div>
                 </div>
-                <div class="accordion contacts__wrapper" data-accordion="parent">
+                <div class="accordion contacts__wrapper contacts__wrapper--timetable" data-accordion="parent">
                   <div class="accordion__element" data-accordion="element">
                     <div class="accordion__container">
-                      <p class="accordion__text-title contacts__title--extra">Режим работы</p>
+
                       <button class="accordion__button" type="button" data-accordion="button"
-                        aria-label="Открыть"></button>
+                        aria-label="Открыть"><p class="accordion__text-title contacts__title--extra">Режим работы</p></button>
                     </div>
                     <div class="accordion__content" data-accordion="content">
                       <div class="accordion__wrapper">
@@ -194,32 +192,32 @@
                 </div>
               </li>
               <li class="contacts__item">
-                <div class="contacts__wrapper">
+                <div class="contacts__wrapper contacts__wrapper--city">
                   <h3 class="contacts__title">Офис Санкт-Петербург</h3>
                 </div>
-                <div class="contacts__wrapper">
+                <div class="contacts__wrapper contacts__wrapper--links">
                   <p class="contacts__text">
                     197183, г. Санкт-Петербург, ул. Полевая Сабировская, д.49.
                   </p>
-                  <div>
+                  <div class="contacts__content-wrapper">
                     <svg width="16" height="16" viewBox="0 0 16 16" role="img">
                       <use href="img/sprite.svg#phone"></use>
                     </svg>
                     <a class="contacts__text" href="tel:+78123468544">(812) 346-85-44</a>
                   </div>
-                  <div>
+                  <div class="contacts__content-wrapper">
                     <svg width="16" height="16" viewBox="0 0 16 16" role="img">
                       <use href="img/sprite.svg#mail"></use>
                     </svg>
                     <a class="contacts__text" href="mailto:spares@spb.reso.ru">spares@spb.reso.ru</a>
                   </div>
                 </div>
-                <div class="accordion contacts__wrapper" data-accordion="parent">
+                <div class="accordion contacts__wrapper contacts__wrapper--timetable" data-accordion="parent">
                   <div class="accordion__element" data-accordion="element">
                     <div class="accordion__container">
-                      <p class="accordion__text-title contacts__title--extra">Режим работы</p>
+
                       <button class="accordion__button" type="button" data-accordion="button"
-                        aria-label="Открыть"></button>
+                        aria-label="Открыть"><p class="accordion__text-title contacts__title--extra">Режим работы</p></button>
                     </div>
                     <div class="accordion__content" data-accordion="content">
                       <div class="accordion__wrapper">
@@ -244,26 +242,26 @@
                 </div>
               </li>
               <li class="contacts__item">
-                <div class="contacts__wrapper">
+                <div class="contacts__wrapper contacts__wrapper--city">
                   <h3 class="contacts__title">Стоянка Санкт-Петербург</h3>
                 </div>
-                <div class="contacts__wrapper">
+                <div class="contacts__wrapper contacts__wrapper--links">
                   <p class="contacts__text">
                     Ленинградская область, Всеволожский район, дорога на Новосергиевку
                   </p>
-                  <div>
+                  <div class="contacts__content-wrapper">
                     <svg width="16" height="16" viewBox="0 0 16 16" role="img">
                       <use href="img/sprite.svg#phone"></use>
                     </svg>
                     <a class="contacts__text" href="tel:+74997024331">(499) 702-43-31 доб.3</a>
                   </div>
                 </div>
-                <div class="accordion contacts__wrapper" data-accordion="parent">
+                <div class="accordion contacts__wrapper contacts__wrapper--timetable" data-accordion="parent">
                   <div class="accordion__element" data-accordion="element">
                     <div class="accordion__container">
-                      <p class="accordion__text-title contacts__title--extra">Режим работы</p>
+
                       <button class="accordion__button" type="button" data-accordion="button"
-                        aria-label="Открыть"></button>
+                        aria-label="Открыть"><p class="accordion__text-title contacts__title--extra">Режим работы</p></button>
                     </div>
                     <div class="accordion__content" data-accordion="content">
                       <div class="accordion__wrapper">

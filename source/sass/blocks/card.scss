@@ -136,8 +136,7 @@
   color: $color-nero;
 }
 
-.card__print {
-}
+.card__print {}
 
 .card__date {
   padding: 30px;
@@ -287,9 +286,9 @@
 .card-page-print {
   .card__text-wrapper {
     min-width: 520px;
-    max-width: 1280px;
+    max-width: 1040px;
     width: 100%;
-    margin: 20px auto;
+    margin: 20px auto 40px;
   }
 
   .card__information-list {
@@ -317,6 +316,27 @@
     img {
       border-radius: 15px;
     }
+  }
+
+  .card__information-title {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    margin-top: 40px;
+    margin-bottom: 25px;
+  }
+
+  .card__information-item--wide {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .card__information-list--border {
+    gap: 6px;
+  }
+
+  .card__information-item:last-child::after {
+    width: 100% !important;
   }
 }
 

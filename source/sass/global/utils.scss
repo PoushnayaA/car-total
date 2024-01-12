@@ -35,7 +35,7 @@ main {
 
 .page__header {
   z-index: 600;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
 }
 
 .main {
@@ -48,7 +48,7 @@ main {
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 100vh;
       opacity: 30%;
       background-color: $color-nero;
       z-index: 10;
@@ -99,7 +99,7 @@ main {
 
   &--lot-card-print {
     min-width: 520px;
-    max-width: 1280px;
+    max-width: 1040px;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -108,14 +108,17 @@ main {
 
   &--news {
     min-width: 280px;
+    padding: 0 20px;
 
     @include vp-768 {
       min-width: none;
       width: 768px;
+
     }
 
     @include vp-1440 {
       width: 1240px;
+      padding: 0;
     }
   }
 
@@ -123,7 +126,7 @@ main {
     width: 100%;
     min-width: 320px;
     max-width: 1280px;
-    padding: 20px;
+    padding: 0 20px;
   }
 
   &--footer {
@@ -212,4 +215,8 @@ main {
     font-size: 32px;
     line-height: 42px;
   }
+}
+
+.custom-main {
+  margin-top: 30px;
 }

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Описание проекта">
+  <title>Car-total</title>
+
+  <link rel="stylesheet" href="css/style.min.css">
+
+  <link rel="preload" href="fonts/sf-pro-display-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="fonts/sf-pro-display-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="fonts/sf-pro-display-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <div class="page page--login">
+    <header class="page__header">
+      <div class="navigation navigation--minor">
+        <div class="navigation__wrapper">
+          <div class="navigation__img">
+            <img src="./img/svg/extra-logo.svg" width="81" height="23" alt="Логотип РЕСО-страхование.">
+          </div>
+          <div class="navigation__list">
+            <div class="navigation__item navigation__item--select">
+              <div class="navigation__item-name">
+                Ваш город:
+              </div>
+              <div class="navigation__select">
+                <button class="navigation__select-button" type="button" data-button="change-city">
+                  <div>Москва</div>
+                </button>
+                <ul class="navigation__select-list visually-hidden">
+                  <li class="navigation__select-item navigation__select-item--active">Москва</li>
+                  <li class="navigation__select-item">Санкт-Петербург</li>
+                </ul>
+              </div>
+            </div>
+            <div class="navigation__item navigation__item--tablet">
+              <div class="navigation__item-name navigation__item-name--phone">Офис и стоянка:</div>
+              <a href="tel:+74997024331">8 499 702 43 31</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navigation navigation--main">
+        <nav class="navigation__wrapper">
+          <button class="navigation__button" data-button="navigation">
+            <span></span>
+          </button>
+          <div class="navigation__img">
+            <a href="index.html">
+              <picture>
+                <source media="(min-width: 1440px)" srcset="./img/svg/logo-desktop.svg" width="194" height="72">
+                <source media="(min-width: 768px)" srcset="./img/svg/logo.svg" width="178" height="24">
+                <img src="./img/svg/logo.svg" width="134" height="18" alt="Логотип Car-total.">
+              </picture>
+            </a>
+          </div>
+          <div class="navigation__list-wrapper">
+            <ul class="navigation__list navigation__list--desktop">
+              <li class="navigation__item"><a href="auctions.html">Аукционы</a></li>
+              <li class="navigation__item"><a href="about.html">О нас</a></li>
+              <li class="navigation__item"><a href="questions-answers.html">Вопросы и ответы</a></li>
+              <li class="navigation__item"><a href="rules.html">Правила</a></li>
+              <li class="navigation__item"><a href="news.html">Новости</a></li>
+              <li class="navigation__item navigation__item--active"><a href="#">Контакты</a></li>
+            </ul>
+          </div>
+          <ul class="navigation__list navigation__list--svg">
+            <li class="navigation__item visually-hidden">
+              <button type="button">
+                <svg width="16" height="16" viewBox="0 0 16 16" role="img">
+                  <use href="img/sprite.svg#search"></use>
+                </svg>
+                <div class="visually-hidden">
+                  Поиск
+                </div>
+              </button>
+            </li>
+            <li class="navigation__item navigation__item--decoration">
+              <a class="navigation__item-link" href="log-in.html">
+                <svg width="16" height="19" viewBox="0 0 16 19" role="img">
+                  <use href="img/sprite.svg#log-in"></use>
+                </svg>
+                <div class="navigation__item-name navigation__item-name--tablet">
+                  Личный кабинет
+                </div>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="custom-main">
+      <h1 class="visually-hidden">Сайт Car-Total.</h1>
+      <section class="log-in">
+        <div class="container container--contacts">
+          <div class="log-in__main-wrapper">
+            <h2 class="title__main-page">Личный кабинет</h2>
+          </div>
+          <div class="log-in__container">
+            <nav class="log-in__navigation">
+              <ul class="log-in__navigation-list">
+                <li class="log-in__navigation-item log-in__navigation-item--login log-in__navigation-item--active">Вход
+                </li>
+                <li class="log-in__navigation-item log-in__navigation-item--registration">Регистрация</li>
+              </ul>
+            </nav>
+            <div class="log-in__form log-in__form--main log-in__form--active">
+              <form class="form-wrapper__form connection" action="#" method="post">
+                <div class="connection__wrapper">
+                  <div class="connection__text-container">
+                    <label for="email" class="connection__label">Электронная почта</label>
+                    <input class="connection__field" type="email" id="email" name="email"
+                      placeholder="Введите адрес электронной почты" required>
+                  </div>
+                  <div class="connection__text-container">
+                    <label for="password" class="connection__label">Пароль</label>
+                    <input class="connection__field" type="password" id="password" name="password"
+                      placeholder="Введите пароль" required>
+                  </div>
+                </div>
+                <div class="connection__wrapper connection__wrapper--button">
+                  <button class="connection__button connection__button--submit" type="submit">Войти</button>
+                  <button class="connection__button connection__button--password" type="button">Забыли пароль?</button>
+                </div>
+              </form>
+            </div>
+            <div class="log-in__form log-in__form--registration visually-hidden">
+              <form class="form-wrapper__form  connection" action="#" method="post">
+                <div class="connection__section">
+                  <h3 class="connection__title">1. Главные</h3>
+                  <div class="connection__wrapper connection__wrapper--wide">
+                    <div class="connection__text-container connection__text-container--wide">
+                      <label for="email" class="connection__label connection__label">Электронная почта <span>*</span></label>
+                      <input class="connection__field" type="email" id="email" name="email"
+                        placeholder="Введите адрес электронной почты" required>
+                    </div>
+                    <div class="connection__text-container">
+                      <label for="password" class="connection__label">Пароль <span>*</span></label>
+                      <input class="connection__field" type="password" id="password" name="password"
+                        placeholder="Введите пароль" required>
+                    </div>
+                    <div class="connection__text-container">
+                      <label for="password-repeat" class="connection__label">Повторите пароль
+                        <span>*</span></label>
+                      <input class="connection__field" type="password" id="password-repeat" name="password-repeat"
+                        placeholder="Введите пароль" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="connection__section">
+                  <h3 class="connection__title">2. Персональные данные</h3>
+                  <div class="connection__wrapper connection__wrapper--wide">
+                    <div class="connection__text-container connection__text-container--extra-wide">
+                      <label for="name" class="connection__label">Ф.И.О. <span>*</span></label>
+                      <input class="connection__field" type="text" id="name" name="name"
+                        placeholder="Фамилия Имя Отчество" required>
+                    </div>
+                    <div class="connection__text-container">
+                      <label for="birth-date" class="connection__label">Дата рождения <span>*</span></label>
+                      <input class="connection__field" type="text" id="birth-date" name="birth-date"
+                        placeholder="_ _._ _.__" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="connection__section">
+                  <h3 class="connection__title">3. Контактные данные</h3>
+                  <div class="connection__wrapper">
+                    <div class="connection__text-container">
+                      <label for="phone" class="connection__label">Контактный телефон <span>*</span></label>
+                      <input class="connection__field" type="text" id="phone" name="phone" placeholder="+7" required>
+                    </div>
+                    <div class="connection__text-container">
+                      <label for="phone-repeat" class="connection__label">Дополнительный телефон</span></label>
+                      <input class="connection__field" type="text" id="phone-repeat" name="phone-repeat"
+                        placeholder="+7">
+                    </div>
+                  </div>
+                </div>
+                <div class="connection__wrapper connection__wrapper--checkbox">
+                  <label class=" connection__checkbox checkbox">
+                    <input type="checkbox" name="agreement"/>
+                    <div class="checkbox__checkmark"></div>
+                    <div class="checkbox__body">Согласен с <a href="#">условиями</a> аукциона</div>
+                  </label>
+                  <label class=" connection__checkbox checkbox">
+                    <input type="checkbox" name="notification"/>
+                    <div class="checkbox__checkmark"></div>
+                    <div class="checkbox__body">Получать уведомление в случае если Ваша ставка была перебита другим
+                      участником</div>
+                  </label>
+                </div>
+                <div class="connection__wrapper">
+                  <button class="connection__button connection__button--submit" type="submit">Зарегистироваться</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="custom-footer">
+      <div class="footer__container">
+        <div class="container container--footer">
+          <ul class="footer__navigation-list">
+            <li class="footer__navigation-item"><a href="auctions.html">Аукционы</a></li>
+            <li class="footer__navigation-item"><a href="about.html">О нас</a></li>
+            <li class="footer__navigation-item"><a href="questions-answers.html">Вопросы и ответы</a></li>
+            <li class="footer__navigation-item"><a href="news.html">Новости</a></li>
+            <li class="footer__navigation-item"><a href="contacts.html">Контакты</a></li>
+          </ul>
+          <div class="footer__copyright">
+            <p class="footer__copyright-text">© 2010-2023, САО «РЕСО-Гарантия»</p>
+            <p class="footer__copyright-text">© All photos, graphics and imageson this site remain the copyright of
+              CAR-TOTAL.COM</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/vendor.min.js"></script>
+  <script src="js/main.min.js"></script>
+</body>
+
+</html>

@@ -9,6 +9,10 @@
   min-width: 320px;
   max-width: 1240px;
 
+  @include vp-768 {
+    // max-width: none;
+  }
+
   @include vp-1440 {
     width: 1240px;
     padding: 0;
@@ -24,14 +28,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
+@include vp-1440 {
+  margin-right: 20px;
 }
 
+}
 .navigation__list {
   display: flex;
   gap: 20px;
   justify-content: center;
   align-items: center;
   margin-right: 20px;
+
+  &--svg {
+    margin-right: 0;
+  }
 
   @include vp-1440 {
     margin-right: 0;
@@ -53,14 +64,21 @@
   &--open {
     display: block;
     position: absolute;
-    top: 130%;
+    top: 100%;
     left: 0%;
     background-color: $color-default-white;
     box-shadow: 0 4px 26px 0 #00000014;
     width: 100%;
     z-index: 200;
+    padding: 20px 0 0;
 
-    & a {
+    @include vp-768 {
+      width: 120%;
+      left: -8%;
+      padding: 20px 0 35px;
+    }
+
+    & button {
       font-size: 18px;
       font-weight: 500;
       line-height: 27px;
@@ -78,6 +96,32 @@
 .navigation__item {
   display: flex;
 
+  &--mobile {
+    position: relative;
+    padding: 20px;
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+
+    a {
+      font-size: 16px;
+      padding: 13px 7px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 1px;
+      background-color: $color-gainsboro;
+      top: 10px;
+      left: 20px;
+      right: 20px;
+    }
+    @include vp-768 {
+      display: none;
+    }
+  }
+
   &--tablet {
     display: none;
 
@@ -91,7 +135,8 @@
 
     & button {
       width: 55px;
-      // text-align: center;
+      border: none;
+      background-color: inherit;
       display: flex;
       justify-content: center;
     }
@@ -99,7 +144,7 @@
 
   &--decoration {
     @include vp-768 {
-      border-radius: 10px;
+      border-radius: 15px;
       border: 1px solid $color-burnt-orange;
     }
   }
@@ -108,7 +153,7 @@
     color: $color-burnt-orange;
   }
 
-  button {
+  a {
     display: flex;
     border: none;
     background-color: transparent;
@@ -121,15 +166,20 @@
 
 .navigation__select {
   &-list {
-    padding: 10px;
+    padding: 16px 16px 10px;
     position: absolute;
-    width: 90%;
+    // width: 128%;
+    width: 157px;
     top: 150%;
-    left: 30%;
-    border-radius: 10px;
+    left: -15%;
+    border-radius: 5px;
     background-color: $color-default-white;
     box-shadow: 0 4px 26px 0 #00000014;
     z-index: 800;
+
+    @include vp-768 {
+      left: 60%;
+    }
   }
 }
 
@@ -235,7 +285,7 @@
       bottom: -7px;
       width: 100%;
       background-color: $color-nero;
-      content:"";
+      content: "";
       transition-duration: 0.3s, 0.3s;
       transition-delay: 0.3s, 0s;
 
@@ -279,7 +329,7 @@
 
     & .navigation__item-name {
       display: flex;
-      margin: auto  0;
+      margin: auto 0;
 
       &--phone {
         @include vp-768 {
@@ -296,6 +346,7 @@
         margin-right: 0;
         margin-top: -2px;
       }
+
       @include vp-1440 {
         gap: 52px;
       }
@@ -324,17 +375,27 @@
         padding: 25px 0;
       }
     }
+    .navigation__item a {
+      @include vp-1440 {
+        font-size: 19px;
+        font-weight: 400;
+        line-height: 27px;
+      }
+    }
 
-    .navigation__item {
-      &--decoration button {
+    .navigation__item-link {
+
+      // &--decoration a {
         display: flex;
         justify-content: flex-end;
         gap: 10px;
-        padding: 17px;
-        min-width: 200px;
+        padding: 0 3px;
+        min-width: 20px;
 
         @include vp-768 {
           justify-content: center;
+          padding: 17px;
+          width: 200px;
         }
 
         @include vp-1440 {
@@ -342,12 +403,14 @@
         }
       }
 
-      a {
-        @include vp-1440 {
-          font-size: 18px;
-          font-weight: 400;
-          line-height: 27px;
-              }
+
+
+
+
+
+    .navigation__list {
+      @include vp-768 {
+      margin-right: 0;
       }
     }
 
@@ -372,7 +435,8 @@
 
 .navigation__select-item {
   cursor: pointer;
-  padding: 5px 0;
+  padding: 6px 0 12px;
+  font-size: 16px;
 
   &--active {
     color: $color-burnt-orange;
@@ -388,5 +452,24 @@
 .navigation__list--desktop.navigation__list--open {
   @include vp-1440 {
     display: none;
+  }
+  .navigation__item {
+    @include vp-768 {
+      padding: 4px 8% 3px;
+    }
+  }
+}
+
+.navigation__wrapper--print {
+  width: 1080px;
+
+  .navigation__item-name--phone,
+   a {
+
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+margin-top: 5px;
+
   }
 }
