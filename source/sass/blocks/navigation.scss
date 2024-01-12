@@ -450,12 +450,19 @@
 
 
 .navigation__list--desktop.navigation__list--open {
+  padding: 20px 0;
   @include vp-1440 {
     display: none;
   }
   .navigation__item {
+
+font-size: 18px;
+font-weight: 500;
+line-height: 27px;
+padding: 4px 4% 3px;
+
     @include vp-768 {
-      padding: 4px 8% 3px;
+      padding: 14px 10% 13px;
     }
   }
 }

@@ -112,7 +112,7 @@ main {
 
     @include vp-768 {
       min-width: none;
-      width: 768px;
+      // width: 768px;
 
     }
 
@@ -139,6 +139,7 @@ main {
   }
 
   &--about {
+    width: auto;
     @include vp-1440 {
       width: 1240px;
     }

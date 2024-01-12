@@ -1,3 +1,6 @@
+// .swiper-slide {
+//   flex-shrink: 1;
+// }
 .card-page {
   .swiper-slide {
     text-align: center;
@@ -202,6 +205,7 @@
 
   @include vp-1440 {
     max-width: 608px;
+    width: auto !important;
     max-height: 456px;
   }
 }

@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Описание проекта">
+  <title>Car-total</title>
+
+  <link rel="stylesheet" href="css/style.min.css">
+
+  <link rel="preload" href="fonts/sf-pro-display-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="fonts/sf-pro-display-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="fonts/sf-pro-display-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <div class="page page--account">
+    <header class="page__header">
+      <div class="navigation navigation--minor">
+        <div class="navigation__wrapper">
+          <div class="navigation__img">
+            <img src="./img/svg/extra-logo.svg" width="81" height="23" alt="Логотип РЕСО-страхование.">
+          </div>
+          <div class="navigation__list">
+            <div class="navigation__item navigation__item--select">
+              <div class="navigation__item-name">
+                Ваш город:
+              </div>
+              <div class="navigation__select">
+                <button class="navigation__select-button" type="button" data-button="change-city">
+                  <div>Москва</div>
+                </button>
+                <ul class="navigation__select-list visually-hidden">
+                  <li class="navigation__select-item navigation__select-item--active">Москва</li>
+                  <li class="navigation__select-item">Санкт-Петербург</li>
+                </ul>
+              </div>
+            </div>
+            <div class="navigation__item navigation__item--tablet">
+              <div class="navigation__item-name navigation__item-name--phone">Офис и стоянка:</div>
+              <a href="tel:+74997024331">8 499 702 43 31</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navigation navigation--main">
+        <nav class="navigation__wrapper">
+          <button class="navigation__button" data-button="navigation">
+            <span></span>
+          </button>
+          <div class="navigation__img">
+            <a href="index.html">
+              <picture>
+                <source media="(min-width: 1440px)" srcset="./img/svg/logo-desktop.svg" width="194" height="72">
+                <source media="(min-width: 768px)" srcset="./img/svg/logo.svg" width="178" height="24">
+                <img src="./img/svg/logo.svg" width="134" height="18" alt="Логотип Car-total.">
+              </picture>
+            </a>
+          </div>
+          <div class="navigation__list-wrapper">
+            <ul class="navigation__list navigation__list--desktop">
+              <li class="navigation__item"><a href="auctions.html">Аукционы</a></li>
+              <li class="navigation__item"><a href="about.html">О нас</a></li>
+              <li class="navigation__item"><a href="questions-answers.html">Вопросы и ответы</a></li>
+              <li class="navigation__item"><a href="rules.html">Правила</a></li>
+              <li class="navigation__item"><a href="news.html">Новости</a></li>
+              <li class="navigation__item navigation__item--active"><a href="#">Контакты</a></li>
+              <li class="navigation__item navigation__item--mobile">
+                Офис и стоянка:
+              <a href="tel:+74997024331">8 499 702 43 31</a>
+              </li>
+            </ul>
+          </div>
+          <ul class="navigation__list navigation__list--svg">
+            <li class="navigation__item visually-hidden">
+              <button type="button">
+                <svg width="16" height="16" viewBox="0 0 16 16" role="img">
+                  <use href="img/sprite.svg#search"></use>
+                </svg>
+                <div class="visually-hidden">
+                  Поиск
+                </div>
+              </button>
+            </li>
+            <li class="navigation__item navigation__item--decoration">
+              <a class="navigation__item-link" href="log-in.html">
+                <svg width="16" height="19" viewBox="0 0 16 19" role="img">
+                  <use href="img/sprite.svg#log-in"></use>
+                </svg>
+                <div class="navigation__item-name navigation__item-name--tablet">
+                  Личный кабинет
+                </div>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="custom-main">
+      <h1 class="visually-hidden">Сайт Car-Total.</h1>
+      <section class="account">
+        <div class="container container--contacts">
+          <div class="account__main-wrapper">
+            <div class="account__text-wrapper">
+              <h2 class="title__main-page">Личный кабинет</h2>
+              <a href="log-in.html">Выйти</a>
+            </div>
+            <p class="account__text-welcome">Добро пожаловать, Константин!</p>
+          </div>
+          <div class="account__container">
+            <nav class="account__navigation">
+              <ul class="account__navigation-list">
+                <li
+                  class="account__navigation-item account__navigation-item--personal account__navigation-item--active">
+                  Персональные данные</li>
+                <li class="account__navigation-item account__navigation-item--favorite">Избранные лоты</li>
+                <li class="account__navigation-item account__navigation-item--archive">Архив выигранных лотов</li>
+              </ul>
+            </nav>
+            <div class="account__form account__form--personal account__form--active">
+              <div class="account__attention-wrapper">
+                <div class="account__attention">Внимание!</div>
+                После изменения данных потребуется повторная модерация аккаунта.<br>
+                Для изменения своих персональных данных отредактируйте необходимые поля формы.<br>
+                <span>*</span> - обязательное заполнение полей
+              </div>
+              <form class="form-wrapper__form  connection" action="#" method="post">
+                <div class="connection__section">
+                  <h3 class="connection__title">1. Главные</h3>
+                  <div class="connection__wrapper connection__wrapper--wide">
+                    <div class="connection__text-container connection__text-container--wide">
+                      <label for="email" class="connection__label connection__label">Электронная почта
+                        <span>*</span></label>
+                      <input class="connection__field" type="email" id="email" name="email"
+                        placeholder="Введите адрес электронной почты" required>
+                    </div>
+                    <div class="connection__text-container">
+                      <label for="password" class="connection__label">Пароль <span>*</span></label>
+                      <input class="connection__field" type="password" id="password" name="password"
+                        placeholder="Введите пароль" required>
+                    </div>
+                    <div class="connection__text-container">
+                      <label for="password-repeat" class="connection__label">Повторите пароль
+                        <span>*</span></label>
+                      <input class="connection__field" type="password" id="password-repeat" name="password-repeat"
+                        placeholder="Введите пароль" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="connection__section">
+                  <h3 class="connection__title">2. Персональные данные</h3>
+                  <div class="connection__wrapper connection__wrapper--wide">
+                    <div class="connection__text-container connection__text-container--extra-wide">
+                      <label for="name" class="connection__label">Ф.И.О. <span>*</span></label>
+                      <input class="connection__field" type="text" id="name" name="name"
+                        placeholder="Фамилия Имя Отчество" required>
+                    </div>
+                    <div class="connection__text-container">
+                      <label for="birth-date" class="connection__label">Дата рождения <span>*</span></label>
+                      <input class="connection__field" type="text" id="birth-date" name="birth-date"
+                        placeholder="_ _._ _.__" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="connection__section">
+                  <h3 class="connection__title">3. Контактные данные</h3>
+                  <div class="connection__wrapper">
+                    <div class="connection__text-container">
+                      <label for="index" class="connection__label">Почтовый индекс</label>
+                      <input class="connection__field" type="text" id="index" name="index"
+                        placeholder="Введите почтовый индекс">
+                    </div>
+                    <div class="connection__text-container">
+                      <label for="address" class="connection__label">Почтовый адрес</label>
+                      <input class="connection__field" type="text" id="address" name="address"
+                        placeholder="Введите почтовый адрес">
+                    </div>
+                    <div class="connection__text-container">
+                      <label for="phone" class="connection__label">Контактный телефон <span>*</span></label>
+                      <input class="connection__field" type="text" id="phone" name="phone" placeholder="+7" required>
+                    </div>
+                    <div class="connection__text-container">
+                      <label for="phone-repeat" class="connection__label">Дополнительный телефон</span></label>
+                      <input class="connection__field" type="text" id="phone-repeat" name="phone-repeat"
+                        placeholder="+7">
+                    </div>
+                    <div class="connection__text-container">
+                      <label for="note" class="connection__label">Премечания</span></label>
+                      <input class="connection__field" type="text" id="note" name="note" placeholder="Введите текст">
+                    </div>
+                  </div>
+                </div>
+                <div class="connection__wrapper connection__wrapper--checkbox">
+                  <label class=" connection__checkbox checkbox">
+                    <input type="checkbox" name="notification" />
+                    <div class="checkbox__checkmark"></div>
+                    <div class="checkbox__body">Получать уведомление в случае если Ваша ставка была перебита другим
+                      участником</div>
+                  </label>
+                </div>
+                <div class="connection__wrapper">
+                  <a class="connection__button connection__button--submit disabled" type="submit">Сохранить</a>
+                </div>
+              </form>
+            </div>
+            <div class="account__form account__form--favorite visually-hidden">
+              <div class="account__attention-wrapper account__attention-wrapper--data">
+                <div>
+                  <div class="account__attention">Внимание!</div>
+                  <p class="account__attention-text">Данные обновляются автоматически каждые 10 секунд.</p>
+                </div>
+                <button>Обновить</button>
+              </div>
+              <div class="lots__container">
+                <div class="lots__wrapper">
+                  <div class="filter-sorting">
+                    <div class="filter-sorting__select" data-filter="default">
+                      <button class="filter-sorting__select-button" type="button" data-button="change-filter">
+                        <svg width="24" height="24" viewBox="0 0 24 24" role="img">
+                          <use href="img/sprite.svg#filter"></use>
+                        </svg>
+                        <div class="filter-sorting__select-button">Сортировать</div>
+                      </button>
+                      <ul class="filter-sorting__select-list visually-hidden">
+                        <li class="filter-sorting__select-item filter-sorting__select-item--active"
+                          data-filter="lh-price">
+                          По возрастанию
+                          цены</li>
+                        <li class="filter-sorting__select-item" data-filter="hl-price">По убыванию цены</li>
+                        <li class="filter-sorting__select-item" data-filter="se-date">По дате начала</li>
+                        <li class="filter-sorting__select-item" data-filter="es-date">По дате завершения</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <ul class="lots__list">
+                  <li class="lots__item">
+                    <a href="lots-card.html">
+                      <div class="lots__img-wrapper">
+                        <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                      </div>
+                      <div class="lots__text-wrapper">
+                        <div class="lots__extra-inf-wrapper">
+                          <p>Лот № 12674681</p>
+                          <svg width="14" height="18" viewBox="0 0 14 18" role="img">
+                            <use href="img/sprite.svg#like"></use>
+                          </svg>
+                        </div>
+                        <div class="lots__description">
+                          <h3 class="lots__lot-name">BMW M2 Competition</h3>
+                          <p class="lots__description-item">Начальная цена <span>1 222 000 ₽</span></p>
+                          <p class="lots__description-item">Окончание торгов <span>06.12.2023 10:50</span></p>
+                          <p class="lots__description-item">Местоположение <span>Санкт-Петербург</span></p>
+                        </div>
+                        <button type="button">Повысить ставку</button>
+                        <div class="visually-hidden">
+                          <svg width="20" height="20" viewBox="0 0 20 20" role="img">
+                            <use href="img/sprite.svg#winner"></use>
+                          </svg>
+                          <div>Ваша ставка лидирует</div>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="lots__item">
+                    <a href="lots-card.html">
+                      <div class="lots__img-wrapper">
+                        <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                      </div>
+                      <div class="lots__text-wrapper">
+                        <div class="lots__extra-inf-wrapper">
+                          <p>Лот № 12674681</p>
+                          <svg width="14" height="18" viewBox="0 0 14 18" role="img">
+                            <use href="img/sprite.svg#like"></use>
+                          </svg>
+                        </div>
+                        <div class="lots__description">
+                          <h3 class="lots__lot-name">BMW M2 Competition</h3>
+                          <p class="lots__description-item">Начальная цена <span>1 222 000 ₽</span></p>
+                          <p class="lots__description-item">Окончание торгов <span>06.12.2023 10:50</span></p>
+                          <p class="lots__description-item">Местоположение <span>Санкт-Петербург</span></p>
+                        </div>
+                        <button type="button">Повысить ставку</button>
+                        <div class="visually-hidden">
+                          <svg width="20" height="20" viewBox="0 0 20 20" role="img">
+                            <use href="img/sprite.svg#winner"></use>
+                          </svg>
+                          <div>Ваша ставка лидирует</div>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="lots__item">
+                    <a href="lots-card.html">
+                      <div class="lots__img-wrapper">
+                        <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                      </div>
+                      <div class="lots__text-wrapper">
+                        <div class="lots__extra-inf-wrapper">
+                          <p>Лот № 12674681</p>
+                          <svg width="14" height="18" viewBox="0 0 14 18" role="img">
+                            <use href="img/sprite.svg#like"></use>
+                          </svg>
+                        </div>
+                        <div class="lots__description">
+                          <h3 class="lots__lot-name">BMW M2 Competition</h3>
+                          <p class="lots__description-item">Начальная цена <span>1 222 000 ₽</span></p>
+                          <p class="lots__description-item">Окончание торгов <span>06.12.2023 10:50</span></p>
+                          <p class="lots__description-item">Местоположение <span>Санкт-Петербург</span></p>
+                        </div>
+                        <button type="button">Повысить ставку</button>
+                        <div class="visually-hidden">
+                          <svg width="20" height="20" viewBox="0 0 20 20" role="img">
+                            <use href="img/sprite.svg#winner"></use>
+                          </svg>
+                          <div>Ваша ставка лидирует</div>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="lots__item">
+                    <a href="lots-card.html">
+                      <div class="lots__img-wrapper">
+                        <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                      </div>
+                      <div class="lots__text-wrapper">
+                        <div class="lots__extra-inf-wrapper">
+                          <p>Лот № 12674681</p>
+                          <svg width="14" height="18" viewBox="0 0 14 18" role="img">
+                            <use href="img/sprite.svg#like"></use>
+                          </svg>
+                        </div>
+                        <div class="lots__description">
+                          <h3 class="lots__lot-name">BMW M2 Competition</h3>
+                          <p class="lots__description-item">Начальная цена <span>1 222 000 ₽</span></p>
+                          <p class="lots__description-item">Окончание торгов <span>06.12.2023 10:50</span></p>
+                          <p class="lots__description-item">Местоположение <span>Санкт-Петербург</span></p>
+                        </div>
+                        <button type="button">Повысить ставку</button>
+                        <div class="visually-hidden">
+                          <svg width="20" height="20" viewBox="0 0 20 20" role="img">
+                            <use href="img/sprite.svg#winner"></use>
+                          </svg>
+                          <div>Ваша ставка лидирует</div>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="lots__item">
+                    <a href="lots-card.html">
+                      <div class="lots__img-wrapper">
+                        <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                      </div>
+                      <div class="lots__text-wrapper">
+                        <div class="lots__extra-inf-wrapper">
+                          <p>Лот № 12674681</p>
+                          <svg width="14" height="18" viewBox="0 0 14 18" role="img">
+                            <use href="img/sprite.svg#like"></use>
+                          </svg>
+                        </div>
+                        <div class="lots__description">
+                          <h3 class="lots__lot-name">BMW M2 Competition</h3>
+                          <p class="lots__description-item">Начальная цена <span>1 222 000 ₽</span></p>
+                          <p class="lots__description-item">Окончание торгов <span>06.12.2023 10:50</span></p>
+                          <p class="lots__description-item">Местоположение <span>Санкт-Петербург</span></p>
+                        </div>
+                        <button type="button">Повысить ставку</button>
+                        <div class="visually-hidden">
+                          <svg width="20" height="20" viewBox="0 0 20 20" role="img">
+                            <use href="img/sprite.svg#winner"></use>
+                          </svg>
+                          <div>Ваша ставка лидирует</div>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+
+                </ul>
+              </div>
+
+            </div>
+            <div class="account__form account__form--archive visually-hidden">
+              <ul class="account__arhive-list">
+                <li class="account__arhive-item">
+                  <p class="account__arhive-title account__arhive-title--mobile">Лот № 12674681</p>
+                  <div class="account__arhive-img">
+                    <img src="./img/content/car-1.jpg" width="248" height="143">
+                  </div>
+                  <div class="account__arhive-wrapper">
+                    <p class="account__arhive-title account__arhive-title--tablet">Лот № 12674681</p>
+                    <h3 class="account__arhive-name">BMW M2 Competition</h3>
+                    <div class="account__arhive-text-container account__arhive-text-container--mobile">
+                      <p class="account__arhive-text">Желаемая цена продавца <br><span>5&nbsp;555&nbsp;555&nbsp;₽</span></p>
+                      <p class="account__arhive-text">Текущая цена <br><span>1 222 000 ₽</span></p>
+                      <p class="account__arhive-text">Дата завершения торгов <br><span>06.12.2023&nbsp;10:50</span></p>
+                    </div>
+                  </div>
+                  <div class="account__arhive-text-container account__arhive-text-container--tablet">
+                    <p class="account__arhive-text">Желаемая цена продавца <br><span>5&nbsp;555&nbsp;555&nbsp;₽</span></p>
+                    <p class="account__arhive-text">Текущая цена <br><span>1 222 000 ₽</span></p>
+                    <p class="account__arhive-text">Дата завершения торгов <br><span>06.12.2023&nbsp;10:50</span></p>
+                  </div>
+                  <button class="account__arhive-button" type="button"><span class="visually-hidden">Удалить</span></button>
+                </li>
+                <li class="account__arhive-item">
+                  <p class="account__arhive-title account__arhive-title--mobile">Лот № 12674681</p>
+                  <div class="account__arhive-img">
+                    <img src="./img/content/car-1.jpg" width="248" height="143">
+                  </div>
+                  <div class="account__arhive-wrapper">
+                    <p class="account__arhive-title account__arhive-title--tablet">Лот № 12674681</p>
+                    <h3 class="account__arhive-name">BMW M2 Competition</h3>
+                    <div class="account__arhive-text-container account__arhive-text-container--mobile">
+                      <p class="account__arhive-text">Желаемая цена продавца <br><span>5&nbsp;555&nbsp;555&nbsp;₽</span></p>
+                      <p class="account__arhive-text">Текущая цена <br><span>1 222 000 ₽</span></p>
+                      <p class="account__arhive-text">Дата завершения торгов <br><span>06.12.2023&nbsp;10:50</span></p>
+                    </div>
+                  </div>
+                  <div class="account__arhive-text-container account__arhive-text-container--tablet">
+                    <p class="account__arhive-text">Желаемая цена продавца <br><span>5&nbsp;555&nbsp;555&nbsp;₽</span></p>
+                    <p class="account__arhive-text">Текущая цена <br><span>1 222 000 ₽</span></p>
+                    <p class="account__arhive-text">Дата завершения торгов <br><span>06.12.2023&nbsp;10:50</span></p>
+                  </div>
+                  <button class="account__arhive-button" type="button"><span class="visually-hidden">Удалить</span></button>
+                </li>
+                <li class="account__arhive-item">
+                  <p class="account__arhive-title account__arhive-title--mobile">Лот № 12674681</p>
+                  <div class="account__arhive-img">
+                    <img src="./img/content/car-1.jpg" width="248" height="143">
+                  </div>
+                  <div class="account__arhive-wrapper">
+                    <p class="account__arhive-title account__arhive-title--tablet">Лот № 12674681</p>
+                    <h3 class="account__arhive-name">BMW M2 Competition</h3>
+                    <div class="account__arhive-text-container account__arhive-text-container--mobile">
+                      <p class="account__arhive-text">Желаемая цена продавца <br><span>5&nbsp;555&nbsp;555&nbsp;₽</span></p>
+                      <p class="account__arhive-text">Текущая цена <br><span>1 222 000 ₽</span></p>
+                      <p class="account__arhive-text">Дата завершения торгов <br><span>06.12.2023&nbsp;10:50</span></p>
+                    </div>
+                  </div>
+                  <div class="account__arhive-text-container account__arhive-text-container--tablet">
+                    <p class="account__arhive-text">Желаемая цена продавца <br><span>5&nbsp;555&nbsp;555&nbsp;₽</span></p>
+                    <p class="account__arhive-text">Текущая цена <br><span>1 222 000 ₽</span></p>
+                    <p class="account__arhive-text">Дата завершения торгов <br><span>06.12.2023&nbsp;10:50</span></p>
+                  </div>
+                  <button class="account__arhive-button" type="button"><span class="visually-hidden">Удалить</span></button>
+                </li>
+                <li class="account__arhive-item">
+                  <p class="account__arhive-title account__arhive-title--mobile">Лот № 12674681</p>
+                  <div class="account__arhive-img">
+                    <img src="./img/content/car-1.jpg" width="248" height="143">
+                  </div>
+                  <div class="account__arhive-wrapper">
+                    <p class="account__arhive-title account__arhive-title--tablet">Лот № 12674681</p>
+                    <h3 class="account__arhive-name">BMW M2 Competition</h3>
+                    <div class="account__arhive-text-container account__arhive-text-container--mobile">
+                      <p class="account__arhive-text">Желаемая цена продавца <br><span>5&nbsp;555&nbsp;555&nbsp;₽</span></p>
+                      <p class="account__arhive-text">Текущая цена <br><span>1 222 000 ₽</span></p>
+                      <p class="account__arhive-text">Дата завершения торгов <br><span>06.12.2023&nbsp;10:50</span></p>
+                    </div>
+                  </div>
+                  <div class="account__arhive-text-container account__arhive-text-container--tablet">
+                    <p class="account__arhive-text">Желаемая цена продавца <br><span>5&nbsp;555&nbsp;555&nbsp;₽</span></p>
+                    <p class="account__arhive-text">Текущая цена <br><span>1 222 000 ₽</span></p>
+                    <p class="account__arhive-text">Дата завершения торгов <br><span>06.12.2023&nbsp;10:50</span></p>
+                  </div>
+                  <button class="account__arhive-button" type="button"><span class="visually-hidden">Удалить</span></button>
+                </li>
+                <li class="account__arhive-item">
+                  <p class="account__arhive-title account__arhive-title--mobile">Лот № 12674681</p>
+                  <div class="account__arhive-img">
+                    <img src="./img/content/car-1.jpg" width="248" height="143">
+                  </div>
+                  <div class="account__arhive-wrapper">
+                    <p class="account__arhive-title account__arhive-title--tablet">Лот № 12674681</p>
+                    <h3 class="account__arhive-name">BMW M2 Competition</h3>
+                    <div class="account__arhive-text-container account__arhive-text-container--mobile">
+                      <p class="account__arhive-text">Желаемая цена продавца <br><span>5&nbsp;555&nbsp;555&nbsp;₽</span></p>
+                      <p class="account__arhive-text">Текущая цена <br><span>1 222 000 ₽</span></p>
+                      <p class="account__arhive-text">Дата завершения торгов <br><span>06.12.2023&nbsp;10:50</span></p>
+                    </div>
+                  </div>
+                  <div class="account__arhive-text-container account__arhive-text-container--tablet">
+                    <p class="account__arhive-text">Желаемая цена продавца <br><span>5&nbsp;555&nbsp;555&nbsp;₽</span></p>
+                    <p class="account__arhive-text">Текущая цена <br><span>1 222 000 ₽</span></p>
+                    <p class="account__arhive-text">Дата завершения торгов <br><span>06.12.2023&nbsp;10:50</span></p>
+                  </div>
+                  <button class="account__arhive-button" type="button"><span class="visually-hidden">Удалить</span></button>
+                </li>
+                <li class="account__arhive-item">
+                  <p class="account__arhive-title account__arhive-title--mobile">Лот № 12674681</p>
+                  <div class="account__arhive-img">
+                    <img src="./img/content/car-1.jpg" width="248" height="143">
+                  </div>
+                  <div class="account__arhive-wrapper">
+                    <p class="account__arhive-title account__arhive-title--tablet">Лот № 12674681</p>
+                    <h3 class="account__arhive-name">BMW M2 Competition</h3>
+                    <div class="account__arhive-text-container account__arhive-text-container--mobile">
+                      <p class="account__arhive-text">Желаемая цена продавца <br><span>5&nbsp;555&nbsp;555&nbsp;₽</span></p>
+                      <p class="account__arhive-text">Текущая цена <br><span>1 222 000 ₽</span></p>
+                      <p class="account__arhive-text">Дата завершения торгов <br><span>06.12.2023&nbsp;10:50</span></p>
+                    </div>
+                  </div>
+                  <div class="account__arhive-text-container account__arhive-text-container--tablet">
+                    <p class="account__arhive-text">Желаемая цена продавца <br><span>5&nbsp;555&nbsp;555&nbsp;₽</span></p>
+                    <p class="account__arhive-text">Текущая цена <br><span>1 222 000 ₽</span></p>
+                    <p class="account__arhive-text">Дата завершения торгов <br><span>06.12.2023&nbsp;10:50</span></p>
+                  </div>
+                  <button class="account__arhive-button" type="button"><span class="visually-hidden">Удалить</span></button>
+                </li>
+                <li class="account__arhive-item">
+                  <p class="account__arhive-title account__arhive-title--mobile">Лот № 12674681</p>
+                  <div class="account__arhive-img">
+                    <img src="./img/content/car-1.jpg" width="248" height="143">
+                  </div>
+                  <div class="account__arhive-wrapper">
+                    <p class="account__arhive-title account__arhive-title--tablet">Лот № 12674681</p>
+                    <h3 class="account__arhive-name">BMW M2 Competition</h3>
+                    <div class="account__arhive-text-container account__arhive-text-container--mobile">
+                      <p class="account__arhive-text">Желаемая цена продавца <br><span>5&nbsp;555&nbsp;555&nbsp;₽</span></p>
+                      <p class="account__arhive-text">Текущая цена <br><span>1 222 000 ₽</span></p>
+                      <p class="account__arhive-text">Дата завершения торгов <br><span>06.12.2023&nbsp;10:50</span></p>
+                    </div>
+                  </div>
+                  <div class="account__arhive-text-container account__arhive-text-container--tablet">
+                    <p class="account__arhive-text">Желаемая цена продавца <br><span>5&nbsp;555&nbsp;555&nbsp;₽</span></p>
+                    <p class="account__arhive-text">Текущая цена <br><span>1 222 000 ₽</span></p>
+                    <p class="account__arhive-text">Дата завершения торгов <br><span>06.12.2023&nbsp;10:50</span></p>
+                  </div>
+                  <button class="account__arhive-button" type="button"><span class="visually-hidden">Удалить</span></button>
+                </li>
+                <li class="account__arhive-item">
+                  <p class="account__arhive-title account__arhive-title--mobile">Лот № 12674681</p>
+                  <div class="account__arhive-img">
+                    <img src="./img/content/car-1.jpg" width="248" height="143">
+                  </div>
+                  <div class="account__arhive-wrapper">
+                    <p class="account__arhive-title account__arhive-title--tablet">Лот № 12674681</p>
+                    <h3 class="account__arhive-name">BMW M2 Competition</h3>
+                    <div class="account__arhive-text-container account__arhive-text-container--mobile">
+                      <p class="account__arhive-text">Желаемая цена продавца <br><span>5&nbsp;555&nbsp;555&nbsp;₽</span></p>
+                      <p class="account__arhive-text">Текущая цена <br><span>1 222 000 ₽</span></p>
+                      <p class="account__arhive-text">Дата завершения торгов <br><span>06.12.2023&nbsp;10:50</span></p>
+                    </div>
+                  </div>
+                  <div class="account__arhive-text-container account__arhive-text-container--tablet">
+                    <p class="account__arhive-text">Желаемая цена продавца <br><span>5&nbsp;555&nbsp;555&nbsp;₽</span></p>
+                    <p class="account__arhive-text">Текущая цена <br><span>1 222 000 ₽</span></p>
+                    <p class="account__arhive-text">Дата завершения торгов <br><span>06.12.2023&nbsp;10:50</span></p>
+                  </div>
+                  <button class="account__arhive-button" type="button"><span class="visually-hidden">Удалить</span></button>
+                </li>
+              </ul>
+              <ul class="lots__pagination-list">
+                <li class="lots__pagination-item lots__pagination-item--active"><a href="#">1</a></li>
+                <li class="lots__pagination-item"><a href="#">2</a></li>
+                <li class="lots__pagination-item"><a href="#">3</a></li>
+                <li class="lots__pagination-item">
+                  <a href="#">
+                    <svg width="8" height="16" viewBox="0 0 8 16" role="img">
+                      <use href="img/sprite.svg#arrow-next"></use>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer__container">
+        <div class="container container--footer">
+          <ul class="footer__navigation-list">
+            <li class="footer__navigation-item"><a href="auctions.html">Аукционы</a></li>
+            <li class="footer__navigation-item"><a href="about.html">О нас</a></li>
+            <li class="footer__navigation-item"><a href="questions-answers.html">Вопросы и ответы</a></li>
+            <li class="footer__navigation-item"><a href="news.html">Новости</a></li>
+            <li class="footer__navigation-item"><a href="contacts.html">Контакты</a></li>
+          </ul>
+          <div class="footer__copyright">
+            <p class="footer__copyright-text">© 2010-2023, САО «РЕСО-Гарантия»</p>
+            <p class="footer__copyright-text">© All photos, graphics and imageson this site remain the copyright of
+              CAR-TOTAL.COM</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/vendor.min.js"></script>
+  <script src="js/main.min.js"></script>
+</body>
+
+</html>

@@ -102,27 +102,34 @@
   border-radius: 15px;
   display: block;
   padding: 20px;
+  cursor: pointer;
 
   @include vp-768 {
     width: 292px;
   }
 
-  &:last-of-type {
+  &:last-child {
     width: max-content;
   }
 }
 
-.connection__button--submit {
+.connection__button--submit, .disabled {
   border: 1px solid #E0E0E0;
   color: $color-default-white;
   background-color: #E0E0E0;
   font-size: 18px;
   font-weight: 700;
   line-height: 21px;
+  text-align: center;
+  pointer-events: none;
+  cursor: default;
 }
 
 .connection__button--active {
   background-color: $color-burnt-orange;
+  border: 1px solid $color-burnt-orange;
+  cursor: pointer;
+  pointer-events: all;
 }
 
 .connection__button--password {
@@ -274,6 +281,7 @@
 
 .checkbox input:checked~.checkbox__checkmark:after {
   opacity: 1;
+  content: url(../../img/svg/tick.svg);
 }
 
 .checkbox .checkbox__checkmark {
@@ -295,7 +303,7 @@
 
 /* tick */
 .checkbox .checkbox__checkmark:after {
-  content: url(../../img/svg/tick.svg);
+content: "";
   position: absolute;
   left: 5px;
   top: -3px;
@@ -303,8 +311,6 @@
   height: 13px;
   background-color: $color-default-white;
   opacity: 0;
-  // animation: 0.4s ease 1 forwards;
-  // transition: opacity 0.25s ease;
 }
 
 .checkbox .checkbox__body {

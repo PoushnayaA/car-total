@@ -16,6 +16,20 @@
   margin-top: 0;
 }
 
+.page--account {
+  .custom-main {
+    margin-top: 25px;
+
+    @include vp-768 {
+      margin-top: 30px;
+    }
+  }
+
+  footer {
+    margin-top: 49px;
+  }
+}
+
 .page--print {
   .card__title {
     font-size: 32px;
