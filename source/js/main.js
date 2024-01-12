@@ -51,13 +51,69 @@ window.addEventListener('DOMContentLoaded', () => {
   elements.forEach(i => initializeClock('.countdown', i.dataset.deadline, i.id));
   // initializeClock('countdown', element.dataset.deadline);
 
+  const loginForm = document.querySelector('.log-in__navigation-item--login');
+const registrationForm = document.querySelector('.log-in__navigation-item--registration');
+
+  if (loginForm) {
+    loginForm.addEventListener('click', function () {
+      document.querySelector('.log-in__navigation-item--active').classList.remove('log-in__navigation-item--active');
+      loginForm.classList.add('log-in__navigation-item--active');
+      document.querySelector('.log-in__form--main').classList.add('.log-in__form--active');
+      document.querySelector('.log-in__form--main').classList.remove('visually-hidden');
+      document.querySelector('.log-in__form--registration').classList.add('visually-hidden');
+    });
+
+    registrationForm.addEventListener('click', function () {
+      document.querySelector('.log-in__navigation-item--active').classList.remove('log-in__navigation-item--active');
+      registrationForm.classList.add('log-in__navigation-item--active');
+      document.querySelector('.log-in__form--registration').classList.add('.log-in__form--active');
+      document.querySelector('.log-in__form--registration').classList.remove('visually-hidden');
+      document.querySelector('.log-in__form--main').classList.add('visually-hidden');
+    });
+  }
+
+
+  const personAccount = document.querySelector('.account__navigation-item--personal');
+  const favoriteAccount = document.querySelector('.account__navigation-item--favorite');
+  const archiveAccount = document.querySelector('.account__navigation-item--archive');
+
+  if (personAccount) {
+    personAccount.addEventListener('click', function () {
+      document.querySelector('.account__navigation-item--active').classList.remove('account__navigation-item--active');
+      personAccount.classList.add('account__navigation-item--active');
+      document.querySelector('.account__form--personal').classList.add('.account__form--active');
+      document.querySelector('.account__form--personal').classList.remove('visually-hidden');
+      document.querySelector('.account__form--favorite').classList.add('visually-hidden');
+      document.querySelector('.account__form--archive').classList.add('visually-hidden');
+    });
+
+    favoriteAccount.addEventListener('click', function () {
+      document.querySelector('.account__navigation-item--active').classList.remove('account__navigation-item--active');
+      favoriteAccount.classList.add('account__navigation-item--active');
+      document.querySelector('.account__form--favorite').classList.add('.account__form--active');
+      document.querySelector('.account__form--favorite').classList.remove('visually-hidden');
+      document.querySelector('.account__form--personal').classList.add('visually-hidden');
+      document.querySelector('.account__form--archive').classList.add('visually-hidden');
+    });
+
+    archiveAccount.addEventListener('click', function () {
+      document.querySelector('.account__navigation-item--active').classList.remove('account__navigation-item--active');
+      archiveAccount.classList.add('account__navigation-item--active');
+      document.querySelector('.account__form--archive').classList.add('.account__form--active');
+      document.querySelector('.account__form--archive').classList.remove('visually-hidden');
+      document.querySelector('.account__form--personal').classList.add('visually-hidden');
+      document.querySelector('.account__form--favorite').classList.add('visually-hidden');
+    });
+
+  }
 
 
 
 
 
 
-  window.addEventListener('load', () => {
+
+  // window.addEventListener('load', () => {
     setTimeout(initLotsSlider(), 1000);
     setTimeout(initNewsSlider(), 1000);
     setTimeout(initAccordions(), 1000);
@@ -70,7 +126,7 @@ window.addEventListener('DOMContentLoaded', () => {
         btnText.classList.toggle('visually-hidden');
       });
     });
-  });
+  // });
 });
 
 // ---------------------------------
@@ -153,56 +209,4 @@ document.querySelectorAll('.dropdown').forEach(function (dropDownWrapper) {
       dropDownList.classList.remove('dropdown__list--visible');
     }
   });
-});
-
-const personAccount = document.querySelector('.account__navigation-item--personal');
-  const favoriteAccount = document.querySelector('.account__navigation-item--favorite');
-  const archiveAccount = document.querySelector('.account__navigation-item--archive');
-
- personAccount.addEventListener('click', function () {
-      document.querySelector('.account__navigation-item--active').classList.remove('account__navigation-item--active');
-      personAccount.classList.add('account__navigation-item--active');
-      document.querySelector('.account__form--personal').classList.add('.account__form--active');
-      document.querySelector('.account__form--personal').classList.remove('visually-hidden');
-      document.querySelector('.account__form--favorite').classList.add('visually-hidden');
-      document.querySelector('.account__form--archive').classList.add('visually-hidden');
-    });
-
-    favoriteAccount.addEventListener('click', function () {
-      document.querySelector('.account__navigation-item--active').classList.remove('account__navigation-item--active');
-      favoriteAccount.classList.add('account__navigation-item--active');
-      document.querySelector('.account__form--favorite').classList.add('.account__form--active');
-      document.querySelector('.account__form--favorite').classList.remove('visually-hidden');
-      document.querySelector('.account__form--personal').classList.add('visually-hidden');
-      document.querySelector('.account__form--archive').classList.add('visually-hidden');
-    });
-
-    archiveAccount.addEventListener('click', function () {
-      document.querySelector('.account__navigation-item--active').classList.remove('account__navigation-item--active');
-      archiveAccount.classList.add('account__navigation-item--active');
-      document.querySelector('.account__form--archive').classList.add('.account__form--active');
-      document.querySelector('.account__form--archive').classList.remove('visually-hidden');
-      document.querySelector('.account__form--personal').classList.add('visually-hidden');
-      document.querySelector('.account__form--favorite').classList.add('visually-hidden');
-    });
-
-
-
-const loginForm = document.querySelector('.log-in__navigation-item--login');
-const registrationForm = document.querySelector('.log-in__navigation-item--registration');
-
-loginForm.addEventListener('click', function () {
-  document.querySelector('.log-in__navigation-item--active').classList.remove('log-in__navigation-item--active');
-  loginForm.classList.add('log-in__navigation-item--active');
-  document.querySelector('.log-in__form--main').classList.add('.log-in__form--active');
-  document.querySelector('.log-in__form--main').classList.remove('visually-hidden');
-  document.querySelector('.log-in__form--registration').classList.add('visually-hidden');
-});
-
-registrationForm.addEventListener('click', function () {
-  document.querySelector('.log-in__navigation-item--active').classList.remove('log-in__navigation-item--active');
-  registrationForm.classList.add('log-in__navigation-item--active');
-  document.querySelector('.log-in__form--registration').classList.add('.log-in__form--active');
-  document.querySelector('.log-in__form--registration').classList.remove('visually-hidden');
-  document.querySelector('.log-in__form--main').classList.add('visually-hidden');
 });

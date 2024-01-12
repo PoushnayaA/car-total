@@ -25,6 +25,13 @@
 
 .log-in__form {
   padding: 11px 0;
+
+  .connection__text-container {
+    @include vp-768 {
+      flex-direction: column;
+    }
+
+  }
 }
 
 .connection__label {
