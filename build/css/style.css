@@ -2447,6 +2447,9 @@ main {
     margin-bottom: 80px;
   }
 }
+.lots .lots__item {
+  min-width: 224px;
+}
 
 .lots__main-wrapper {
   display: -webkit-box;
@@ -3304,6 +3307,10 @@ main {
   -webkit-box-shadow: 0 4px 26px 0 rgba(0, 0, 0, 0.0784313725);
           box-shadow: 0 4px 26px 0 rgba(0, 0, 0, 0.0784313725);
   z-index: 100;
+}
+
+.page--account .filter-sorting__select-list {
+  width: auto;
 }
 
 .filter-sorting__select-item {
@@ -4389,6 +4396,87 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+}
+
+.card__price {
+  margin: 20px 0;
+}
+
+.price-data {
+  display: none;
+}
+
+.authorization {
+  display: block;
+}
+
+.price-data__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.price-data__item {
+  border-radius: 15px;
+  -webkit-box-shadow: 0px 4px 26px 0px rgba(0, 0, 0, 0.0784313725);
+          box-shadow: 0px 4px 26px 0px rgba(0, 0, 0, 0.0784313725);
+  display: block;
+}
+
+.price-data__title {
+  color: #ffffff;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+  text-align: center;
+  background-color: #43B02A;
+  display: block;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding: 20px;
+}
+
+.price-data__price-container {
+  padding: 20px;
+}
+
+.price-data__price {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.price-data__price--extra {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.price-data__button {
+  font-weight: 500;
+  font-weight: 700;
+  line-height: 21px;
+  color: #ffffff;
+  background-color: #FE7333;
+  border: none;
+  padding: 15px;
+  border-radius: 15px;
+  width: 100%;
+}
+
+.price-data__button--transparent {
+  font-size: 18px;
+  line-height: 27px;
+  color: #FE7333;
+  background-color: transparent;
 }
 
 .contacts .accordion__element {

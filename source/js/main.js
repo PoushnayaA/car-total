@@ -11,45 +11,46 @@ import { initAccordions } from './modules/accordion/init-accordion';
 window.addEventListener('DOMContentLoaded', () => {
   iosVhFix();
 
-  function getTimeRemaining(endtime) {
-    var t = Date.parse(endtime) - Date.parse(new Date());
-    var seconds = Math.floor((t / 1000) % 60);
-    var minutes = Math.floor((t / 1000 / 60) % 60);
-    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-    var days = Math.floor(t / (1000 * 60 * 60 * 24));
-    return {
-      'total': t,
-      'days': days,
-      'hours': hours,
-      'minutes': minutes,
-      'seconds': seconds,
-    };
-  }
+  // function getTimeRemaining(endtime) {
+  //   var t = Date.parse(endtime) - Date.parse(new Date());
+  //   var seconds = Math.floor((t / 1000) % 60);
+  //   var minutes = Math.floor((t / 1000 / 60) % 60);
+  //   var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+  //   var days = Math.floor(t / (1000 * 60 * 60 * 24));
+  //   return {
+  //     'total': t,
+  //     'days': days,
+  //     'hours': hours,
+  //     'minutes': minutes,
+  //     'seconds': seconds,
+  //   };
+  // }
 
-  function initializeClock(timer, endtime, id) {
-    var clock = document.getElementById(id);
-    var daysSpan = clock.querySelector('.days');
-    var hoursSpan = clock.querySelector('.hours');
-    var minutesSpan = clock.querySelector('.minutes');
+  // function initializeClock(timer, endtime, id) {
+  //   var clock = document.getElementById(id);
+  //   if (clock) {
+  //   var daysSpan = clock.querySelector('.days');
+  //   var hoursSpan = clock.querySelector('.hours');
+  //   var minutesSpan = clock.querySelector('.minutes');
 
-    function updateClock() {
-      var t = getTimeRemaining(endtime);
+  //   function updateClock() {
+  //     var t = getTimeRemaining(endtime);
 
-      daysSpan.innerHTML = t.days;
-      hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-      minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+  //     daysSpan.innerHTML = t.days;
+  //     hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+  //     minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
 
-      if (t.total <= 0) {
-        clearInterval(timeinterval);
-      }
-    }
-    updateClock();
-    var timeinterval = setInterval(updateClock, 1000);
-  }
+  //     if (t.total <= 0) {
+  //       clearInterval(timeinterval);
+  //     }
+  //   }
+  //   updateClock();
+  //   var timeinterval = setInterval(updateClock, 1000);
+  // }
+  // }
 
-  const elements = document.querySelectorAll('.lots__timer');
-  elements.forEach(i => initializeClock('.countdown', i.dataset.deadline, i.id));
-  // initializeClock('countdown', element.dataset.deadline);
+  // const elements = document.querySelectorAll('.lots__timer');
+  // elements.forEach(i => initializeClock('.countdown', i.dataset.deadline, i.id));
 
   const loginForm = document.querySelector('.log-in__navigation-item--login');
 const registrationForm = document.querySelector('.log-in__navigation-item--registration');
@@ -106,12 +107,6 @@ const registrationForm = document.querySelector('.log-in__navigation-item--regis
     });
 
   }
-
-
-
-
-
-
 
   // window.addEventListener('load', () => {
     setTimeout(initLotsSlider(), 1000);

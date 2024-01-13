@@ -349,3 +349,80 @@
     flex-direction: row;
   }
 }
+
+.card__price {
+  margin: 20px 0;
+}
+
+.price-data {
+  display: none;
+}
+
+.authorization {
+  display: block;
+}
+
+.price-data__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price-data__item {
+  border-radius: 15px;
+  box-shadow: 0px 4px 26px 0px #00000014;
+  display: block;
+
+}
+
+.price-data__title {
+  color: $color-default-white;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+  text-align: center;
+  background-color: $color-burnt-atlantis;
+  display: block;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding: 20px;
+}
+
+.price-data__price-container {
+  padding: 20px;
+}
+
+.price-data__price {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.price-data__price--extra {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.price-data__button {
+  font-weight: 500;
+  font-weight: 700;
+  line-height: 21px;
+  color: $color-default-white;
+  background-color: $color-burnt-orange;
+  border: none;
+  padding: 15px;
+  border-radius: 15px;
+  width: 100%;
+}
+
+.price-data__button--transparent {
+  font-size: 18px;
+  line-height: 27px;
+  color: $color-burnt-orange;
+  background-color: transparent;
+}
