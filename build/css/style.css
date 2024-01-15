@@ -1453,7 +1453,7 @@ main {
 }
 @media (min-width: 768px) {
   .container {
-    width: 728px;
+    min-width: 728px;
     min-width: none;
   }
 }
