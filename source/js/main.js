@@ -1,5 +1,7 @@
 import { iosVhFix } from './utils/ios-vh-fix';
 
+import IMask from 'imask';
+
 import { initLotsSlider } from './modules/sliders/init-lots-slider';
 import { initNewsSlider } from './modules/sliders/init-news-slider';
 import { initPhotoSlider } from './modules/sliders/init-card-photo-slider';
@@ -51,9 +53,49 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // const elements = document.querySelectorAll('.lots__timer');
   // elements.forEach(i => initializeClock('.countdown', i.dataset.deadline, i.id));
+  const phoneMask = document.getElementById('phone');
+  const repeatPhoneMask = document.getElementById('phone-repeat');
+  const maskOptions = {
+    mask: '+{7} (000) 000-00-00',
+  };
+
+  if (phoneMask) {
+    const mask = IMask(phoneMask, maskOptions);
+  }
+
+  if (repeatPhoneMask) {
+    const mask = IMask(repeatPhoneMask, maskOptions);
+  }
+
+  const dateMask = document.getElementById('birth-date');
+
+  IMask(dateMask, {
+    mask: Date,
+    // lazy: false,
+    min: new Date(1900, 0, 1),
+    max: new Date(2024, 0, 1),
+
+    blocks: {
+      YYYY: {
+        mask: IMask.MaskedRange,
+        from: 1900,
+        to: 2024,
+      },
+      MM: {
+        mask: IMask.MaskedRange,
+        from: 1,
+        to: 12,
+      },
+      DD: {
+        mask: IMask.MaskedRange,
+        from: 1,
+        to: 31,
+      },
+    }
+  });
 
   const loginForm = document.querySelector('.log-in__navigation-item--login');
-const registrationForm = document.querySelector('.log-in__navigation-item--registration');
+  const registrationForm = document.querySelector('.log-in__navigation-item--registration');
 
   if (loginForm) {
     loginForm.addEventListener('click', function () {

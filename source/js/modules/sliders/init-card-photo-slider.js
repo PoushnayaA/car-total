@@ -1,3 +1,4 @@
+
 const sliderPhotos = document.querySelector('[data-slider="card-photo-swiper"]');
 
 const initPhotoSlider = () => {
@@ -42,6 +43,8 @@ const initPhotoSlider = () => {
       },
     });
   }
+
 };
+
 
 export {initPhotoSlider};
