@@ -1,13 +1,5 @@
 footer {
-  margin-top: 65px;
-
-  @include vp-768 {
-    margin-top: 81px;
-  }
-
-  @include vp-1440 {
-    margin-top: 120px;
-  }
+  margin-top: auto;
 }
 
 .footer__container {

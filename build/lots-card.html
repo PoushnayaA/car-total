@@ -8,6 +8,11 @@
   <meta name="description" content="Описание проекта">
   <title>Car-total</title>
 
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="img/favicons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="images/favicons/apple.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
   <link rel="stylesheet" href="css/style.min.css">
 
   <link rel="preload" href="fonts/sf-pro-display-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
@@ -17,7 +22,7 @@
 </head>
 
 <body>
-  <div class="page">
+  <div class="page page-card">
     <header class="page__header">
       <div class="navigation navigation--minor">
         <div class="navigation__wrapper">
@@ -31,7 +36,12 @@
               </div>
               <div class="navigation__select">
                 <button class="navigation__select-button" type="button" data-button="change-city">
-                  <span>Москва</span>
+                  <div>Москва</div>
+                  <span class="button__arrow">
+                    <svg class="arrow" width="9" height="5" viewBox="0 0 9 5" role="img">
+                      <use href="img/sprite.svg#arrow"></use>
+                    </svg>
+                  </span>
                 </button>
                 <ul class="navigation__select-list visually-hidden">
                   <li class="navigation__select-item navigation__select-item--active">Москва</li>
@@ -111,7 +121,7 @@
             <div class="card__container">
               <div class="card__name-wrapper">
                 <h3 class="card__title">Лот № 12674681</h3>
-                <div class="card__discription">BMW M2 Competition</div>
+                <div class="card__description">BMW M2 Competition</div>
               </div>
               <a class="card__print" href="print.html">
                 <svg width="20" height="20" viewBox="0 0 20 20" role="img">
@@ -123,50 +133,95 @@
           <div class="card__slider">
             <div class="swiper mySwiper2" data-slider="card-photo-swiper">
               <ul class="card__photo-list swiper-wrapper">
-                <li class="swiper-slide">
-                  <img src="./img/content/card-photo-1.jpg" />
+                <li class="lots__photo-item swiper-slide">
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-1.webp">
+                    <img src="./img/content/card-photo-1.jpg" />
+                  </picture>
                 </li>
                 <li class="lots__photo-item swiper-slide">
-                  <img src="./img/content/card-photo-2.jpg" />
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-2.webp">
+                    <img src="./img/content/card-photo-2.jpg" />
+                  </picture>
                 </li>
                 <li class="lots__photo-item swiper-slide">
-                  <img src="./img/content/card-photo-3.jpg" />
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-3.webp">
+                    <img src="./img/content/card-photo-3.jpg" />
+                  </picture>
                 </li>
                 <li class="lots__photo-item swiper-slide">
-                  <img src="./img/content/card-photo-4.jpg" />
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-4.webp">
+                    <img src="./img/content/card-photo-4.jpg" />
+                  </picture>
                 </li>
                 <li class="lots__photo-item swiper-slide">
-                  <img src="./img/content/card-photo-5.jpg" />
-                </li>
-                <li class="swiper-slide">
-                  <img src="./img/content/card-photo-1.jpg" />
-                </li>
-                <li class="lots__photo-item swiper-slide">
-                  <img src="./img/content/card-photo-2.jpg" />
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-5.webp">
+                    <img src="./img/content/card-photo-5.jpg" />
+                  </picture>
                 </li>
                 <li class="lots__photo-item swiper-slide">
-                  <img src="./img/content/card-photo-3.jpg" />
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-1.webp">
+                    <img src="./img/content/card-photo-1.jpg" />
+                  </picture>
                 </li>
                 <li class="lots__photo-item swiper-slide">
-                  <img src="./img/content/card-photo-4.jpg" />
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-2.webp">
+                    <img src="./img/content/card-photo-2.jpg" />
+                  </picture>
                 </li>
                 <li class="lots__photo-item swiper-slide">
-                  <img src="./img/content/card-photo-5.jpg" />
-                </li>
-                <li class="swiper-slide">
-                  <img src="./img/content/card-photo-1.jpg" />
-                </li>
-                <li class="lots__photo-item swiper-slide">
-                  <img src="./img/content/card-photo-2.jpg" />
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-3.webp">
+                    <img src="./img/content/card-photo-3.jpg" />
+                  </picture>
                 </li>
                 <li class="lots__photo-item swiper-slide">
-                  <img src="./img/content/card-photo-3.jpg" />
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-4.webp">
+                    <img src="./img/content/card-photo-4.jpg" />
+                  </picture>
                 </li>
                 <li class="lots__photo-item swiper-slide">
-                  <img src="./img/content/card-photo-4.jpg" />
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-5.webp">
+                    <img src="./img/content/card-photo-5.jpg" />
+                  </picture>
                 </li>
                 <li class="lots__photo-item swiper-slide">
-                  <img src="./img/content/card-photo-5.jpg" />
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-1.webp">
+                    <img src="./img/content/card-photo-1.jpg" />
+                  </picture>
+                </li>
+                <li class="lots__photo-item swiper-slide">
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-2.webp">
+                    <img src="./img/content/card-photo-2.jpg" />
+                  </picture>
+                </li>
+                <li class="lots__photo-item swiper-slide">
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-3.webp">
+                    <img src="./img/content/card-photo-3.jpg" />
+                  </picture>
+                </li>
+                <li class="lots__photo-item swiper-slide">
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-4.webp">
+                    <img src="./img/content/card-photo-4.jpg" />
+                  </picture>
+                </li>
+                <li class="lots__photo-item swiper-slide">
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-5.webp">
+                    <img src="./img/content/card-photo-5.jpg" />
+                  </picture>
                 </li>
               </ul>
               <div class="swiper-button-next"></div>
@@ -175,50 +230,95 @@
             </div>
             <div thumbsSlider="" class="swiper mySwiper3 swiper--desktop">
               <ul class="card__photo-list swiper-wrapper">
-                <li class="swiper-slide">
-                  <img src="./img/content/card-photo-1.jpg" />
+                <li class="lots__photo-item swiper-slide">
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-1.webp">
+                    <img src="./img/content/card-photo-1.jpg" />
+                  </picture>
                 </li>
                 <li class="lots__photo-item swiper-slide">
-                  <img src="./img/content/card-photo-2.jpg" />
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-2.webp">
+                    <img src="./img/content/card-photo-2.jpg" />
+                  </picture>
                 </li>
                 <li class="lots__photo-item swiper-slide">
-                  <img src="./img/content/card-photo-3.jpg" />
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-3.webp">
+                    <img src="./img/content/card-photo-3.jpg" />
+                  </picture>
                 </li>
                 <li class="lots__photo-item swiper-slide">
-                  <img src="./img/content/card-photo-4.jpg" />
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-4.webp">
+                    <img src="./img/content/card-photo-4.jpg" />
+                  </picture>
                 </li>
                 <li class="lots__photo-item swiper-slide">
-                  <img src="./img/content/card-photo-5.jpg" />
-                </li>
-                <li class="swiper-slide">
-                  <img src="./img/content/card-photo-1.jpg" />
-                </li>
-                <li class="lots__photo-item swiper-slide">
-                  <img src="./img/content/card-photo-2.jpg" />
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-5.webp">
+                    <img src="./img/content/card-photo-5.jpg" />
+                  </picture>
                 </li>
                 <li class="lots__photo-item swiper-slide">
-                  <img src="./img/content/card-photo-3.jpg" />
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-1.webp">
+                    <img src="./img/content/card-photo-1.jpg" />
+                  </picture>
+                </li>
+                <li class="lots__photo-item swiper-slide">
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-2.webp">
+                    <img src="./img/content/card-photo-2.jpg" />
+                  </picture>
+                </li>
+                <li class="lots__photo-item swiper-slide">
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-3.webp">
+                    <img src="./img/content/card-photo-3.jpg" />
+                  </picture>
                 </li>
                 <li class="lots__photo-item lots__photo-item--hidden swiper-slide">
-                  <img src="./img/content/card-photo-4.jpg" />
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-4.webp">
+                    <img src="./img/content/card-photo-4.jpg" />
+                  </picture>
                 </li>
                 <li class="lots__photo-item lots__photo-item--hidden swiper-slide">
-                  <img src="./img/content/card-photo-5.jpg" />
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-5.webp">
+                    <img src="./img/content/card-photo-5.jpg" />
+                  </picture>
                 </li>
                 <li class="lots__photo-item lots__photo-item--hidden swiper-slide">
-                  <img src="./img/content/card-photo-1.jpg" />
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-1.webp">
+                    <img src="./img/content/card-photo-1.jpg" />
+                  </picture>
                 </li>
                 <li class="lots__photo-item lots__photo-item--hidden swiper-slide">
-                  <img src="./img/content/card-photo-2.jpg" />
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-2.webp">
+                    <img src="./img/content/card-photo-2.jpg" />
+                  </picture>
                 </li>
                 <li class="lots__photo-item lots__photo-item--hidden swiper-slide">
-                  <img src="./img/content/card-photo-3.jpg" />
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-3.webp">
+                    <img src="./img/content/card-photo-3.jpg" />
+                  </picture>
                 </li>
                 <li class="lots__photo-item lots__photo-item--hidden swiper-slide">
-                  <img src="./img/content/card-photo-4.jpg" />
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-4.webp">
+                    <img src="./img/content/card-photo-4.jpg" />
+                  </picture>
                 </li>
                 <li class="lots__photo-item lots__photo-item--hidden swiper-slide">
-                  <img src="./img/content/card-photo-5.jpg" />
+                  <picture>
+                    <source type="image/jpeg" src="./img/content/card-photo-5.webp">
+                    <img src="./img/content/card-photo-5.jpg" />
+                  </picture>
                 </li>
               </ul>
               <button class="lots__more-button">Показать больше фотографий</button>
@@ -230,7 +330,7 @@
               <div class="card__container">
                 <div class="card__name-wrapper">
                   <h3 class="card__title">Лот № 12674681</h3>
-                  <div class="card__discription">BMW M2 Competition</div>
+                  <div class="card__description">BMW M2 Competition</div>
                 </div>
                 <a class="card__print" href="print.html">
                   <svg width="20" height="20" viewBox="0 0 20 20" role="img">
@@ -261,7 +361,7 @@
             <div class="card__price price-data authorization">
               <div class="price-data__wrapper">
                 <div class="price-data__item">
-                  <div class="price-data__title">Текущаяя цена</div>
+                  <div class="price-data__title">Текущая цена</div>
                   <div class="price-data__price-container">
                     <p class="price-data__price">1 555 000 ₽</p>
                     <p class="price-data__price price-data__price--extra">Лидирует другой участник</p>
@@ -270,12 +370,19 @@
                 <div class="price-data__item">
                   <div class="price-data__title">Ваша ставка</div>
                   <div class="price-data__price-container">
-                    <p class="price-data__price price-data__price--extra">Вы еще не сделали ставку</p>
+                    <p class="price-data__price price-data__price--extra price-data__price--wide">Вы еще не сделали ставку</p>
                   </div>
                 </div>
               </div>
               <button class="price-data__button price-data__button--transparent" type="button">Автоматическая ставка</button>
               <button class="price-data__button" type="button">Предложить 1 666 000 ₽</button>
+              <div class="price-card__reload">
+                <div class="price-card__reload-wrapper">
+                  <p class="price-card__title">Внимание!</p>
+                  <p class="price-card__text">Данные обновляются автоматически каждые 10 секунд.</p>
+                </div>
+                <button class="news__button price-card__reload-button price-card__reload-button--account" type="button">Обновить</button>
+              </div>
             </div>
             <div class="card__information">
               <ul class="card__information-list">
@@ -363,15 +470,18 @@
           </div>
           <div class="lots__container swiper mySwiper" data-slider="lots-swiper">
             <ul class="lots__list swiper-wrapper">
-              <li class="lots__item swiper-slide">
+              <li class="lots__item lots__item--favorite swiper-slide">
                 <a href="lots-card.html">
                   <div class="lots__img-wrapper">
-                    <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                    <picture>
+                      <source type="image/webp" width="192" height="167" srcset="./img/content/car-1.webp">
+                      <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                    </picture>
                   </div>
                   <div class="lots__text-wrapper">
                     <div class="lots__extra-inf-wrapper">
                       <p>Лот № 12674681</p>
-                      <svg width="14" height="18" viewBox="0 0 14 18" role="img">
+                      <svg class="favorite" width="14" height="18" viewBox="0 0 14 18" role="img">
                         <use href="img/sprite.svg#like"></use>
                       </svg>
                     </div>
@@ -402,54 +512,18 @@
                   </div>
                 </a>
               </li>
-              <li class="lots__item swiper-slide">
+              <li class="lots__item lots__item--favorite swiper-slide">
                 <a href="lots-card.html">
                   <div class="lots__img-wrapper">
-                    <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
-                  </div>
-                  <div class="lots__text-wrapper">
-                    <div class="lots__extra-inf-wrapper">
-                      <p>Лот № 12674682</p>
-                      <svg width="14" height="18" viewBox="0 0 14 18" role="img">
-                        <use href="img/sprite.svg#like"></use>
-                      </svg>
-                    </div>
-                    <div class="lots__description">
-                      <h3 class="lots__lot-name">BMW M2 Competition</h3>
-                      <p class="lots__description-item">Начальная цена <span>1 222 000 ₽</span></p>
-                      <p class="lots__description-item">Местоположение <span>Санкт-Петербург</span></p>
-                    </div>
-                    <div class="lots__timer">
-                      <div class="countdown-title lots__description-item">До окончания торгов</div>
-                      <div class="countdown">
-                        <div class="countdown-number">
-                          <span class="days countdown-time"></span>
-                          <span class="countdown-text">15 дн.</span>
-                        </div>
-                        <span class="countdown-decoration"> : </span>
-                        <div class="countdown-number">
-                          <span class="hours countdown-time"></span>
-                          <span class="countdown-text">14 ч.</span>
-                        </div>
-                        <span class="countdown-decoration"> : </span>
-                        <div class="countdown-number">
-                          <span class="minutes countdown-time"></span>
-                          <span class="countdown-text">12 мин.</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li class="lots__item swiper-slide">
-                <a href="lots-card.html">
-                  <div class="lots__img-wrapper">
-                    <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                    <picture>
+                      <source type="image/webp" width="192" height="167" srcset="./img/content/car-1.webp">
+                      <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                    </picture>
                   </div>
                   <div class="lots__text-wrapper">
                     <div class="lots__extra-inf-wrapper">
                       <p>Лот № 12674681</p>
-                      <svg width="14" height="18" viewBox="0 0 14 18" role="img">
+                      <svg class="favorite" width="14" height="18" viewBox="0 0 14 18" role="img">
                         <use href="img/sprite.svg#like"></use>
                       </svg>
                     </div>
@@ -483,12 +557,57 @@
               <li class="lots__item swiper-slide">
                 <a href="lots-card.html">
                   <div class="lots__img-wrapper">
-                    <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                    <picture>
+                      <source type="image/webp" width="192" height="167" srcset="./img/content/car-1.webp">
+                      <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                    </picture>
                   </div>
                   <div class="lots__text-wrapper">
                     <div class="lots__extra-inf-wrapper">
-                      <p>Лот № 12674682</p>
-                      <svg width="14" height="18" viewBox="0 0 14 18" role="img">
+                      <p>Лот № 12674681</p>
+                      <svg class="favorite" width="14" height="18" viewBox="0 0 14 18" role="img">
+                        <use href="img/sprite.svg#like"></use>
+                      </svg>
+                    </div>
+                    <div class="lots__description">
+                      <h3 class="lots__lot-name">BMW M2 Competition</h3>
+                      <p class="lots__description-item">Начальная цена <span>1 222 000 ₽</span></p>
+                      <p class="lots__description-item">Местоположение <span>Санкт-Петербург</span></p>
+                    </div>
+                    <div class="lots__timer">
+                      <div class="countdown-title lots__description-item">До окончания торгов</div>
+                      <div class="countdown">
+                        <div class="countdown-number">
+                          <span class="days countdown-time"></span>
+                          <span class="countdown-text">15 дн.</span>
+                        </div>
+                        <span class="countdown-decoration"> : </span>
+                        <div class="countdown-number">
+                          <span class="hours countdown-time"></span>
+                          <span class="countdown-text">14 ч.</span>
+                        </div>
+                        <span class="countdown-decoration"> : </span>
+                        <div class="countdown-number">
+                          <span class="minutes countdown-time"></span>
+                          <span class="countdown-text">12 мин.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="lots__item swiper-slide">
+                <a href="lots-card.html">
+                  <div class="lots__img-wrapper">
+                    <picture>
+                      <source type="image/webp" width="192" height="167" srcset="./img/content/car-1.webp">
+                      <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                    </picture>
+                  </div>
+                  <div class="lots__text-wrapper">
+                    <div class="lots__extra-inf-wrapper">
+                      <p>Лот № 12674681</p>
+                      <svg class="favorite" width="14" height="18" viewBox="0 0 14 18" role="img">
                         <use href="img/sprite.svg#like"></use>
                       </svg>
                     </div>

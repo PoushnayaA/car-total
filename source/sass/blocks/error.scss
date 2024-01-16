@@ -1,0 +1,63 @@
+.container--error {
+  padding: 10px 20px 0;
+  min-width: 320px;
+
+  @include vp-768 {
+    padding: 90px 130px;
+    min-width: 728px;
+    margin: 0 auto;
+  }
+}
+
+.error {
+  @include vp-768 {}
+
+  svg {
+    @include vp-768 {
+      width: 240px;
+      height: 93px;
+      margin-bottom: 14px;
+    }
+
+    @include vp-1440 {
+      width: 292px;
+      height: 114px;
+    }
+  }
+}
+
+.error__text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+
+  @include vp-768 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  a {
+    color: $color-burnt-atlantis;
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+  }
+}
+
+
+.error-message {
+  color: #EB5757;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  margin: 2px 0;
+}
+
+.connection__field--error {
+  border-color: #EB5757;
+}

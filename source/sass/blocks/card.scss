@@ -1,7 +1,11 @@
-// .swiper-slide {
-//   flex-shrink: 1;
-// }
 .card-page {
+  .lots__description-item {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    margin-top: 20px;
+  }
+
   .swiper-slide {
     text-align: center;
     font-size: 18px;
@@ -11,10 +15,11 @@
     align-items: center;
     background-size: cover;
     background-position: center;
+    cursor: pointer;
   }
 
   .card__photo-list {
-    padding-bottom: 20px;
+    padding-bottom: 40px;
   }
 
   .swiper-pagination-bullets {
@@ -45,11 +50,21 @@
   .mySwiper3 .swiper-slide {
     width: 100%;
     height: 100%;
-    opacity: 0.4;
+    border-radius: 15px;
+  }
+
+  .mySwiper3 .swiper-slide {
+    border: 1px solid transparent;
+
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: $color-burnt-atlantis;
+    }
   }
 
   .mySwiper3 .swiper-slide-thumb-active {
-    opacity: 1;
+    border-color: $color-burnt-orange;
   }
 
   .swiper-slide img {
@@ -101,6 +116,14 @@
   font-weight: 500;
   line-height: 27px;
   color: $color-burnt-orange;
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    color: #FF9151;
+  }
 }
 
 .card__text-wrapper--mobile {
@@ -130,13 +153,29 @@
   font-weight: 500;
   line-height: 27px;
   color: $color-nero;
+
+  @include vp-768 {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 31px;
+    margin-bottom: 15px;
+  }
+
+  @include vp-1440 {
+    margin-top: 50px;
+  }
 }
 
-.card__discription {
+.card__description {
   font-size: 24px;
   font-weight: 500;
   line-height: 31px;
   color: $color-nero;
+
+  @include vp-768 {
+    font-size: 32px;
+    line-height: 42px;
+  }
 }
 
 .card__print {}
@@ -147,9 +186,10 @@
 }
 
 .card__information-list {
+  margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(auto-fit, 1fr);
-  gap: 20px;
+  gap: 16px;
 
   @include vp-768 {
     grid-template-columns: 1fr 1fr;
@@ -181,11 +221,17 @@
 
 .card__information-wrapper {
   @include vp-1440 {
-    width: 50%;
+    width: 40%;
   }
 }
 
 .card__slider {
+  margin-top: 25px;
+
+  @include vp-768 {
+    margin-top: 30px;
+  }
+
   @include vp-1440 {
     max-width: 608px;
     max-height: 456px;
@@ -197,6 +243,11 @@
     max-width: 608px;
     max-height: 456px;
   }
+}
+
+.mySwiper2 picture {
+  width: 100%;
+  height: 100%;
 }
 
 .mySwiper2 .swiper-wrapper {
@@ -218,9 +269,32 @@
 }
 
 .card__information--extra {
+  position: relative;
+  padding: 40px 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 30px;
+    width: 100%;
+    height: 1px;
+    background-color: $color-gainsboro;
+  }
+
+  .card__information-list--border {
+    gap: 3px;
+  }
+
+  .card__information-list--last {
+    margin-top: 10px;
+  }
+
   .card__information-list--border .card__information-item {
     border: none;
     position: relative;
+    padding-left: 0;
 
     &::after {
       content: "";
@@ -284,6 +358,14 @@
     line-height: 27px;
     text-align: center;
     color: $color-burnt-orange;
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: underline;
+      text-underline-offset: 6px;
+      color: #FF9151;
+    }
   }
 }
 
@@ -352,19 +434,24 @@
 
 .card__price {
   margin: 20px 0;
-}
 
-.price-data {
-  display: none;
-}
-
-.authorization {
-  display: block;
+  @include vp-768 {
+    margin: 50px 0 40px;
+  }
 }
 
 .price-data__wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  gap: 16px;
+
+  @include vp-768 {
+    flex-direction: row;
+    margin-bottom: 13px;
+  }
+
+  @include vp-1440 {}
 }
 
 .price-data__item {
@@ -372,6 +459,9 @@
   box-shadow: 0px 4px 26px 0px #00000014;
   display: block;
 
+  @include vp-768 {
+    width: 100%;
+  }
 }
 
 .price-data__title {
@@ -386,10 +476,39 @@
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   padding: 20px;
+
+  @include vp-768 {
+    font-size: 24px;
+    line-height: 31px;
+    padding: 16px;
+  }
+}
+
+.price-data {
+  @include vp-768 {
+    display: flex;
+    flex-direction: column;
+  }
+
 }
 
 .price-data__price-container {
   padding: 20px;
+
+  @include vp-768 {
+    // min-height: 143px;
+    padding: 0 10px;
+  }
+
+  .price-data__price--extra {
+    @include vp-768 {
+      // margin-top: 0px;
+    }
+  }
+
+  .price-data__price--wide {
+    margin-top: 33px;
+  }
 }
 
 .price-data__price {
@@ -398,6 +517,15 @@
   line-height: 27px;
   letter-spacing: 0em;
   text-align: center;
+
+  @include vp-768 {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 31px;
+    margin-top: 18px;
+    margin-bottom: 6px;
+  }
+
 }
 
 .price-data__price--extra {
@@ -409,8 +537,8 @@
 }
 
 .price-data__button {
-  font-weight: 500;
   font-weight: 700;
+  font-size: 18px;
   line-height: 21px;
   color: $color-default-white;
   background-color: $color-burnt-orange;
@@ -418,11 +546,111 @@
   padding: 15px;
   border-radius: 15px;
   width: 100%;
+
+  @include vp-768 {
+    width: 352px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
 }
 
 .price-data__button--transparent {
   font-size: 18px;
+  font-weight: 500;
   line-height: 27px;
   color: $color-burnt-orange;
   background-color: transparent;
+
+  @include vp-768 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+
+  @include vp-768 {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 31px;
+  }
+}
+
+.card-page .countdown-number {
+  padding: 12px;
+
+  @include vp-768 {
+    padding: 8px;
+  }
+}
+
+.card-page .countdown-text {
+  @include vp-768 {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+  }
+}
+
+.card__price.authorization {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: -30px;
+    width: 100%;
+    height: 1px;
+    background-color: $color-gainsboro;
+  }
+}
+
+
+.price-card__reload {
+  box-shadow: 0px 4px 26px 0px #00000014;
+  border-radius: 15px;
+  margin: 24px 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px 8px;
+
+  @include vp-768 {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 15px;
+  }
+
+  @include vp-1440 {
+    flex-direction: column;
+  }
+}
+.price-card__reload-wrapper {
+}
+.price-card__title {
+font-size: 18px;
+font-weight: 500;
+line-height: 27px;
+color: $color-burnt-atlantis;
+}
+.price-card__text {
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+color: #686868;
+@include vp-768 {
+  margin-bottom: 0;
+}
+}
+.price-card__reload-button {
+  background-color: transparent;
+  @include vp-768 {
+    width: 200px;
+  }
+  @include vp-1440 {
+    width: 100%;
+  }
 }

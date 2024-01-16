@@ -8,6 +8,11 @@
   <meta name="description" content="Описание проекта">
   <title>Car-total</title>
 
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="img/favicons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="images/favicons/apple.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
   <link rel="stylesheet" href="css/style.min.css">
 
   <link rel="preload" href="fonts/sf-pro-display-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
@@ -32,6 +37,11 @@
               <div class="navigation__select">
                 <button class="navigation__select-button" type="button" data-button="change-city">
                   <div>Москва</div>
+                  <span class="button__arrow">
+                    <svg class="arrow" width="9" height="5" viewBox="0 0 9 5" role="img">
+                      <use href="img/sprite.svg#arrow"></use>
+                    </svg>
+                  </span>
                 </button>
                 <ul class="navigation__select-list visually-hidden">
                   <li class="navigation__select-item navigation__select-item--active">Москва</li>
@@ -70,7 +80,7 @@
               <li class="navigation__item"><a href="contacts.html">Контакты</a></li>
               <li class="navigation__item navigation__item--mobile">
                 Офис и стоянка:
-              <a href="tel:+74997024331">8 499 702 43 31</a>
+                <a href="tel:+74997024331">8 499 702 43 31</a>
               </li>
             </ul>
           </div>
@@ -109,21 +119,30 @@
             </h2>
           </div>
           <div class="filter__container">
+            <form id="filter-form" action="" method="POST"></form>
             <div class="filter__option-wrapper filter__option-wrapper--category">
               <div class="filter__option-label">Категория</div>
               <div class="dropdown">
-                <button class="dropdown__button">Выберите категорию</button>
+                <button class="dropdown__button">Выберите категорию<span class="button__arrow">
+                  <svg class="arrow" width="9" height="5" viewBox="0 0 9 5" role="img">
+                    <use href="img/sprite.svg#arrow"></use>
+                  </svg>
+                </span></button>
                 <ul class="dropdown__list">
                   <li class="dropdown__list-item" data-value="car">Автомобиль</li>
                   <li class="dropdown__list-item" data-value="motorbike">Мотоцикл</li>
                 </ul>
-                <input type="text" name="select-category" value="default" class="dropdown__input-hidden">
+                <input type="text" name="select-category" data-option="default" class="dropdown__input-hidden">
               </div>
             </div>
             <div class="filter__option-wrapper filter__option-wrapper--region">
               <div class="filter__option-label">Регион</div>
               <div class="dropdown">
-                <button class="dropdown__button">Выберите регион</button>
+                <button class="dropdown__button">Выберите регион<span class="button__arrow">
+                  <svg class="arrow" width="9" height="5" viewBox="0 0 9 5" role="img">
+                    <use href="img/sprite.svg#arrow"></use>
+                  </svg>
+                </span></button>
                 <ul class="dropdown__list">
                   <li class="dropdown__list-item" data-value="709">Центральный Ф.О.</li>
                   <li class="dropdown__list-item" data-value="712">Дальневосточный Ф.О.</li>
@@ -134,26 +153,34 @@
                   <li class="dropdown__list-item" data-value="714">Уральский Ф.О.</li>
                   <li class="dropdown__list-item" data-value="710">Южный Ф.О.</li>
                 </ul>
-                <input type="text" name="select-region" value="default" class="dropdown__input-hidden">
+                <input type="text" name="select-region" data-option="default" class="dropdown__input-hidden">
               </div>
             </div>
             <div class="filter__option-wrapper filter__option-wrapper--status">
               <div class="filter__option-label">Статус лота</div>
               <div class="dropdown">
-                <button class="dropdown__button">Все
+                <button class="dropdown__button">Все<span class="button__arrow">
+                  <svg class="arrow" width="9" height="5" viewBox="0 0 9 5" role="img">
+                    <use href="img/sprite.svg#arrow"></use>
+                  </svg>
+                </span>
                 </button>
                 <ul class="dropdown__list">
                   <li class="dropdown__list-item" data-value="559">Все</li>
                   <li class="dropdown__list-item" data-value="721">Ожидаемые</li>
                   <li class="dropdown__list-item" data-value="818">В торгах</li>
                 </ul>
-                <input type="text" name="select-status" value="default" class="dropdown__input-hidden">
+                <input type="text" name="select-status" data-option="default" class="dropdown__input-hidden">
               </div>
             </div>
             <div class="filter__option-wrapper filter__option-wrapper--brand">
               <div class="filter__option-label">Марка</div>
               <div class="dropdown">
-                <button class="dropdown__button">Выберите марку</button>
+                <button class="dropdown__button">Выберите марку<span class="button__arrow">
+                  <svg class="arrow" width="9" height="5" viewBox="0 0 9 5" role="img">
+                    <use href="img/sprite.svg#arrow"></use>
+                  </svg>
+                </span></button>
                 <ul class="dropdown__list">
                   <li class="dropdown__list-item" data-value="586">BMW</li>
                   <li class="dropdown__list-item" data-value="568">AUDI</li>
@@ -173,23 +200,31 @@
                   <li class="dropdown__list-item" data-value="642">ВАЗ</li>
                   <li class="dropdown__list-item" data-value="877">ЛУИДОР</li>
                 </ul>
-                <input type="text" name="select-brand" value="default" class="dropdown__input-hidden">
+                <input type="text" name="select-brand" data-option="default" class="dropdown__input-hidden">
               </div>
             </div>
             <div class="filter__option-wrapper filter__option-wrapper--model">
               <div class="filter__option-label">Модель</div>
               <div class="dropdown">
-                <button class="dropdown__button">Выберите модель</button>
+                <button class="dropdown__button">Выберите модель<span class="button__arrow">
+                  <svg class="arrow" width="9" height="5" viewBox="0 0 9 5" role="img">
+                    <use href="img/sprite.svg#arrow"></use>
+                  </svg>
+                </span></button>
                 <ul class="dropdown__list">
                   <li class="dropdown__list-item" data-value="">-</li>
                 </ul>
-                <input type="text" name="select-model" value="default" class="dropdown__input-hidden">
+                <input type="text" name="select-model" data-option="default" class="dropdown__input-hidden">
               </div>
             </div>
             <div class="filter__option-wrapper filter__option-wrapper--year">
               <div class="filter__option-label">Год выпуска</div>
               <div class="dropdown">
-                <button class="dropdown__button">Выберите год выпуска</button>
+                <button class="dropdown__button">Выберите год выпуска<span class="button__arrow">
+                  <svg class="arrow" width="9" height="5" viewBox="0 0 9 5" role="img">
+                    <use href="img/sprite.svg#arrow"></use>
+                  </svg>
+                </span></button>
                 <ul class="dropdown__list">
                   <li class="dropdown__list-item" data-value="255">1973</li>
                   <li class="dropdown__list-item" data-value="767">1992</li>
@@ -216,21 +251,26 @@
                   <li class="dropdown__list-item" data-value="2446">2022</li>
                   <li class="dropdown__list-item" data-value="2639">2023</li>
                 </ul>
-                <input type="text" name="select-year" value="default" class="dropdown__input-hidden">
+                <input type="text" name="select-year" data-option="default" class="dropdown__input-hidden">
               </div>
             </div>
             <div class="filter__option-wrapper filter__option-wrapper--transmission">
               <div class="filter__option-label">Коробка передач</div>
               <div class="dropdown">
-                <button class="dropdown__button">Выберите коробку передач</button>
+                <button class="dropdown__button">Выберите коробку передач<span class="button__arrow">
+                  <svg class="arrow" width="9" height="5" viewBox="0 0 9 5" role="img">
+                    <use href="img/sprite.svg#arrow"></use>
+                  </svg>
+                </span></button>
                 <ul class="dropdown__list">
                   <li class="dropdown__list-item" data-value="13">АКПП</li>
                   <li class="dropdown__list-item" data-value="12">МКПП</li>
                   <li class="dropdown__list-item" data-value="675">РОБОТ</li>
                 </ul>
-                <input type="text" name="select-transmission" value="default" class="dropdown__input-hidden">
+                <input type="text" name="select-transmission" data-option="default" class="dropdown__input-hidden">
               </div>
             </div>
+            </form>
             <button form="filter-form" class="filter__submit" type="submit">Применить</button>
             <button form="filter-form" class="filter__reset visually-hidden" type="reset">
               <svg width="24" height="24" viewBox="0 0 24 24" role="img">
@@ -238,9 +278,15 @@
               </svg>
               Сбросить фильтры
             </button>
-            <form id="filter-form" class="visually-hidden" action="" method="POST">
-
-            </form>
+            <!-- <form id="filter-form" class="visually-hidden" action="" method="POST">
+              <input type="text" id="select-category" name="select-category" value="default" class="dropdown__input-hidden">
+              <input type="text" id="select-region" name="select-region" value="default" class="dropdown__input-hidden">
+              <input type="text" id="select-status" name="select-status" value="default" class="dropdown__input-hidden">
+              <input type="text" id="select-brand" name="select-brand" value="default" class="dropdown__input-hidden">
+              <input type="text" id="select-model" name="select-model" value="default" class="dropdown__input-hidden">
+              <input type="text" id="select-year" name="select-year" value="default" class="dropdown__input-hidden">
+              <input type="text" id="select-transmission" name="select-transmission" value="default" class="dropdown__input-hidden">
+            </form> -->
           </div>
         </div>
       </section>
@@ -252,10 +298,13 @@
               <div class="filter-sorting">
                 <div class="filter-sorting__select" data-filter="default">
                   <button class="filter-sorting__select-button" type="button" data-button="change-filter">
-                    <svg width="24" height="24" viewBox="0 0 24 24" role="img">
+                    <svg class="sorting" width="24" height="24" viewBox="0 0 24 24" role="img">
                       <use href="img/sprite.svg#filter"></use>
                     </svg>
-                    <div class="filter-sorting__select-button">Сортировать</div>
+                    <div class="filter-sorting__select-button-one">Сортировать</div>
+                    <svg class="arrow" width="9" height="5" viewBox="0 0 9 5" role="img">
+                      <use href="img/sprite.svg#arrow"></use>
+                    </svg>
                   </button>
                   <ul class="filter-sorting__select-list visually-hidden">
                     <li class="filter-sorting__select-item filter-sorting__select-item--active" data-filter="lh-price">
@@ -269,239 +318,245 @@
               </div>
             </div>
             <ul class="lots__list">
-              <li class="lots__item">
+              <li class="lots__item lots__item--favorite">
                 <a href="lots-card.html">
-                  <div class="lots__img-wrapper">
-                    <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                <div class="lots__img-wrapper">
+                  <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                </div>
+                <div class="lots__text-wrapper">
+                  <div class="lots__extra-inf-wrapper">
+                    <p>Лот № 12674681</p>
+                    <svg class="favorite" width="14" height="18" viewBox="0 0 14 18" role="img">
+                      <use href="img/sprite.svg#like"></use>
+                    </svg>
                   </div>
-                  <div class="lots__text-wrapper">
-                    <div class="lots__extra-inf-wrapper">
-                      <p>Лот № 12674681</p>
-                      <svg width="14" height="18" viewBox="0 0 14 18" role="img">
-                        <use href="img/sprite.svg#like"></use>
-                      </svg>
-                    </div>
                     <div class="lots__description">
                       <h3 class="lots__lot-name">BMW M2 Competition</h3>
                       <p class="lots__description-item">Начальная цена <span>1 222 000 ₽</span></p>
-                      <p class="lots__description-item"><span class="city">Местоположение</span> <span>Санкт-Петербург</span></p>
+                      <p class="lots__description-item"><span class="city">Местоположение</span>
+                        <span>Санкт-Петербург</span></p>
                     </div>
-                    <div class="lots__timer" id="lots__timer-1" data-deadline="March 05 2024 17:15:00 GMT+0300">
-                      <div class="countdown-title lots__description-item">До окончания торгов</div>
-                      <div  class="countdown">
-                        <div class="countdown-number">
-                          <span class="days countdown-time"></span>
-                          <span class="countdown-text">дн.</span>
-                        </div>
-                        <span class="countdown-decoration"> : </span>
-                        <div class="countdown-number">
-                          <span class="hours countdown-time"></span>
-                          <span class="countdown-text">ч.</span>
-                        </div>
-                        <span class="countdown-decoration"> : </span>
-                        <div class="countdown-number">
-                          <span class="minutes countdown-time"></span>
-                          <span class="countdown-text">мин.</span>
-                        </div>
+                  <div class="lots__timer">
+                    <div class="countdown-title lots__description-item">До окончания торгов</div>
+                    <div class="countdown">
+                      <div class="countdown-number">
+                        <span class="days countdown-time"></span>
+                        <span class="countdown-text">5 дн.</span>
+                      </div>
+                      <span class="countdown-decoration"> : </span>
+                      <div class="countdown-number">
+                        <span class="hours countdown-time"></span>
+                        <span class="countdown-text">6 ч.</span>
+                      </div>
+                      <span class="countdown-decoration"> : </span>
+                      <div class="countdown-number">
+                        <span class="minutes countdown-time"></span>
+                        <span class="countdown-text">20 мин.</span>
                       </div>
                     </div>
                   </div>
-                </a>
+                </div>
+              </a>
+              </li>
+              <li class="lots__item lots__item--favorite">
+                <a href="lots-card.html">
+                <div class="lots__img-wrapper">
+                  <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                </div>
+                <div class="lots__text-wrapper">
+                  <div class="lots__extra-inf-wrapper">
+                    <p>Лот № 12674681</p>
+                    <svg class="favorite" width="14" height="18" viewBox="0 0 14 18" role="img">
+                      <use href="img/sprite.svg#like"></use>
+                    </svg>
+                  </div>
+                    <div class="lots__description">
+                      <h3 class="lots__lot-name">BMW M2 Competition</h3>
+                      <p class="lots__description-item">Начальная цена <span>1 222 000 ₽</span></p>
+                      <p class="lots__description-item"><span class="city">Местоположение</span>
+                        <span>Санкт-Петербург</span></p>
+                    </div>
+                  <div class="lots__timer">
+                    <div class="countdown-title lots__description-item">До окончания торгов</div>
+                    <div class="countdown">
+                      <div class="countdown-number">
+                        <span class="days countdown-time"></span>
+                        <span class="countdown-text">5 дн.</span>
+                      </div>
+                      <span class="countdown-decoration"> : </span>
+                      <div class="countdown-number">
+                        <span class="hours countdown-time"></span>
+                        <span class="countdown-text">6 ч.</span>
+                      </div>
+                      <span class="countdown-decoration"> : </span>
+                      <div class="countdown-number">
+                        <span class="minutes countdown-time"></span>
+                        <span class="countdown-text">20 мин.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
               </li>
               <li class="lots__item">
                 <a href="lots-card.html">
-                  <div class="lots__img-wrapper">
-                    <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                <div class="lots__img-wrapper">
+                  <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                </div>
+                <div class="lots__text-wrapper">
+                  <div class="lots__extra-inf-wrapper">
+                    <p>Лот № 12674681</p>
+                    <svg class="favorite" width="14" height="18" viewBox="0 0 14 18" role="img">
+                      <use href="img/sprite.svg#like"></use>
+                    </svg>
                   </div>
-                  <div class="lots__text-wrapper">
-                    <div class="lots__extra-inf-wrapper">
-                      <p>Лот № 12674681</p>
-                      <svg width="14" height="18" viewBox="0 0 14 18" role="img">
-                        <use href="img/sprite.svg#like"></use>
-                      </svg>
-                    </div>
                     <div class="lots__description">
                       <h3 class="lots__lot-name">BMW M2 Competition</h3>
                       <p class="lots__description-item">Начальная цена <span>1 222 000 ₽</span></p>
-                      <p class="lots__description-item"><span class="city">Местоположение</span> <span>Санкт-Петербург</span></p>
+                      <p class="lots__description-item"><span class="city">Местоположение</span>
+                        <span>Санкт-Петербург</span></p>
                     </div>
-                    <div class="lots__timer" id="lots__timer-2" data-deadline="March 23 2024 17:00:00 GMT+0300">
-                      <div class="countdown-title lots__description-item">До окончания торгов</div>
-                      <div  class="countdown">
-                        <div class="countdown-number">
-                          <span class="days countdown-time"></span>
-                          <span class="countdown-text">дн.</span>
-                        </div>
-                        <span class="countdown-decoration"> : </span>
-                        <div class="countdown-number">
-                          <span class="hours countdown-time"></span>
-                          <span class="countdown-text">ч.</span>
-                        </div>
-                        <span class="countdown-decoration"> : </span>
-                        <div class="countdown-number">
-                          <span class="minutes countdown-time"></span>
-                          <span class="countdown-text">мин.</span>
-                        </div>
+                  <div class="lots__timer">
+                    <div class="countdown-title lots__description-item">До окончания торгов</div>
+                    <div class="countdown">
+                      <div class="countdown-number">
+                        <span class="days countdown-time"></span>
+                        <span class="countdown-text">5 дн.</span>
+                      </div>
+                      <span class="countdown-decoration"> : </span>
+                      <div class="countdown-number">
+                        <span class="hours countdown-time"></span>
+                        <span class="countdown-text">6 ч.</span>
+                      </div>
+                      <span class="countdown-decoration"> : </span>
+                      <div class="countdown-number">
+                        <span class="minutes countdown-time"></span>
+                        <span class="countdown-text">20 мин.</span>
                       </div>
                     </div>
                   </div>
-                </a>
+                </div>
+              </a>
+              </li>
+              <li class="lots__item lots__item--favorite">
+                <a href="lots-card.html">
+                <div class="lots__img-wrapper">
+                  <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                </div>
+                <div class="lots__text-wrapper">
+                  <div class="lots__extra-inf-wrapper">
+                    <p>Лот № 12674681</p>
+                    <svg class="favorite" width="14" height="18" viewBox="0 0 14 18" role="img">
+                      <use href="img/sprite.svg#like"></use>
+                    </svg>
+                  </div>
+                    <div class="lots__description">
+                      <h3 class="lots__lot-name">BMW M2 Competition</h3>
+                      <p class="lots__description-item">Начальная цена <span>1 222 000 ₽</span></p>
+                      <p class="lots__description-item"><span class="city">Местоположение</span>
+                        <span>Санкт-Петербург</span></p>
+                    </div>
+                  <div class="lots__timer">
+                    <div class="countdown-title lots__description-item">До окончания торгов</div>
+                    <div class="countdown">
+                      <div class="countdown-number">
+                        <span class="days countdown-time"></span>
+                        <span class="countdown-text">5 дн.</span>
+                      </div>
+                      <span class="countdown-decoration"> : </span>
+                      <div class="countdown-number">
+                        <span class="hours countdown-time"></span>
+                        <span class="countdown-text">6 ч.</span>
+                      </div>
+                      <span class="countdown-decoration"> : </span>
+                      <div class="countdown-number">
+                        <span class="minutes countdown-time"></span>
+                        <span class="countdown-text">20 мин.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              </li>
+              <li class="lots__item lots__item--favorite">
+                <a href="lots-card.html">
+                <div class="lots__img-wrapper">
+                  <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                </div>
+                <div class="lots__text-wrapper">
+                  <div class="lots__extra-inf-wrapper">
+                    <p>Лот № 12674681</p>
+                    <svg class="favorite" width="14" height="18" viewBox="0 0 14 18" role="img">
+                      <use href="img/sprite.svg#like"></use>
+                    </svg>
+                  </div>
+                    <div class="lots__description">
+                      <h3 class="lots__lot-name">BMW M2 Competition</h3>
+                      <p class="lots__description-item">Начальная цена <span>1 222 000 ₽</span></p>
+                      <p class="lots__description-item"><span class="city">Местоположение</span>
+                        <span>Санкт-Петербург</span></p>
+                    </div>
+                  <div class="lots__timer">
+                    <div class="countdown-title lots__description-item">До окончания торгов</div>
+                    <div class="countdown">
+                      <div class="countdown-number">
+                        <span class="days countdown-time"></span>
+                        <span class="countdown-text">5 дн.</span>
+                      </div>
+                      <span class="countdown-decoration"> : </span>
+                      <div class="countdown-number">
+                        <span class="hours countdown-time"></span>
+                        <span class="countdown-text">6 ч.</span>
+                      </div>
+                      <span class="countdown-decoration"> : </span>
+                      <div class="countdown-number">
+                        <span class="minutes countdown-time"></span>
+                        <span class="countdown-text">20 мин.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
               </li>
               <li class="lots__item">
                 <a href="lots-card.html">
-                  <div class="lots__img-wrapper">
-                    <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                <div class="lots__img-wrapper">
+                  <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                </div>
+                <div class="lots__text-wrapper">
+                  <div class="lots__extra-inf-wrapper">
+                    <p>Лот № 12674681</p>
+                    <svg class="favorite" width="14" height="18" viewBox="0 0 14 18" role="img">
+                      <use href="img/sprite.svg#like"></use>
+                    </svg>
                   </div>
-                  <div class="lots__text-wrapper">
-                    <div class="lots__extra-inf-wrapper">
-                      <p>Лот № 12674681</p>
-                      <svg width="14" height="18" viewBox="0 0 14 18" role="img">
-                        <use href="img/sprite.svg#like"></use>
-                      </svg>
-                    </div>
                     <div class="lots__description">
                       <h3 class="lots__lot-name">BMW M2 Competition</h3>
                       <p class="lots__description-item">Начальная цена <span>1 222 000 ₽</span></p>
-                      <p class="lots__description-item"><span class="city">Местоположение</span> <span>Санкт-Петербург</span></p>
+                      <p class="lots__description-item"><span class="city">Местоположение</span>
+                        <span>Санкт-Петербург</span></p>
                     </div>
-                    <div class="lots__timer" id="lots__timer-3" data-deadline="March 30 2024 12:00:00 GMT+0300">
-                      <div class="countdown-title lots__description-item">До окончания торгов</div>
-                      <div  class="countdown">
-                        <div class="countdown-number">
-                          <span class="days countdown-time"></span>
-                          <span class="countdown-text">дн.</span>
-                        </div>
-                        <span class="countdown-decoration"> : </span>
-                        <div class="countdown-number">
-                          <span class="hours countdown-time"></span>
-                          <span class="countdown-text">ч.</span>
-                        </div>
-                        <span class="countdown-decoration"> : </span>
-                        <div class="countdown-number">
-                          <span class="minutes countdown-time"></span>
-                          <span class="countdown-text">мин.</span>
-                        </div>
+                  <div class="lots__timer">
+                    <div class="countdown-title lots__description-item">До окончания торгов</div>
+                    <div class="countdown">
+                      <div class="countdown-number">
+                        <span class="days countdown-time"></span>
+                        <span class="countdown-text">5 дн.</span>
+                      </div>
+                      <span class="countdown-decoration"> : </span>
+                      <div class="countdown-number">
+                        <span class="hours countdown-time"></span>
+                        <span class="countdown-text">6 ч.</span>
+                      </div>
+                      <span class="countdown-decoration"> : </span>
+                      <div class="countdown-number">
+                        <span class="minutes countdown-time"></span>
+                        <span class="countdown-text">20 мин.</span>
                       </div>
                     </div>
                   </div>
-                </a>
-              </li>
-              <li class="lots__item">
-                <a href="lots-card.html">
-                  <div class="lots__img-wrapper">
-                    <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
-                  </div>
-                  <div class="lots__text-wrapper">
-                    <div class="lots__extra-inf-wrapper">
-                      <p>Лот № 12674681</p>
-                      <svg width="14" height="18" viewBox="0 0 14 18" role="img">
-                        <use href="img/sprite.svg#like"></use>
-                      </svg>
-                    </div>
-                    <div class="lots__description">
-                      <h3 class="lots__lot-name">BMW M2 Competition</h3>
-                      <p class="lots__description-item">Начальная цена <span>1 222 000 ₽</span></p>
-                      <p class="lots__description-item"><span class="city">Местоположение</span> <span>Санкт-Петербург</span></p>
-                    </div>
-                    <div class="lots__timer" id="lots__timer-6" data-deadline="March 30 2024 20:10:00 GMT+0300">
-                      <div class="countdown-title lots__description-item">До окончания торгов</div>
-                      <div  class="countdown">
-                        <div class="countdown-number">
-                          <span class="days countdown-time"></span>
-                          <span class="countdown-text">дн.</span>
-                        </div>
-                        <span class="countdown-decoration"> : </span>
-                        <div class="countdown-number">
-                          <span class="hours countdown-time"></span>
-                          <span class="countdown-text">ч.</span>
-                        </div>
-                        <span class="countdown-decoration"> : </span>
-                        <div class="countdown-number">
-                          <span class="minutes countdown-time"></span>
-                          <span class="countdown-text">мин.</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li class="lots__item">
-                <a href="lots-card.html">
-                  <div class="lots__img-wrapper">
-                    <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
-                  </div>
-                  <div class="lots__text-wrapper">
-                    <div class="lots__extra-inf-wrapper">
-                      <p>Лот № 12674681</p>
-                      <svg width="14" height="18" viewBox="0 0 14 18" role="img">
-                        <use href="img/sprite.svg#like"></use>
-                      </svg>
-                    </div>
-                    <div class="lots__description">
-                      <h3 class="lots__lot-name">BMW M2 Competition</h3>
-                      <p class="lots__description-item">Начальная цена <span>1 222 000 ₽</span></p>
-                      <p class="lots__description-item"><span class="city">Местоположение</span> <span>Санкт-Петербург</span></p>
-                    </div>
-                    <div class="lots__timer" id="lots__timer-5" data-deadline="March 01 2024 10:10:00 GMT+0300">
-                      <div class="countdown-title lots__description-item">До окончания торгов</div>
-                      <div  class="countdown">
-                        <div class="countdown-number">
-                          <span class="days countdown-time"></span>
-                          <span class="countdown-text">дн.</span>
-                        </div>
-                        <span class="countdown-decoration"> : </span>
-                        <div class="countdown-number">
-                          <span class="hours countdown-time"></span>
-                          <span class="countdown-text">ч.</span>
-                        </div>
-                        <span class="countdown-decoration"> : </span>
-                        <div class="countdown-number">
-                          <span class="minutes countdown-time"></span>
-                          <span class="countdown-text">мин.</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li class="lots__item">
-                <a href="lots-card.html">
-                  <div class="lots__img-wrapper">
-                    <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
-                  </div>
-                  <div class="lots__text-wrapper">
-                    <div class="lots__extra-inf-wrapper">
-                      <p>Лот № 12674681</p>
-                      <svg width="14" height="18" viewBox="0 0 14 18" role="img">
-                        <use href="img/sprite.svg#like"></use>
-                      </svg>
-                    </div>
-                    <div class="lots__description">
-                      <h3 class="lots__lot-name">BMW M2 Competition</h3>
-                      <p class="lots__description-item">Начальная цена <span>1 222 000 ₽</span></p>
-                      <p class="lots__description-item"><span class="city">Местоположение</span> <span>Санкт-Петербург</span></p>
-                    </div>
-                    <div class="lots__timer" id="lots__timer-7" data-deadline="Junuary 01 2024 10:10:00 GMT+0300">
-                      <div class="countdown-title lots__description-item">До окончания торгов</div>
-                      <div  class="countdown">
-                        <div class="countdown-number">
-                          <span class="days countdown-time"></span>
-                          <span class="countdown-text">дн.</span>
-                        </div>
-                        <span class="countdown-decoration"> : </span>
-                        <div class="countdown-number">
-                          <span class="hours countdown-time"></span>
-                          <span class="countdown-text">ч.</span>
-                        </div>
-                        <span class="countdown-decoration"> : </span>
-                        <div class="countdown-number">
-                          <span class="minutes countdown-time"></span>
-                          <span class="countdown-text">мин.</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
+                </div>
+              </a>
               </li>
             </ul>
           </div>

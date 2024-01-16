@@ -9,6 +9,14 @@
     display: inline-block;
     margin: auto 0;
     color: $color-burnt-orange;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: #FF9151;
+      text-decoration: underline;
+      text-underline-offset: 6px;
+    }
   }
 }
 
@@ -58,6 +66,14 @@
     font-size: 24px;
     font-weight: 400;
     line-height: 31px;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $color-burnt-orange;
+    text-decoration: underline;
+    text-underline-offset: 6px;
   }
 }
 
@@ -126,6 +142,10 @@
     font-weight: 400;
     line-height: 24px;
     color: #686868;
+  }
+
+  &:hover, &:focus, &:active {
+    border-color: #43b02a;
   }
 }
 
@@ -438,9 +458,6 @@
   line-height: 17px;
   color: #686868;
 
-
-
-
   span {
     font-size: 16px;
     font-weight: 400;
@@ -459,8 +476,6 @@
   @include vp-768 {
     margin-bottom: 8px;
   }
-
-
 }
 
 .account__arhive-text {
@@ -559,16 +574,29 @@
 
   .lots__text-wrapper {
     button {
-font-size: 18px;
-font-weight: 700;
-line-height: 21px;
-border-radius: 15px;
-background-color: $color-burnt-orange;
-color: $color-default-white;
-border: none;
-padding: 15px;
-margin-top: 10px;
-width: 100%;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 21px;
+      border-radius: 15px;
+      background-color: $color-burnt-orange;
+      color: $color-default-white;
+      border: none;
+      padding: 15px;
+      margin-top: 10px;
+      width: 100%;
     }
   }
+}
+
+
+.checkbox:hover .checkbox__body,
+.checkbox:focus .checkbox__body,
+.checkbox:active .checkbox__body {
+  color: #43b02a;
+}
+
+.checkbox:hover .checkbox__checkmark,
+.checkbox:focus .checkbox__checkmark,
+.checkbox:active .checkbox__checkmark {
+ border-color: #43b02a;
 }

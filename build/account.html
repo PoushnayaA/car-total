@@ -8,6 +8,11 @@
   <meta name="description" content="Описание проекта">
   <title>Car-total</title>
 
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="img/favicons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="images/favicons/apple.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
   <link rel="stylesheet" href="css/style.min.css">
 
   <link rel="preload" href="fonts/sf-pro-display-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
@@ -32,6 +37,11 @@
               <div class="navigation__select">
                 <button class="navigation__select-button" type="button" data-button="change-city">
                   <div>Москва</div>
+                  <span class="button__arrow">
+                    <svg class="arrow" width="9" height="5" viewBox="0 0 9 5" role="img">
+                      <use href="img/sprite.svg#arrow"></use>
+                    </svg>
+                  </span>
                 </button>
                 <ul class="navigation__select-list visually-hidden">
                   <li class="navigation__select-item navigation__select-item--active">Москва</li>
@@ -67,7 +77,7 @@
               <li class="navigation__item"><a href="questions-answers.html">Вопросы и ответы</a></li>
               <li class="navigation__item"><a href="rules.html">Правила</a></li>
               <li class="navigation__item"><a href="news.html">Новости</a></li>
-              <li class="navigation__item navigation__item--active"><a href="#">Контакты</a></li>
+              <li class="navigation__item"><a href="#">Контакты</a></li>
               <li class="navigation__item navigation__item--mobile">
                 Офис и стоянка:
               <a href="tel:+74997024331">8 499 702 43 31</a>
@@ -156,7 +166,7 @@
                     <div class="connection__text-container connection__text-container--extra-wide">
                       <label for="name" class="connection__label">Ф.И.О. <span>*</span></label>
                       <input class="connection__field" type="text" id="name" name="name"
-                        placeholder="Фамилия Имя Отчество" required>
+                        placeholder="Фамилия Имя Отчество" onkeyup="this.value = this.value.replace (/[^a-zA-Zа-яА-ЯёЁ ]/i, '')" required>
                     </div>
                     <div class="connection__text-container">
                       <label for="birth-date" class="connection__label">Дата рождения <span>*</span></label>
@@ -170,8 +180,8 @@
                   <div class="connection__wrapper">
                     <div class="connection__text-container">
                       <label for="index" class="connection__label">Почтовый индекс</label>
-                      <input class="connection__field" type="text" id="index" name="index"
-                        placeholder="Введите почтовый индекс">
+                      <input class="connection__field" type="number" id="index" name="index"
+                        placeholder="Введите почтовый индекс" onkeyup="this.value = this.value.replace (/\D/, '')">
                     </div>
                     <div class="connection__text-container">
                       <label for="address" class="connection__label">Почтовый адрес</label>
@@ -207,26 +217,29 @@
               </form>
             </div>
             <div class="account__form account__form--favorite visually-hidden">
-              <div class="account__attention-wrapper account__attention-wrapper--data">
-                <div>
-                  <div class="account__attention">Внимание!</div>
-                  <p class="account__attention-text">Данные обновляются автоматически каждые 10 секунд.</p>
+              <div class="price-card__reload">
+                <div class="price-card__reload-wrapper">
+                  <p class="price-card__title">Внимание!</p>
+                  <p class="price-card__text">Данные обновляются автоматически каждые 10 секунд.</p>
                 </div>
-                <button>Обновить</button>
+                <button class="news__button price-card__reload-button" type="button">Обновить</button>
               </div>
               <div class="lots__container">
                 <div class="lots__wrapper">
+                  <h2 class="title__main-page visually-hidden">Лоты</h2>
                   <div class="filter-sorting">
                     <div class="filter-sorting__select" data-filter="default">
                       <button class="filter-sorting__select-button" type="button" data-button="change-filter">
-                        <svg width="24" height="24" viewBox="0 0 24 24" role="img">
+                        <svg class="sorting" width="24" height="24" viewBox="0 0 24 24" role="img">
                           <use href="img/sprite.svg#filter"></use>
                         </svg>
-                        <div class="filter-sorting__select-button">Сортировать</div>
+                        <div class="filter-sorting__select-button-one">Сортировать</div>
+                        <svg class="arrow" width="9" height="5" viewBox="0 0 9 5" role="img">
+                          <use href="img/sprite.svg#arrow"></use>
+                        </svg>
                       </button>
                       <ul class="filter-sorting__select-list visually-hidden">
-                        <li class="filter-sorting__select-item filter-sorting__select-item--active"
-                          data-filter="lh-price">
+                        <li class="filter-sorting__select-item filter-sorting__select-item--active" data-filter="lh-price">
                           По возрастанию
                           цены</li>
                         <li class="filter-sorting__select-item" data-filter="hl-price">По убыванию цены</li>

@@ -165,6 +165,7 @@
 }
 
 .navigation__select {
+  margin-left: 2px;
   &-list {
     padding: 16px 16px 10px;
     position: absolute;
@@ -192,8 +193,9 @@
     text-overflow: ellipsis;
   }
 
-  &::after {
-    content: url(./../../img/svg/arrow.svg);
+  .arrow {
+    stroke: $color-nero;
+    fill: none;
     position: absolute;
     right: -10px;
     top: -1px;
@@ -205,7 +207,7 @@
   }
 
   &--open-nav {
-    &::after {
+    .arrow {
       rotate: 180deg;
       top: 1px;
       transition-property: rotate;
@@ -375,6 +377,20 @@
         padding: 25px 0;
       }
     }
+
+    .navigation__item {
+      // padding: 10px;
+      &:hover, &:focus, &:active {
+        a {
+        color: #FF9151;
+        }
+      }
+    }
+
+    .navigation__item:hover span {
+      color: $color-burnt-orange;
+    }
+
     .navigation__item a {
       @include vp-1440 {
         font-size: 19px;
@@ -384,29 +400,31 @@
     }
 
     .navigation__item-link {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      padding: 0 3px;
+      min-width: 20px;
+      fill: $color-nero;
 
-      // &--decoration a {
-        display: flex;
-        justify-content: flex-end;
-        gap: 10px;
-        padding: 0 3px;
-        min-width: 20px;
-
-        @include vp-768 {
-          justify-content: center;
-          padding: 17px;
-          width: 200px;
-        }
-
-        @include vp-1440 {
-          width: 219px;
-        }
+      @include vp-768 {
+        justify-content: center;
+        padding: 17px;
+        width: 200px;
       }
 
+      @include vp-1440 {
+        width: 219px;
+      }
 
+      &:hover {
+        fill: $color-burnt-orange;
 
-
-
+        .navigation__item-name {
+          color: #FF9151;
+        }
+      }
+    }
 
     .navigation__list {
       @include vp-768 {
@@ -416,7 +434,7 @@
 
     .navigation__img {
       margin: auto auto auto 16px;
-      z-index: 300;
+      z-index: 3;
 
       @include vp-768 {
         margin-left: 32px;
@@ -441,11 +459,26 @@
   &--active {
     color: $color-burnt-orange;
   }
+
+  &:hover {
+    color: #FF9151;
+  }
 }
 
 .navigation__select-button {
   padding: 0;
   // padding-left: 5px;
+}
+
+.body--dark {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  background-color: $color-nero-30;
+  background-size: 100vw 100vh;
 }
 
 
@@ -459,7 +492,7 @@
 font-size: 18px;
 font-weight: 500;
 line-height: 27px;
-padding: 4px 4% 3px;
+padding: 11px 6% 12px;
 
     @include vp-768 {
       padding: 14px 10% 13px;

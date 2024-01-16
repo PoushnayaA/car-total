@@ -89,6 +89,10 @@
   display: block;
   text-align: center;
 
+  &:hover, &:focus, &:active {
+    border-color: #FF9151;
+  }
+
   @include vp-768 {
     width: 142px;
     margin-top: 24px;
@@ -201,6 +205,12 @@
 
     @include vp-768 {
       text-align: left;
+    }
+
+    &:hover, &:focus, &:active {
+      text-decoration: underline;
+      text-underline-offset: 6px;
+      color: #FF9151;
     }
   }
 }

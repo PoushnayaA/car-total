@@ -11,24 +11,14 @@
   border: none;
   display: flex;
   background-color: $color-default-white;
-font-size: 18px;
-font-weight: 400;
-line-height: 27px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
 
   & div {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-
-  &::after {
-    content: url(./../../img/svg/arrow.svg);
-    position: absolute;
-    right: -10px;
-    width: 12px;
-    height: 100%;
-    top: 0;
-    z-index: 3;
   }
 
   &--open-nav {
@@ -62,6 +52,10 @@ line-height: 27px;
   &--active {
     color: $color-burnt-orange;
   }
+
+  &:hover, &:focus, &:active {
+    color: #FF9151;
+  }
 }
 
 .filter__main-wrapper {
@@ -82,20 +76,20 @@ line-height: 27px;
     gap: 10px 20px;
     padding: 45px 20px 25px;
     grid-template-areas:
-    "category region"
-    " status brand"
-    "model year"
-    "transmission submit"
-    "reset reset";
+      "category region"
+      " status brand"
+      "model year"
+      "transmission submit"
+      "reset reset";
   }
 
   @include vp-1440 {
     padding: 10px 0;
     grid-template-columns: repeat(12, 1fr);
     grid-template-areas:
-    "category category category category region region region region status status status status"
-    "brand brand brand  model model model year year year transmission transmission transmission"
-    "submit submit submit reset reset reset . . . . . .";
+      "category category category category region region region region status status status status"
+      "brand brand brand  model model model year year year transmission transmission transmission"
+      "submit submit submit reset reset reset . . . . . .";
   }
 }
 
@@ -153,41 +147,63 @@ line-height: 27px;
 }
 
 .filter__submit {
-  // margin-top: auto;
   width: 100%;
   margin: 9px 0;
   border: none;
-  background-color: $color-burnt-orange;
+  background-color: #e0e0e0;
   color: $color-default-white;
-font-size: 18px;
-font-weight: 700;
-line-height: 21px;
-text-align: center;
-padding: 16px 32px;
-border-radius: 15px;
-max-height: 56px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21px;
+  text-align: center;
+  padding: 16px 32px;
+  border-radius: 15px;
+  max-height: 56px;
 
-@include vp-768 {
-  margin: auto 0;
-}
+  &--active {
+    background-color: $color-burnt-orange;
+  }
 
-@include vp-1440 {
-  margin-top: 10px;
-  padding: 23px 32px;
-  max-height: none;
-}
+  @include vp-768 {
+    margin: auto 0;
+  }
+
+  @include vp-1440 {
+    margin-top: 10px;
+    padding: 23px 32px;
+    max-height: none;
+  }
 }
 
 .filter__reset {
   border: none;
   background-color: $color-default-white;
   font-size: 18px;
-font-weight: 400;
-line-height: 21px;
-text-align: center;
-padding: 24px 32px;
-border-radius: 15px;
-max-height: 56px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: center;
+  padding: 20px 32px;
+  border-radius: 15px;
+  height: 67px;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+
+  svg {
+    margin: 0 10px;
+    fill: none;
+    stroke: $color-burnt-atlantis;;
+  }
+
+  &:hover, &:focus, &:active {
+    color: #FF9151;
+
+    svg {
+      stroke: #FF9151;;
+    }
+  }
 }
 
 .select {
@@ -257,6 +273,10 @@ max-height: 56px;
   color: #686868;
 
   cursor: pointer;
+
+  &:hover, &:focus, &:active {
+    border-color: $color-burnt-atlantis;
+  }
 }
 
 .dropdown__button:focus,
@@ -265,8 +285,7 @@ max-height: 56px;
   background-color: #E0E0E0;
 }
 
-.dropdown__button::after {
-  content: url(./../../img/svg/arrow.svg);
+.dropdown__button span {
   position: absolute;
   right: 20px;
   width: 9px;
@@ -274,10 +293,15 @@ max-height: 56px;
   top: 27%;
   z-index: 1;
   pointer-events: none;
+
+  svg {
+    stroke: $color-nero;
+    fill: none;
+  }
 }
 
 .dropdown__button--active {
-  &::after {
+  & svg {
     rotate: 180deg;
     top: 70%;
     // bottom: 130%;
@@ -338,8 +362,35 @@ max-height: 56px;
   display: flex;
   justify-content: center;
   align-items: center;
+  stroke: $color-nero;
+  fill: none;
 
   & svg {
     margin-right: 10px;
+  }
+
+  & .sorting {
+    stroke: $color-burnt-atlantis;
+  }
+
+  & .arrow {
+    margin-left: 4px;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    .filter-sorting__select-button-one {
+      color: $color-burnt-orange;
+    }
+
+    .sorting {
+      stroke: $color-burnt-orange;
+    }
+    stroke: $color-burnt-orange;
+
+    .arrow {
+      transform: rotate(180deg);
+    }
   }
 }

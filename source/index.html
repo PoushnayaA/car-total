@@ -8,6 +8,11 @@
   <meta name="description" content="Описание проекта">
   <title>Car-total</title>
 
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="img/favicons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="images/favicons/apple.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
   <link rel="stylesheet" href="css/style.min.css">
 
   <link rel="preload" href="fonts/sf-pro-display-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
@@ -31,7 +36,12 @@
               </div>
               <div class="navigation__select">
                 <button class="navigation__select-button" type="button" data-button="change-city">
-                  <span>Москва</span>
+                  <div>Москва</div>
+                  <span class="button__arrow">
+                    <svg class="arrow" width="9" height="5" viewBox="0 0 9 5" role="img">
+                      <use href="img/sprite.svg#arrow"></use>
+                    </svg>
+                  </span>
                 </button>
                 <ul class="navigation__select-list visually-hidden">
                   <li class="navigation__select-item navigation__select-item--active">Москва</li>
@@ -70,7 +80,7 @@
               <li class="navigation__item"><a href="contacts.html">Контакты</a></li>
               <li class="navigation__item navigation__item--mobile">
                 Офис и стоянка:
-              <a href="tel:+74997024331">8 499 702 43 31</a>
+                <a href="tel:+74997024331">8 499 702 43 31</a>
               </li>
             </ul>
           </div>
@@ -111,9 +121,15 @@
             </div>
             <div class="hero__img-wrapper">
               <picture>
-                <source media="(min-width: 1440px)" srcset="./img/svg/solution.svg" width="554" height="385">
-                <source media="(min-width: 768px)" srcset="./img/svg/solution.svg" width="378" height="263">
-                <img src="./img/svg/solution.svg" width="303" height="211"
+                <source type="image/webp" media="(min-width: 1440px)" width="378" height="263"
+                  srcset="./img/content/solution.webp" width="554" height="385">
+                <source type="image/webp" media="(min-width: 768px)" width="378" height="263"
+                  srcset="./img/content/solution.webp">
+                <source type="image/webp" media="(min-width: 320px)" width="303" height="211"
+                  srcset="./img/content/solution.webp">
+                <source media="(min-width: 1440px)" srcset="./img/content/solution.png" width="554" height="385">
+                <source media="(min-width: 768px)" srcset="./img/content/solution.png" width="378" height="263">
+                <img src="./img/content/solution.png" width="303" height="211"
                   alt="Декоративное изображение главного блока.">
               </picture>
             </div>
@@ -165,15 +181,18 @@
           </div>
           <div class="lots__container swiper mySwiper" data-slider="lots-swiper">
             <ul class="lots__list swiper-wrapper">
-              <li class="lots__item swiper-slide">
+              <li class="lots__item lots__item--favorite swiper-slide">
                 <a href="lots-card.html">
                   <div class="lots__img-wrapper">
-                    <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                    <picture>
+                      <source type="image/webp" width="192" height="167" srcset="./img/content/car-1.webp">
+                      <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                    </picture>
                   </div>
                   <div class="lots__text-wrapper">
                     <div class="lots__extra-inf-wrapper">
                       <p>Лот № 12674681</p>
-                      <svg width="14" height="18" viewBox="0 0 14 18" role="img">
+                      <svg class="favorite" width="14" height="18" viewBox="0 0 14 18" role="img">
                         <use href="img/sprite.svg#like"></use>
                       </svg>
                     </div>
@@ -184,7 +203,49 @@
                     </div>
                     <div class="lots__timer">
                       <div class="countdown-title lots__description-item">До окончания торгов</div>
-                      <div  class="countdown">
+                      <div class="countdown">
+                        <div class="countdown-number">
+                          <span class="days countdown-time"></span>
+                          <span class="countdown-text">15 дн.</span>
+                        </div>
+                        <span class="countdown-decoration"> : </span>
+                        <div class="countdown-number">
+                          <span class="hours countdown-time"></span>
+                          <span class="countdown-text">14 ч.</span>
+                        </div>
+                        <span class="countdown-decoration"> : </span>
+                        <div class="countdown-number">
+                          <span class="minutes countdown-time"></span>
+                          <span class="countdown-text">12 мин.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="lots__item lots__item--favorite swiper-slide">
+                <a href="lots-card.html">
+                  <div class="lots__img-wrapper">
+                    <picture>
+                      <source type="image/webp" width="192" height="167" srcset="./img/content/car-1.webp">
+                      <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                    </picture>
+                  </div>
+                  <div class="lots__text-wrapper">
+                    <div class="lots__extra-inf-wrapper">
+                      <p>Лот № 12674681</p>
+                      <svg class="favorite" width="14" height="18" viewBox="0 0 14 18" role="img">
+                        <use href="img/sprite.svg#like"></use>
+                      </svg>
+                    </div>
+                    <div class="lots__description">
+                      <h3 class="lots__lot-name">BMW M2 Competition</h3>
+                      <p class="lots__description-item">Начальная цена <span>1 222 000 ₽</span></p>
+                      <p class="lots__description-item">Местоположение <span>Санкт-Петербург</span></p>
+                    </div>
+                    <div class="lots__timer">
+                      <div class="countdown-title lots__description-item">До окончания торгов</div>
+                      <div class="countdown">
                         <div class="countdown-number">
                           <span class="days countdown-time"></span>
                           <span class="countdown-text">15 дн.</span>
@@ -207,12 +268,15 @@
               <li class="lots__item swiper-slide">
                 <a href="lots-card.html">
                   <div class="lots__img-wrapper">
-                    <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                    <picture>
+                      <source type="image/webp" width="192" height="167" srcset="./img/content/car-1.webp">
+                      <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                    </picture>
                   </div>
                   <div class="lots__text-wrapper">
                     <div class="lots__extra-inf-wrapper">
                       <p>Лот № 12674681</p>
-                      <svg width="14" height="18" viewBox="0 0 14 18" role="img">
+                      <svg class="favorite" width="14" height="18" viewBox="0 0 14 18" role="img">
                         <use href="img/sprite.svg#like"></use>
                       </svg>
                     </div>
@@ -223,7 +287,7 @@
                     </div>
                     <div class="lots__timer">
                       <div class="countdown-title lots__description-item">До окончания торгов</div>
-                      <div  class="countdown">
+                      <div class="countdown">
                         <div class="countdown-number">
                           <span class="days countdown-time"></span>
                           <span class="countdown-text">15 дн.</span>
@@ -246,12 +310,15 @@
               <li class="lots__item swiper-slide">
                 <a href="lots-card.html">
                   <div class="lots__img-wrapper">
-                    <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                    <picture>
+                      <source type="image/webp" width="192" height="167" srcset="./img/content/car-1.webp">
+                      <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                    </picture>
                   </div>
                   <div class="lots__text-wrapper">
                     <div class="lots__extra-inf-wrapper">
                       <p>Лот № 12674681</p>
-                      <svg width="14" height="18" viewBox="0 0 14 18" role="img">
+                      <svg class="favorite" width="14" height="18" viewBox="0 0 14 18" role="img">
                         <use href="img/sprite.svg#like"></use>
                       </svg>
                     </div>
@@ -262,46 +329,7 @@
                     </div>
                     <div class="lots__timer">
                       <div class="countdown-title lots__description-item">До окончания торгов</div>
-                      <div  class="countdown">
-                        <div class="countdown-number">
-                          <span class="days countdown-time"></span>
-                          <span class="countdown-text">15 дн.</span>
-                        </div>
-                        <span class="countdown-decoration"> : </span>
-                        <div class="countdown-number">
-                          <span class="hours countdown-time"></span>
-                          <span class="countdown-text">14 ч.</span>
-                        </div>
-                        <span class="countdown-decoration"> : </span>
-                        <div class="countdown-number">
-                          <span class="minutes countdown-time"></span>
-                          <span class="countdown-text">12 мин.</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li class="lots__item swiper-slide">
-                <a href="lots-card.html">
-                  <div class="lots__img-wrapper">
-                    <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
-                  </div>
-                  <div class="lots__text-wrapper">
-                    <div class="lots__extra-inf-wrapper">
-                      <p>Лот № 12674681</p>
-                      <svg width="14" height="18" viewBox="0 0 14 18" role="img">
-                        <use href="img/sprite.svg#like"></use>
-                      </svg>
-                    </div>
-                    <div class="lots__description">
-                      <h3 class="lots__lot-name">BMW M2 Competition</h3>
-                      <p class="lots__description-item">Начальная цена <span>1 222 000 ₽</span></p>
-                      <p class="lots__description-item">Местоположение <span>Санкт-Петербург</span></p>
-                    </div>
-                    <div class="lots__timer">
-                      <div class="countdown-title lots__description-item">До окончания торгов</div>
-                      <div  class="countdown">
+                      <div class="countdown">
                         <div class="countdown-number">
                           <span class="days countdown-time"></span>
                           <span class="countdown-text">15 дн.</span>
@@ -386,7 +414,8 @@
                 остатков транспортных средств, ранее принадлежавших клиентам компании.
               </p>
               <p class="about__text">
-                Аукцион разработан в 2009 году с целью обеспечить удобную и&nbsp;простую&nbsp;в&nbsp;функциональности возможность
+                Аукцион разработан в 2009 году с целью обеспечить удобную и&nbsp;простую&nbsp;в&nbsp;функциональности
+                возможность
                 ознакомления с представленными лотами для их последующего приобретения. В качестве платформы
                 для создания аукциона послужили американские и японские стандарты, признанные лучшими в сфере ведения
                 интерактивных систем продаж.

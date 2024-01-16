@@ -8,6 +8,11 @@
   <meta name="description" content="Описание проекта">
   <title>Car-total</title>
 
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="img/favicons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="images/favicons/apple.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
   <link rel="stylesheet" href="css/style.min.css">
 
   <link rel="preload" href="fonts/sf-pro-display-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
@@ -32,6 +37,11 @@
               <div class="navigation__select">
                 <button class="navigation__select-button" type="button" data-button="change-city">
                   <div>Москва</div>
+                  <span class="button__arrow">
+                    <svg class="arrow" width="9" height="5" viewBox="0 0 9 5" role="img">
+                      <use href="img/sprite.svg#arrow"></use>
+                    </svg>
+                  </span>
                 </button>
                 <ul class="navigation__select-list visually-hidden">
                   <li class="navigation__select-item navigation__select-item--active">Москва</li>
@@ -67,7 +77,7 @@
               <li class="navigation__item"><a href="questions-answers.html">Вопросы и ответы</a></li>
               <li class="navigation__item"><a href="rules.html">Правила</a></li>
               <li class="navigation__item"><a href="news.html">Новости</a></li>
-              <li class="navigation__item navigation__item--active"><a href="#">Контакты</a></li>
+              <li class="navigation__item"><a href="#">Контакты</a></li>
               <li class="navigation__item navigation__item--mobile">
                 Офис и стоянка:
               <a href="tel:+74997024331">8 499 702 43 31</a>
@@ -119,18 +129,19 @@
                 <div class="connection__wrapper">
                   <div class="connection__text-container">
                     <label for="email" class="connection__label">Электронная почта</label>
-                    <input class="connection__field" type="email" id="email" name="email"
+                    <input class="connection__field connection__field--email" type="email" id="email" name="email"
                       placeholder="Введите адрес электронной почты" required>
+                      <span class="error-message visually-hidden">Некорректный ввод адреса почты</span>
                   </div>
                   <div class="connection__text-container">
                     <label for="password" class="connection__label">Пароль</label>
-                    <input class="connection__field" type="password" id="password" name="password"
+                    <input class="connection__field connection__field--password" type="password" id="password" name="password"
                       placeholder="Введите пароль" required>
                   </div>
                 </div>
                 <div class="connection__wrapper connection__wrapper--button">
-                  <a href="account.html" class="connection__button connection__button--submit connection__button--active">Войти</a>
-                  <button class="connection__button connection__button--password" type="button">Забыли пароль?</button>
+                  <a href="account.html" class="connection__button connection__button--submit">Войти</a>
+                  <button class="connection__button connection__button--password" type="button" data-button="recovery-password">Забыли пароль?</button>
                 </div>
               </form>
             </div>
@@ -140,19 +151,20 @@
                   <h3 class="connection__title">1. Главные</h3>
                   <div class="connection__wrapper connection__wrapper--wide">
                     <div class="connection__text-container connection__text-container--wide">
-                      <label for="email" class="connection__label connection__label">Электронная почта <span>*</span></label>
-                      <input class="connection__field" type="email" id="email" name="email"
+                      <label for="email-reg" class="connection__label connection__label--email">Электронная почта <span>*</span></label>
+                      <input class="connection__field connection__field--reg-email" type="email" id="email-reg" name="email"
                         placeholder="Введите адрес электронной почты" required>
+                        <span class="error-message visually-hidden">Некорректный ввод адреса почты</span>
                     </div>
                     <div class="connection__text-container">
-                      <label for="password" class="connection__label">Пароль <span>*</span></label>
-                      <input class="connection__field" type="password" id="password" name="password"
+                      <label for="password-reg" class="connection__label">Пароль <span>*</span></label>
+                      <input class="connection__field connection__field--reg-password log-in__form" type="password" id="password-reg" name="password"
                         placeholder="Введите пароль" required>
                     </div>
                     <div class="connection__text-container">
-                      <label for="password-repeat" class="connection__label">Повторите пароль
+                      <label for="password-repeat-reg" class="connection__label">Повторите пароль
                         <span>*</span></label>
-                      <input class="connection__field" type="password" id="password-repeat" name="password-repeat"
+                      <input class="connection__field connection__field--reg-password-repeat log-in__form" type="password" id="password-repeat-reg" name="password-repeat"
                         placeholder="Введите пароль" required>
                     </div>
                   </div>
@@ -162,12 +174,12 @@
                   <div class="connection__wrapper connection__wrapper--wide">
                     <div class="connection__text-container connection__text-container--extra-wide">
                       <label for="name" class="connection__label">Ф.И.О. <span>*</span></label>
-                      <input class="connection__field" type="text" id="name" name="name"
-                        placeholder="Фамилия Имя Отчество" required>
+                      <input class="connection__field connection__field--name" type="text" id="name" name="name"
+                        placeholder="Фамилия Имя Отчество" onkeyup="this.value = this.value.replace (/[^a-zA-Zа-яА-ЯёЁ ]/i, '')" required>
                     </div>
                     <div class="connection__text-container">
                       <label for="birth-date" class="connection__label">Дата рождения <span>*</span></label>
-                      <input class="connection__field" type="text" id="birth-date" name="birth-date"
+                      <input class="connection__field connection__field--birth-date" type="text" id="birth-date" name="birth-date"
                         placeholder="__.__.____" required>
                     </div>
                   </div>
@@ -177,7 +189,7 @@
                   <div class="connection__wrapper">
                     <div class="connection__text-container">
                       <label for="phone" class="connection__label">Контактный телефон <span>*</span></label>
-                      <input class="connection__field" type="text" id="phone" name="phone" placeholder="+7" required>
+                      <input class="connection__field connection__field--phone" type="text" id="phone" name="phone" placeholder="+7" required>
                     </div>
                     <div class="connection__text-container">
                       <label for="phone-repeat" class="connection__label">Дополнительный телефон</span></label>
@@ -187,25 +199,53 @@
                   </div>
                 </div>
                 <div class="connection__wrapper connection__wrapper--checkbox">
-                  <label class=" connection__checkbox checkbox">
-                    <input type="checkbox" name="agreement"/>
+                  <label class=" connection__checkbox checkbox checkbox--agreement">
+                    <input class="checkbox__input"  type="checkbox" name="agreement"/>
                     <div class="checkbox__checkmark"></div>
                     <div class="checkbox__body">Согласен с <a href="#">условиями</a> аукциона</div>
                   </label>
-                  <label class=" connection__checkbox checkbox">
-                    <input type="checkbox" name="notification"/>
+                  <label class="connection__checkbox checkbox checkbox--notification">
+                    <input class="checkbox__input" type="checkbox" name="notification"/>
                     <div class="checkbox__checkmark"></div>
                     <div class="checkbox__body">Получать уведомление в случае если Ваша ставка была перебита другим
                       участником</div>
                   </label>
                 </div>
                 <div class="connection__wrapper">
-                  <a class="connection__button connection__button--submit disabled" type="submit">Зарегистироваться</a>
+                  <a href="#" class="connection__button connection__button--submit" data-button="registration">Зарегистироваться</a>
                 </div>
               </form>
             </div>
           </div>
         </div>
+      </section>
+      <section class="log-in__modal modal visually-hidden" data-modal="success-registration">
+        <div class="modal__wrapper">
+        <button class="modal__button" data-button="close-modal" type="button"><span class="visually-hidden">Закрыть.</span></button>
+        <h3 class="modal__title">Заявка принята</h3>
+        <p class="modal__text">На указанный адрес электронной почты отправлено сообщение для подтверждения регистрации</p>
+      </div>
+      </section>
+      <section class="log-in__modal modal visually-hidden" data-modal="password-recovery">
+        <div class="modal__wrapper">
+        <button class="modal__button" data-button="close-modal" type="button"><span class="visually-hidden">Закрыть.</span></button>
+        <h3 class="modal__title">Восстановление пароля</h3>
+        <p class="modal__text">Введите адрес электронной почты, который Вы указали при регистрации</p>
+        <div class="connection__text-container">
+          <label for="email-recovery" class="connection__label"><span class="visually-hidden">Электронная почта.</span></label>
+          <input class="connection__field connection__field--recovery" type="email" id="email-recovery" name="email"
+            placeholder="Введите адрес электронной почты" required>
+        </div>
+        <button class="modal__button-send" type="button" data-button="send">Отправить</button>
+        <p class="modal__text modal__text--links">Нажимая кнопку «Отправить», Вы соглашаетесь с <a href="">политикой конфиденциальности</a> и <a href="">пользовательским соглашением</a></p>
+      </div>
+      </section>
+      <section class="log-in__modal modal visually-hidden" data-modal="success-password-recovery">
+        <div class="modal__wrapper">
+        <button class="modal__button" data-button="close-modal"><span class="visually-hidden" type="button">Закрыть.</span></button>
+        <h3 class="modal__title">Заявка принята</h3>
+        <p class="modal__text">На указанный адрес электронной почты отправлено сообщение для подтверждения регистрации</p>
+      </div>
       </section>
     </main>
     <footer class="custom-footer">
