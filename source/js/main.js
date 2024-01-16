@@ -350,10 +350,10 @@ if (emailEnter && passwordEnter) {
       document.querySelector('.log-in__form--main').querySelector('.connection__button--submit').classList.remove('connection__button--active');
     }
     if (!EMAIL_REGEXP.test(email.value)) {
-      document.querySelector('.error-message').classList.remove('visually-hidden');
+      document.querySelector('.error-message-enter').classList.remove('visually-hidden');
       document.querySelector('.connection__field--email').classList.add('connection__field--error');
     } else {
-      document.querySelector('.error-message').classList.add('visually-hidden');
+      document.querySelector('.error-message-enter').classList.add('visually-hidden');
       document.querySelector('.connection__field--email').classList.remove('connection__field--error');
     }
   }
