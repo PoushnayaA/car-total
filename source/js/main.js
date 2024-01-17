@@ -13,6 +13,45 @@ import { initAccordions } from './modules/accordion/init-accordion';
 window.addEventListener('DOMContentLoaded', () => {
   iosVhFix();
 
+  const mapItems = document.querySelectorAll('.map__item');
+  if (mapItems) {
+    mapItems.forEach(function (item) {
+      item.onmouseenter = function() {
+        var itemID = this.id;
+        document.getElementById(`${itemID}-img`).querySelector('.map__img').classList.add('visually-hidden');
+        document.getElementById(`${itemID}-img`).querySelector('.map__img-active').classList.remove('visually-hidden');
+        document.getElementById(`${itemID}`).classList.add('map__item--active');
+        document.getElementById(`${itemID}-img`).querySelector('.map__number').classList.add('map__number--img-active');
+      };
+      item.onmouseleave = function() {
+        var itemID = this.id;
+        document.getElementById(`${itemID}-img`).querySelector('.map__img').classList.remove('visually-hidden');
+        document.getElementById(`${itemID}-img`).querySelector('.map__img-active').classList.add('visually-hidden');
+        document.getElementById(`${itemID}`).classList.remove('map__item--active');
+        document.getElementById(`${itemID}-img`).querySelector('.map__number').classList.remove('map__number--img-active');
+      };
+    });
+  }
+
+  const imgMapItems = document.querySelectorAll('.map__number--img');
+  if (imgMapItems) {
+    imgMapItems.forEach(function (item) {
+      item.onmouseenter = function() {
+        var itemMapID = this.id;
+        document.getElementById(`${itemMapID}-map-img`).querySelector('.map__img').classList.add('visually-hidden');
+        document.getElementById(`${itemMapID}-map-img`).querySelector('.map__img-active').classList.remove('visually-hidden');
+        document.getElementById(`${itemMapID}`).classList.add('map__number--img-active');
+        document.getElementById(`${itemMapID}-map`).classList.add('map__item--active');
+      };
+      item.onmouseleave = function() {
+        var itemMapID = this.id;
+        document.getElementById(`${itemMapID}-map-img`).querySelector('.map__img').classList.remove('visually-hidden');
+        document.getElementById(`${itemMapID}-map-img`).querySelector('.map__img-active').classList.add('visually-hidden');
+        document.getElementById(`${itemMapID}`).classList.remove('map__number--img-active');
+        document.getElementById(`${itemMapID}-map`).classList.remove('map__item--active');
+      };
+    });
+  }
 
 
   const buttonRegistration = document.querySelector('[data-button="registration"]');
