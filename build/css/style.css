@@ -2301,6 +2301,10 @@ footer {
   margin-top: 5px;
 }
 
+.navigation__list--desktop.navigation__list--open .navigation__item--mobile {
+  padding: 20px 6% 0;
+}
+
 @media (min-width: 768px) {
   .hero {
     padding: 0 20px;
@@ -3210,16 +3214,23 @@ footer {
 }
 
 .map {
-  padding: 20px;
+  padding: 20px 20px 80px;
 }
 
 .map__container {
-  padding: 10px;
+  padding: 10px 15px;
   background-color: #F2F4F5;
   border-radius: 30px;
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
+}
+@media (min-width: 768px) {
+  .map__container {
+    padding: 45px 15px 10px;
+    font-size: 16px;
+    line-height: 24px;
+  }
 }
 
 .map__img-wrapper {
@@ -3256,8 +3267,8 @@ footer {
 }
 #far-eastern-map-img .map__number--img {
   position: absolute;
-  left: 35%;
-  top: 50%;
+  left: 40%;
+  top: 45%;
   z-index: 2;
 }
 #far-eastern-map-img img {
@@ -3317,7 +3328,7 @@ footer {
 }
 #north-western-map-img .map__number--img {
   position: absolute;
-  left: 50%;
+  left: 55%;
   top: 60%;
   z-index: 2;
 }
@@ -3344,7 +3355,7 @@ footer {
 #siberian-map-img .map__number--img {
   position: absolute;
   left: 45%;
-  top: 50%;
+  top: 60%;
   z-index: 2;
 }
 #siberian-map-img img {
@@ -3352,6 +3363,27 @@ footer {
   width: 265px;
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .map__list {
+    position: relative;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    padding: 9px 15px;
+    gap: 0 24px;
+  }
+  .map__list::after {
+    content: "";
+    position: absolute;
+    background-color: #E0E0E0;
+    width: 1px;
+    bottom: 20px;
+    top: 20px;
+    left: 50%;
+  }
 }
 
 .map__item {
@@ -3367,6 +3399,7 @@ footer {
   position: relative;
   cursor: pointer;
   z-index: 1;
+  padding: 5px 0;
 }
 .map__item:not(:last-child)::after {
   content: "";
@@ -3376,6 +3409,14 @@ footer {
   height: 1px;
   bottom: 0;
   left: 0;
+}
+@media (min-width: 768px) {
+  .map__item {
+    padding: 4px 0;
+  }
+  .map__item:nth-child(7)::after {
+    content: none;
+  }
 }
 
 .map__item:hover .map__name, .map__item:hover .map__number, .map__item:focus .map__name, .map__item:focus .map__number, .map__item:active .map__name, .map__item:active .map__number {
