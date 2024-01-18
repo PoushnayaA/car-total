@@ -13,6 +13,18 @@ import { initAccordions } from './modules/accordion/init-accordion';
 window.addEventListener('DOMContentLoaded', () => {
   iosVhFix();
 
+  const lots = document.querySelectorAll('.lots__item');
+  if (lots) {
+    lots.forEach(function (item) {
+      item.querySelector('a').onmouseenter = function() {
+        item.classList.add('lots__item--active');
+      };
+      item.querySelector('a').onmouseleave = function() {
+        item.classList.remove('lots__item--active');
+      };
+    });
+  }
+
   const mapItems = document.querySelectorAll('.map__item');
   if (mapItems) {
     mapItems.forEach(function (item) {
@@ -306,6 +318,30 @@ document.querySelectorAll('.lots__item').forEach(function (lot) {
   });
 });
 
+if (document.querySelector('.price-data__button--auto')) {
+  document.querySelector('.price-data__button--auto').addEventListener('click', function () {
+    document.querySelector('.price-data__modal').classList.remove('visually-hidden');
+  });
+  document.querySelector('.price-data__buttons-offer').querySelector('[data-button="close-modal"]').addEventListener('click', function () {
+    document.querySelector('.price-data__modal').classList.add('visually-hidden');
+  });
+}
+
+const priceInputModal = document.querySelector('.price-input');
+const offerPriceModal = document.querySelector('.checkbox__input--offer');
+if (offerPriceModal && priceInputModal) {
+
+  offerPriceModal.addEventListener('click', function() {
+    if (offerPriceModal.checked && priceInputModal.value !== "") {
+      document.querySelector('.modal__button-offer').classList.add('modal__button-offer--active');
+    }
+  });
+  priceInputModal.addEventListener('input', function() {
+    if (offerPriceModal.checked && priceInputModal.value !== "") {
+      document.querySelector('.modal__button-offer').classList.add('modal__button-offer--active');
+    }
+  });
+}
 
 document.querySelectorAll('.dropdown').forEach(function (dropDownWrapper) {
   const dropDownBtn = dropDownWrapper.querySelector('.dropdown__button');
@@ -493,5 +529,6 @@ if (emailRecovery) {
     }
   });
 }
+
 
 // document.querySelector('.authorization').classList.add('visually-hidden');

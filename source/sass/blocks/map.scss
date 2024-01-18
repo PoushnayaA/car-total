@@ -1,5 +1,11 @@
 .map {
   padding: 20px 20px 80px;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  @include vp-1440 {
+    padding-top: 47px;
+  }
 }
 
 .map__container {
@@ -12,8 +18,14 @@
 
   @include vp-768 {
     padding: 45px 15px 10px;
-font-size: 16px;
-line-height: 24px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  @include vp-1440 {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 10px 20px;
   }
 }
 
@@ -26,8 +38,12 @@ line-height: 24px;
     width: 664px;
     height: 390px;
     margin: 0 auto;
-    // background-image: url("../../img/content/Group-2.png");
-    // background-size: 100% 100%;
+  }
+
+  @include vp-1440 {
+    width: 800px;
+    height: 470px;
+    margin: auto;
   }
 }
 
@@ -36,11 +52,27 @@ line-height: 24px;
   top: 209px;
   left: 35px;
 
+  @include vp-1440 {
+    top: 258px;
+    left: 35px;
+  }
+
   & .map__number--img {
     position: absolute;
     left: 25%;
     top: 20%;
     z-index: 2;
+
+    @include vp-1440 {
+      top: 29%;
+    }
+  }
+
+  img {
+    @include vp-1440 {
+      width: 135px;
+      height: 100px;
+    }
   }
 }
 
@@ -51,17 +83,34 @@ line-height: 24px;
   height: 345px;
   width: 325px;
 
+  @include vp-1440 {
+    top: -1px;
+    right: 6px;
+    width: 340px;
+    height: 460px;
+  }
+
   & .map__number--img {
     position: absolute;
     left: 40%;
     top: 45%;
     z-index: 2;
+
+    @include vp-1440 {
+      left: 35%;
+    top: 45%;
+    }
   }
 
   img {
     height: 100%;
     width: 100%;
     position: absolute;
+
+    @include vp-1440 {
+      width: 400px;
+      height: 420px;
+    }
   }
 }
 
@@ -72,17 +121,31 @@ line-height: 24px;
   width: 125px;
   height: 68px;
 
+  @include vp-1440 {
+    left: 6px;
+    bottom: 74px;
+  }
+
   & .map__number--img {
     position: absolute;
     left: 50%;
     top: 20%;
     z-index: 2;
+
+    @include vp-1440 {
+      top: 43%;
+    }
   }
 
   img {
     height: 100%;
     width: 100%;
     object-fit: contain;
+
+    @include vp-1440 {
+      width: 120px;
+      height: 110px;
+    }
   }
 }
 
@@ -91,11 +154,27 @@ line-height: 24px;
   bottom: 16px;
   left: 44px;
 
+  @include vp-1440 {
+    bottom: 14px;
+    left: 45px;
+  }
+
   & .map__number--img {
     position: absolute;
     left: 20%;
     top: 20%;
-    z-index: 2;
+    z-index: 3;
+
+    @include vp-1440 {
+      left: 10%;
+    }
+  }
+
+  @include vp-1440 {
+    img {
+      width: 60px;
+      height: 65px;
+    }
   }
 }
 
@@ -104,11 +183,23 @@ line-height: 24px;
   bottom: 63px;
   left: 84px;
 
+  @include vp-1440 {
+    left: 98px;
+    bottom: 70px;
+  }
+
   & .map__number--img {
     position: absolute;
     left: 30%;
     top: 35%;
     z-index: 2;
+  }
+
+  @include vp-1440 {
+    img {
+      width: 135px;
+      height: 130px;
+    }
   }
 }
 
@@ -117,11 +208,23 @@ line-height: 24px;
   bottom: 151px;
   left: 0;
 
+  @include vp-1440 {
+    bottom: 174px;
+    left: -1px;
+  }
+
   & .map__number--img {
     position: absolute;
     left: 55%;
     top: 60%;
     z-index: 2;
+  }
+
+  @include vp-1440 {
+    img {
+      width: 320px;
+      height: 180px;
+    }
   }
 }
 
@@ -130,11 +233,28 @@ line-height: 24px;
   top: 123px;
   left: 164px;
 
+  @include vp-1440 {
+    top: 154px;
+    left: 195px;
+  }
+
   & .map__number--img {
     position: absolute;
     left: 45%;
     top: 45%;
     z-index: 2;
+
+    @include vp-1440 {
+      left: 47%;
+      top: 46%;
+    }
+  }
+
+  @include vp-1440 {
+    img {
+      width: 180px;
+      height: 237px;
+    }
   }
 }
 
@@ -144,6 +264,11 @@ line-height: 24px;
   left: 216px;
   height: 275px;
   width: 280px;
+
+  @include vp-1440 {
+    top: 98px;
+    left: 278px;
+  }
 
   & .map__number--img {
     position: absolute;
@@ -156,6 +281,11 @@ line-height: 24px;
     height: 280px;
     width: 265px;
     object-fit: contain;
+
+    @include vp-1440 {
+      height: 350px;
+      width: 300px;
+    }
   }
 }
 
@@ -172,12 +302,19 @@ line-height: 24px;
       position: absolute;
       background-color: #E0E0E0;
       width: 1px;
-      // height: 100%;
       bottom: 20px;
       top: 20px;
       left: 50%;
     }
+  }
 
+  @include vp-1440 {
+    grid-template-columns: 1fr;
+    width: 333px;
+
+    &::after {
+      content: none;
+    }
   }
 }
 
@@ -207,6 +344,18 @@ line-height: 24px;
       content: none;
     }
   }
+
+  @include vp-1440 {
+    &:nth-child(7)::after {
+      content: "";
+    position: absolute;
+    background-color: #E0E0E0;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    }
+  }
 }
 
 .map__item {
@@ -231,6 +380,16 @@ line-height: 24px;
   &:hover, &:focus, &:active {
     color: #FF9151;
   }
+
+  @include vp-768{
+    width: 33px;
+    height: 33px;
+  }
+
+  @include vp-1440 {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 .map__number--img {
@@ -238,12 +397,8 @@ line-height: 24px;
 }
 
 .map__number--img-active,
-.map__item--active .map__name {
+.map__item--active .map__name,
+.map__item--active .map__number {
   color: #FF9151;
 }
 
-.map__img-item {
-  img {
-    fill: red;
-  }
-}

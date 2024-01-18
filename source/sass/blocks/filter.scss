@@ -204,6 +204,12 @@
       stroke: #FF9151;;
     }
   }
+
+  @include vp-1440 {
+    margin-top: 10px;
+    padding: 23px 32px;
+    max-height: none;
+  }
 }
 
 .select {

@@ -254,3 +254,9 @@ main {
     margin-bottom: 120px;
   }
 }
+
+.main--main-page {
+  @include vp-1440 {
+    margin-top: 78px;
+  }
+}
