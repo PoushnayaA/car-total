@@ -412,19 +412,19 @@ const EMAIL_REGEXP = /^[^@\s]+@[^@\s]+\.[^@\s]+$/iu;
 
 if (emailEnter && passwordEnter) {
   passwordEnter.addEventListener('input', function () {
-    if (passwordEnter.value !== "" && emailEnter.value !== "") {
+    if (passwordEnter.value !== "" && emailEnter.value !== "" && EMAIL_REGEXP.test(emailEnter.value)) {
       document.querySelector('.log-in__form--main').querySelector('.connection__button--submit').classList.add('connection__button--active');
     } else {
       document.querySelector('.log-in__form--main').querySelector('.connection__button--submit').classList.remove('connection__button--active');
     }
   });
   emailEnter.addEventListener('input', function () {
-    if (passwordEnter.value !== "" && emailEnter.value !== "") {
+    if (passwordEnter.value !== "" && emailEnter.value !== "" && EMAIL_REGEXP.test(emailEnter.value)) {
       document.querySelector('.log-in__form--main').querySelector('.connection__button--submit').classList.add('connection__button--active');
     } else {
       document.querySelector('.log-in__form--main').querySelector('.connection__button--submit').classList.remove('connection__button--active');
     }
-    if (!EMAIL_REGEXP.test(email.value)) {
+    if (!EMAIL_REGEXP.test(emailEnter.value)) {
       document.querySelector('.error-message-enter').classList.remove('visually-hidden');
       document.querySelector('.connection__field--email').classList.add('connection__field--error');
     } else {
@@ -450,14 +450,14 @@ const checkboxNotification = document.querySelector('.checkbox--notification').q
 
 if (emailReg && passwordReg && passwordRepeat && name && dateBirth && phone && checkboxAgreement && checkboxNotification) {
   passwordReg.addEventListener('input', function () {
-    if (checkboxNotification.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value !== "" && phone.value.length === 18) {
+    if (EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value !== "" && phone.value.length === 18) {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
     } else {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
     }
   });
   emailReg.addEventListener('input', function () {
-    if (checkboxNotification.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value !== "" && phone.value.length === 18) {
+    if (EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value !== "" && phone.value.length === 18) {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
     } else {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
@@ -472,7 +472,7 @@ if (emailReg && passwordReg && passwordRepeat && name && dateBirth && phone && c
   }
   );
   passwordRepeat.addEventListener('input', function () {
-    if (checkboxNotification.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value !== "" && phone.value.length === 18) {
+    if (EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value !== "" && phone.value.length === 18) {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
     } else {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
@@ -480,7 +480,7 @@ if (emailReg && passwordReg && passwordRepeat && name && dateBirth && phone && c
   }
   );
   name.addEventListener('input', function () {
-    if (checkboxNotification.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value !== "" && phone.value.length === 18) {
+    if (EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value !== "" && phone.value.length === 18) {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
     } else {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
@@ -488,7 +488,7 @@ if (emailReg && passwordReg && passwordRepeat && name && dateBirth && phone && c
   }
   );
   dateBirth.addEventListener('input', function () {
-    if (checkboxNotification.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value !== "" && phone.value.length === 18) {
+    if (EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value !== "" && phone.value.length === 18) {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
     } else {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
@@ -496,7 +496,7 @@ if (emailReg && passwordReg && passwordRepeat && name && dateBirth && phone && c
   }
   );
   phone.addEventListener('input', function () {
-    if (checkboxNotification.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value !== "" && phone.value.length === 18) {
+    if (EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value !== "" && phone.value.length === 18) {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
     } else {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
@@ -504,14 +504,14 @@ if (emailReg && passwordReg && passwordRepeat && name && dateBirth && phone && c
   }
   );
   checkboxAgreementLabel.addEventListener('click', function () {
-    if (checkboxNotification.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value !== "" && phone.value.length === 18) {
+    if (EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value !== "" && phone.value.length === 18) {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
     } else {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
     }
   });
   checkboxNotificationLabel.addEventListener('click', function () {
-    if (checkboxNotification.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value !== "" && phone.value.length === 18) {
+    if (EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value !== "" && phone.value.length === 18) {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
     } else {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
@@ -522,13 +522,12 @@ if (emailReg && passwordReg && passwordRepeat && name && dateBirth && phone && c
 const emailRecovery = document.querySelector('.connection__field--recovery');
 if (emailRecovery) {
   emailRecovery.addEventListener('input', function () {
-    if (emailRecovery.value !== "") {
+    if (emailRecovery.value !== "" && EMAIL_REGEXP.test(emailRecovery.value)) {
       document.querySelector('.modal__button-send').classList.add('modal__button-send--active');
     } else {
       document.querySelector('.modal__button-send').classList.remove('modal__button-send--active');
     }
   });
 }
-
 
 // document.querySelector('.authorization').classList.add('visually-hidden');

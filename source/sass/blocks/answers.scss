@@ -160,17 +160,20 @@
     margin-right: 18px;
   }
 
-  &::before {
-    content: url("./../../img/svg/arrow.svg");
+  & span {
     position: absolute;
     bottom: 35%;
-    right: -33px;
+    right: 0;
 
+    svg {
+      stroke: $color-nero;
+      fill: none;
+    }
   }
 }
 
 .answers .accordion__button {
-  &::before {
+  & span {
     right: -25px;
     bottom: 47%;
     // top: 44%;
@@ -185,20 +188,18 @@
 
   }
 
+  & span svg {
+      stroke: $color-nero;
+      fill: none;
+  }
 
 }
 
 
 .accordion__element.is-active .accordion__button {
-  &::before {
+  & svg {
     rotate: 180deg;
-    // bottom: 20%;
-  }
-}
-
-.answers .accordion__element.is-active .accordion__button {
-  &::before {
-    // top: 15%;
+    top: 70%;
   }
 }
 
