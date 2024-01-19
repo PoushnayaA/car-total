@@ -16,10 +16,10 @@ window.addEventListener('DOMContentLoaded', () => {
   const lots = document.querySelectorAll('.lots__item');
   if (lots) {
     lots.forEach(function (item) {
-      item.querySelector('a').onmouseenter = function() {
+      item.querySelector('a').onmouseenter = function () {
         item.classList.add('lots__item--active');
       };
-      item.querySelector('a').onmouseleave = function() {
+      item.querySelector('a').onmouseleave = function () {
         item.classList.remove('lots__item--active');
       };
     });
@@ -28,14 +28,14 @@ window.addEventListener('DOMContentLoaded', () => {
   const mapItems = document.querySelectorAll('.map__item');
   if (mapItems) {
     mapItems.forEach(function (item) {
-      item.onmouseenter = function() {
+      item.onmouseenter = function () {
         var itemID = this.id;
         document.getElementById(`${itemID}-img`).querySelector('.map__img').classList.add('visually-hidden');
         document.getElementById(`${itemID}-img`).querySelector('.map__img-active').classList.remove('visually-hidden');
         document.getElementById(`${itemID}`).classList.add('map__item--active');
         document.getElementById(`${itemID}-img`).querySelector('.map__number').classList.add('map__number--img-active');
       };
-      item.onmouseleave = function() {
+      item.onmouseleave = function () {
         var itemID = this.id;
         document.getElementById(`${itemID}-img`).querySelector('.map__img').classList.remove('visually-hidden');
         document.getElementById(`${itemID}-img`).querySelector('.map__img-active').classList.add('visually-hidden');
@@ -48,14 +48,14 @@ window.addEventListener('DOMContentLoaded', () => {
   const imgMapItems = document.querySelectorAll('.map__number--img');
   if (imgMapItems) {
     imgMapItems.forEach(function (item) {
-      item.onmouseenter = function() {
+      item.onmouseenter = function () {
         var itemMapID = this.id;
         document.getElementById(`${itemMapID}-map-img`).querySelector('.map__img').classList.add('visually-hidden');
         document.getElementById(`${itemMapID}-map-img`).querySelector('.map__img-active').classList.remove('visually-hidden');
         document.getElementById(`${itemMapID}`).classList.add('map__number--img-active');
         document.getElementById(`${itemMapID}-map`).classList.add('map__item--active');
       };
-      item.onmouseleave = function() {
+      item.onmouseleave = function () {
         var itemMapID = this.id;
         document.getElementById(`${itemMapID}-map-img`).querySelector('.map__img').classList.remove('visually-hidden');
         document.getElementById(`${itemMapID}-map-img`).querySelector('.map__img-active').classList.add('visually-hidden');
@@ -150,6 +150,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // const elements = document.querySelectorAll('.lots__timer');
   // elements.forEach(i => initializeClock('.countdown', i.dataset.deadline, i.id));
+
   const phoneMask = document.getElementById('phone');
   const repeatPhoneMask = document.getElementById('phone-repeat');
   const maskOptions = {
@@ -292,6 +293,18 @@ buttonNavigation.addEventListener('click', function () {
   document.querySelector('.page').classList.toggle('page--dark');
 });
 
+// const zoomList = document.querySelector('.mySwiper2');
+// const zoomItems = zoomList.querySelectorAll('.lots__photo-item');
+// zoomItems.forEach(item => {
+//   item.addEventListener('click', function (e) {
+//     document.querySelector('.page').classList.toggle('page--dark');
+//     // e.target.querySelector()
+//     console.log(e.target);
+//     e.target.style.zIndex = "100";
+//     e.target.style.borderRadius = "15px";
+//   });
+// });
+
 const buttonFilter = document.querySelector('[data-button="change-filter"]');
 if (buttonFilter) {
   buttonFilter.addEventListener('click', function () {
@@ -303,20 +316,109 @@ if (buttonFilter) {
 if (document.querySelector('.filter-sorting__select-list')) {
   document.querySelector('.filter-sorting__select-list').addEventListener('click', function (evt) {
     document.querySelector('.filter-sorting__select-list').classList.add('visually-hidden');
-    document.querySelector('.filter-sorting__select-item--active').classList.remove('filter-sorting__select-item--active');
+    if (document.querySelector('.filter-sorting__select-item--active')) {
+      document.querySelector('.filter-sorting__select-item--active').classList.remove('filter-sorting__select-item--active');
+    }
     buttonFilter.classList.remove('filter-sorting__select-button--open-nav');
     if (evt.target.matches('.filter-sorting__select-item')) {
       evt.target.classList.add('filter-sorting__select-item--active');
       document.querySelector('.filter-sorting__select').dataset.filter = evt.target.dataset.filter;
+      if (document.querySelector('.filter-sorting__select').dataset.filter === "ascending-price") {
+        const list = document.querySelector('.lots__list');
+        var items = list.childNodes;
+        var itemsArr = [];
+        for (var i in items) {
+          if (items[i].nodeType == 1) {
+            itemsArr.push(items[i]);
+          }
+        }
+        itemsArr.sort(function (a, b) {
+          return parseFloat(a.getAttribute('data-price')) == parseFloat(b.getAttribute('data-price')) ? 0
+            : (parseFloat(a.getAttribute('data-price')) > parseFloat(b.getAttribute('data-price')) ? 1 : -1);
+        });
+        for (i = 0; i < itemsArr.length; ++i) {
+          list.appendChild(itemsArr[i]);
+        }
+      }
+      if (document.querySelector('.filter-sorting__select').dataset.filter === "descending-price") {
+        const list = document.querySelector('.lots__list');
+        var items = list.childNodes;
+        var itemsArr = [];
+        for (var i in items) {
+          if (items[i].nodeType == 1) {
+            itemsArr.push(items[i]);
+          }
+        }
+        itemsArr.sort(function (a, b) {
+          return parseFloat(a.getAttribute('data-price')) == parseFloat(b.getAttribute('data-price')) ? 0
+            : (parseFloat(a.getAttribute('data-price')) < parseFloat(b.getAttribute('data-price')) ? 1 : -1);
+        });
+        for (i = 0; i < itemsArr.length; ++i) {
+          list.appendChild(itemsArr[i]);
+        }
+      }
+      if (document.querySelector('.filter-sorting__select').dataset.filter === "start-date") {
+        const list = document.querySelector('.lots__list');
+        var items = list.childNodes;
+        var itemsArr = [];
+        for (var i in items) {
+          if (items[i].nodeType == 1) {
+            itemsArr.push(items[i]);
+          }
+        }
+        itemsArr.sort(compare);
+
+        function compare(a, b) {
+          var dateA = new Date(a.getAttribute('data-timer'));
+          var dateB = new Date(b.getAttribute('data-timer'));
+
+          return dateA - dateB;
+        }
+
+        for (i = 0; i < itemsArr.length; ++i) {
+          list.appendChild(itemsArr[i]);
+        }
+      }
+      if (document.querySelector('.filter-sorting__select').dataset.filter === "end-date") {
+        const list = document.querySelector('.lots__list');
+        var items = list.childNodes;
+        var itemsArr = [];
+        for (var i in items) {
+          if (items[i].nodeType == 1) {
+            itemsArr.push(items[i]);
+          }
+        }
+        itemsArr.sort(compare);
+
+        function compare(a, b) {
+          var dateA = new Date(a.getAttribute('data-timer'));
+          var dateB = new Date(b.getAttribute('data-timer'));
+
+          return dateB - dateA;
+        }
+
+        for (i = 0; i < itemsArr.length; ++i) {
+          list.appendChild(itemsArr[i]);
+        }
+      }
     }
   });
 }
 
-document.querySelectorAll('.lots__item').forEach(function (lot) {
-  lot.querySelector('.favorite').addEventListener('click', function () {
-    lot.classList.toggle('lots__item--favorite');
+if (document.querySelectorAll('.lots__item')) {
+  document.querySelectorAll('.lots__item').forEach(function (lot) {
+    lot.querySelector('.favorite').addEventListener('click', function () {
+      lot.classList.toggle('lots__item--favorite');
+    });
   });
-});
+}
+
+if (document.querySelector('.card__signs-wrapper').querySelector('.favorite')) {
+  document.querySelector('.card__signs-wrapper').querySelector('.favorite').addEventListener('click', function () {
+    document.querySelector('.card__signs-wrapper').querySelector('.favorite').classList.toggle('favorite--active');
+  });
+}
+
 
 if (document.querySelector('.price-data__button--auto')) {
   document.querySelector('.price-data__button--auto').addEventListener('click', function () {
@@ -331,15 +433,29 @@ const priceInputModal = document.querySelector('.price-input');
 const offerPriceModal = document.querySelector('.checkbox__input--offer');
 if (offerPriceModal && priceInputModal) {
 
-  offerPriceModal.addEventListener('click', function() {
+  offerPriceModal.addEventListener('click', function () {
     if (offerPriceModal.checked && priceInputModal.value !== "") {
       document.querySelector('.modal__button-offer').classList.add('modal__button-offer--active');
+    } else {
+      document.querySelector('.modal__button-offer').classList.remove('modal__button-offer--active');
     }
   });
-  priceInputModal.addEventListener('input', function() {
+  priceInputModal.addEventListener('input', function () {
     if (offerPriceModal.checked && priceInputModal.value !== "") {
       document.querySelector('.modal__button-offer').classList.add('modal__button-offer--active');
+    } else {
+      document.querySelector('.modal__button-offer').classList.remove('modal__button-offer--active');
     }
+  });
+}
+
+const offerModal = document.querySelector('[data-modal="offer"]');
+if (offerModal) {
+  offerModal.querySelector('[data-button="close-modal"]').addEventListener('click', function () {
+    offerModal.classList.add('visually-hidden');
+  });
+  offerModal.querySelector('[data-button="save-modal"]').addEventListener('click', function () {
+    offerModal.classList.add('visually-hidden');
   });
 }
 
@@ -406,9 +522,104 @@ if (document.querySelector('.price-card__reload-button--account')) {
   });
 }
 
+const EMAIL_REGEXP = /^[^@\s]+@[^@\s]+\.[^@\s]+$/iu;
+
+if (document.querySelector('.account__form--personal')) {
+  const emailEdit = document.querySelector('.account__form--active').querySelector('.connection__field--edit-email');
+  const passwordEdit = document.querySelector('.account__form--personal').querySelector('.connection__field--edit-password');
+  const passwordRepeatEdit = document.querySelector('.account__form--personal').querySelector('.connection__field--edit-password-repeat');
+
+  const nameEdit = document.querySelector('.account__form--personal').querySelector('.connection__field--edit-name');
+  const dateBirthEdit = document.querySelector('.account__form--personal').querySelector('.connection__field--edit-birth-date');
+  const phoneEdit = document.querySelector('.account__form--personal').querySelector('.connection__field--edit-phone');
+
+  const checkboxNotificationEditLabel = document.querySelector('.account__form--personal').querySelector('.checkbox--notification');
+  const checkboxNotificationEdit = document.querySelector('.account__form--personal').querySelector('.checkbox--notification').querySelector('.checkbox__input');
+
+  if (emailEdit && passwordEdit && passwordRepeatEdit && nameEdit) {
+    emailEdit.addEventListener('input', function () {
+      if (EMAIL_REGEXP.test(emailEdit.value) && checkboxNotificationEdit.checked && passwordEdit.value !== "" && (passwordEdit.value === passwordRepeatEdit.value
+        && nameEdit.value !== "" && dateBirthEdit.value.length >= 10 && phoneEdit.value.length >= 18)) {
+        document.querySelector('.account__form--personal').querySelector('.connection__button--submit').classList.add('connection__button--active');
+      } else {
+        document.querySelector('.account__form--personal').querySelector('.connection__button--submit').classList.remove('connection__button--active');
+      }
+      if (!EMAIL_REGEXP.test(emailEdit.value)) {
+        document.querySelector('.error-message--edit-email').classList.remove('visually-hidden');
+        emailEdit.classList.add('connection__field--error');
+      } else {
+        document.querySelector('.error-message--edit-email').classList.add('visually-hidden');
+        emailEdit.classList.remove('connection__field--error');
+      }
+    });
+    passwordEdit.addEventListener('input', function () {
+      if (EMAIL_REGEXP.test(emailEdit.value) && checkboxNotificationEdit.checked && passwordEdit.value !== "" && (passwordEdit.value === passwordRepeatEdit.value
+        && nameEdit.value !== "" && dateBirthEdit.value.length >= 10 && phoneEdit.value.length >= 18)) {
+        document.querySelector('.account__form--personal').querySelector('.connection__button--submit').classList.add('connection__button--active');
+      } else {
+        document.querySelector('.account__form--personal').querySelector('.connection__button--submit').classList.remove('connection__button--active');
+      }
+    });
+    passwordRepeatEdit.addEventListener('input', function () {
+      if (EMAIL_REGEXP.test(emailEdit.value) && checkboxNotificationEdit.checked && passwordEdit.value !== "" && (passwordEdit.value === passwordRepeatEdit.value
+        && nameEdit.value !== "" && dateBirthEdit.value.length >= 10 && phoneEdit.value.length >= 18)) {
+        document.querySelector('.account__form--personal').querySelector('.connection__button--submit').classList.add('connection__button--active');
+      } else {
+        document.querySelector('.account__form--personal').querySelector('.connection__button--submit').classList.remove('connection__button--active');
+      }
+      if (passwordRepeatEdit.value !== passwordEdit.value) {
+        document.querySelector('.error-message--edit').classList.remove('visually-hidden');
+        passwordRepeatEdit.classList.add('connection__field--error');
+      } else {
+        document.querySelector('.error-message--edit').classList.add('visually-hidden');
+        passwordRepeatEdit.classList.remove('connection__field--error');
+      }
+      if (passwordRepeatEdit.value === "") {
+        document.querySelector('.error-message--edit-none').classList.remove('visually-hidden');
+        passwordRepeatEdit.classList.add('connection__field--error');
+      } else {
+        document.querySelector('.error-message--edit-none').classList.add('visually-hidden');
+        passwordRepeatEdit.classList.remove('connection__field--error');
+      }
+    });
+    nameEdit.addEventListener('input', function () {
+      if (EMAIL_REGEXP.test(emailEdit.value) && checkboxNotificationEdit.checked && passwordEdit.value !== "" && (passwordEdit.value === passwordRepeatEdit.value
+        && nameEdit.value !== "" && dateBirthEdit.value.length >= 10 && phoneEdit.value.length >= 18)) {
+        document.querySelector('.account__form--personal').querySelector('.connection__button--submit').classList.add('connection__button--active');
+      } else {
+        document.querySelector('.account__form--personal').querySelector('.connection__button--submit').classList.remove('connection__button--active');
+      }
+    });
+    dateBirthEdit.addEventListener('input', function () {
+      if (EMAIL_REGEXP.test(emailEdit.value) && checkboxNotificationEdit.checked && passwordEdit.value !== "" && (passwordEdit.value === passwordRepeatEdit.value
+        && nameEdit.value !== "" && dateBirthEdit.value.length >= 10 && phoneEdit.value.length >= 18)) {
+        document.querySelector('.account__form--personal').querySelector('.connection__button--submit').classList.add('connection__button--active');
+      } else {
+        document.querySelector('.account__form--personal').querySelector('.connection__button--submit').classList.remove('connection__button--active');
+      }
+    });
+    phoneEdit.addEventListener('input', function () {
+      if (EMAIL_REGEXP.test(emailEdit.value) && checkboxNotificationEdit.checked && passwordEdit.value !== "" && (passwordEdit.value === passwordRepeatEdit.value
+        && nameEdit.value !== "" && dateBirthEdit.value.length >= 10 && phoneEdit.value.length >= 18)) {
+        document.querySelector('.account__form--personal').querySelector('.connection__button--submit').classList.add('connection__button--active');
+      } else {
+        document.querySelector('.account__form--personal').querySelector('.connection__button--submit').classList.remove('connection__button--active');
+      }
+    });
+    checkboxNotificationEditLabel.addEventListener('click', function () {
+      if (EMAIL_REGEXP.test(emailEdit.value) && checkboxNotificationEdit.checked && passwordEdit.value !== "" && (passwordEdit.value === passwordRepeatEdit.value
+        && nameEdit.value !== "" && dateBirthEdit.value.length >= 10 && phoneEdit.value.length >= 18)) {
+        document.querySelector('.account__form--personal').querySelector('.connection__button--submit').classList.add('connection__button--active');
+      } else {
+        document.querySelector('.account__form--personal').querySelector('.connection__button--submit').classList.remove('connection__button--active');
+      }
+    });
+  }
+}
+
 const emailEnter = document.querySelector('.log-in__form--main').querySelector('.connection__field--email');
 const passwordEnter = document.querySelector('.log-in__form--main').querySelector('.connection__field--password');
-const EMAIL_REGEXP = /^[^@\s]+@[^@\s]+\.[^@\s]+$/iu;
+
 
 if (emailEnter && passwordEnter) {
   passwordEnter.addEventListener('input', function () {
@@ -444,20 +655,22 @@ const dateBirth = document.querySelector('.log-in__form--registration').querySel
 const phone = document.querySelector('.log-in__form--registration').querySelector('.connection__field--phone');
 
 const checkboxAgreementLabel = document.querySelector('.checkbox--agreement');
+const checkboxDataLabel = document.querySelector('.checkbox--data');
 const checkboxNotificationLabel = document.querySelector('.checkbox--notification');
 const checkboxAgreement = document.querySelector('.checkbox--agreement').querySelector('.checkbox__input');
+const checkboxData = document.querySelector('.checkbox--data').querySelector('.checkbox__input');
 const checkboxNotification = document.querySelector('.checkbox--notification').querySelector('.checkbox__input');
 
-if (emailReg && passwordReg && passwordRepeat && name && dateBirth && phone && checkboxAgreement && checkboxNotification) {
+if (emailReg && passwordReg && passwordRepeat && name && dateBirth && phone && checkboxAgreementLabel && checkboxNotificationLabel && checkboxDataLabel) {
   passwordReg.addEventListener('input', function () {
-    if (EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value !== "" && phone.value.length === 18) {
+    if ((passwordRepeat.value === passwordReg.value) && EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxData.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value.length >= 10 && phone.value.length >= 18) {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
     } else {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
     }
   });
   emailReg.addEventListener('input', function () {
-    if (EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value !== "" && phone.value.length === 18) {
+    if ((passwordRepeat.value === passwordReg.value) && EMAIL_REGEXP.test(emailReg.value) && checkboxData.checked && checkboxNotification.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value.length >= 10 && phone.value.length >= 18) {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
     } else {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
@@ -472,15 +685,29 @@ if (emailReg && passwordReg && passwordRepeat && name && dateBirth && phone && c
   }
   );
   passwordRepeat.addEventListener('input', function () {
-    if (EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value !== "" && phone.value.length === 18) {
+    if ((passwordRepeat.value === passwordReg.value) && EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxData.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value.length >= 10 && phone.value.length >= 18) {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
     } else {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
     }
+    if (passwordRepeat.value !== passwordReg.value) {
+      document.querySelector('.error-message--reg-password').classList.remove('visually-hidden');
+      passwordRepeat.classList.add('connection__field--error');
+    } else {
+      document.querySelector('.error-message--reg-password').classList.add('visually-hidden');
+      passwordRepeat.classList.remove('connection__field--error');
+    }
+    if (passwordRepeat.value === "") {
+      document.querySelector('.error-message--reg-password-none').classList.remove('visually-hidden');
+      passwordRepeat.classList.add('connection__field--error');
+    } else {
+      document.querySelector('.error-message--reg-password-none').classList.add('visually-hidden');
+      passwordRepeat.classList.remove('connection__field--error');
+    }
   }
   );
   name.addEventListener('input', function () {
-    if (EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value !== "" && phone.value.length === 18) {
+    if ((passwordRepeat.value === passwordReg.value) && EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxData.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value.length >= 10 && phone.value.length >= 18) {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
     } else {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
@@ -488,7 +715,7 @@ if (emailReg && passwordReg && passwordRepeat && name && dateBirth && phone && c
   }
   );
   dateBirth.addEventListener('input', function () {
-    if (EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value !== "" && phone.value.length === 18) {
+    if ((passwordRepeat.value === passwordReg.value) && EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxData.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value.length >= 10 && phone.value.length >= 18) {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
     } else {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
@@ -496,7 +723,7 @@ if (emailReg && passwordReg && passwordRepeat && name && dateBirth && phone && c
   }
   );
   phone.addEventListener('input', function () {
-    if (EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value !== "" && phone.value.length === 18) {
+    if ((passwordRepeat.value === passwordReg.value) && EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxData.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value.length >= 10 && phone.value.length >= 18) {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
     } else {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
@@ -504,14 +731,21 @@ if (emailReg && passwordReg && passwordRepeat && name && dateBirth && phone && c
   }
   );
   checkboxAgreementLabel.addEventListener('click', function () {
-    if (EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value !== "" && phone.value.length === 18) {
+    if ((passwordRepeat.value === passwordReg.value) && EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxData.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value.length >= 10 && phone.value.length >= 18) {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
     } else {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
     }
   });
   checkboxNotificationLabel.addEventListener('click', function () {
-    if (EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value !== "" && phone.value.length === 18) {
+    if ((passwordRepeat.value === passwordReg.value) && EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxData.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value.length >= 10 && phone.value.length >= 18) {
+      document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
+    } else {
+      document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
+    }
+  });
+  checkboxDataLabel.addEventListener('click', function () {
+    if ((passwordRepeat.value === passwordReg.value) && EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxData.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value.length >= 10 && phone.value.length >= 18) {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
     } else {
       document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');

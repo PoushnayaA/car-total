@@ -389,8 +389,8 @@
                 <button class="price-data__button price-data__button--auto price-data__button--transparent"
                   type="button">Автоматическая ставка</button>
                 <button class="price-data__button" type="button">Предложить 1 666 000 ₽</button>
-                <section class="price-data__modal visually-hidden">
-                    <button class="modal__button" data-button="close-modal"><span class="visually-hidden" type="button">Закрыть.</span></button>
+                <section class="price-data__modal visually-hidden" data-modal="offer">
+                    <button class="modal__button" data-button="close-modal" type="button"><span class="visually-hidden">Закрыть.</span></button>
                     <h3 class="modal__title">Задайте настройки автоматического повышения ставки для лота 13022679</h3>
                     <div class="modal__text-wrapper">
                       <div class="modal__text-flex"><p class="modal__text">Шаг аукциона:</p><span>111 000 ₽</span></div>
@@ -406,7 +406,7 @@
                         <input class="price-input" id="max-price" type="text" placeholder="Введите цену" onkeyup="this.value = this.value.replace (/\D/, '')" required>
                       </div>
                     </div>
-                    <button type="button" class="connection__button--submit modal__button-offer">Сохранить</button>
+                    <button type="button" class="connection__button--submit modal__button-offer" data-button="save-modal">Сохранить</button>
                 </section>
               </div>
               <div class="price-card__reload">

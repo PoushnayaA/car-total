@@ -20,14 +20,18 @@
 }
 
 .news {
-  margin: 30px 0;
+  margin: 80px 0 50px;
 
   &--news-card-page .container {
     padding: 0 20px;
   }
 
   @include vp-768 {
-    margin: 0px 0;
+    margin: 75px 0 30px;
+  }
+
+  @include vp-1440 {
+    margin: 70px 0 50px;
   }
 
   .swiper-pagination {

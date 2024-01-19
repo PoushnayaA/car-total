@@ -2530,18 +2530,7 @@ footer {
 }
 
 .lots {
-  margin: 84px 0 41px;
-}
-@media (min-width: 768px) {
-  .lots {
-    margin-top: 75px;
-  }
-}
-@media (min-width: 1440px) {
-  .lots {
-    margin-top: 112px;
-    margin-bottom: 80px;
-  }
+  margin: 0 0 41px;
 }
 .lots .lots__item {
   min-width: 224px;
@@ -3020,14 +3009,19 @@ footer {
 }
 
 .news {
-  margin: 30px 0;
+  margin: 80px 0 50px;
 }
 .news--news-card-page .container {
   padding: 0 20px;
 }
 @media (min-width: 768px) {
   .news {
-    margin: 0px 0;
+    margin: 75px 0 30px;
+  }
+}
+@media (min-width: 1440px) {
+  .news {
+    margin: 70px 0 50px;
   }
 }
 @media (min-width: 768px) {
@@ -4756,6 +4750,13 @@ footer {
   stroke: #686868;
   cursor: pointer;
 }
+.card-page .favorite:hover, .card-page .favorite:focus, .card-page .favorite:active {
+  stroke: #43B02A;
+}
+.card-page .favorite--active {
+  fill: #43B02A;
+  stroke: #43B02A;
+}
 .card-page .favorite--active {
   fill: #43B02A;
   stroke: #43B02A;
@@ -4920,6 +4921,17 @@ footer {
     font-size: 32px;
     line-height: 42px;
   }
+}
+
+.card__print {
+  cursor: pointer;
+}
+.card__print svg {
+  stroke: #686868;
+  fill: none;
+}
+.card__print:hover svg, .card__print:focus svg, .card__print:active svg {
+  stroke: #43B02A;
 }
 
 .card__date {
@@ -5227,8 +5239,11 @@ footer {
           box-shadow: 0px 4px 26px 0px rgba(0, 0, 0, 0.0784313725);
   z-index: 1;
   position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
   top: 60px;
-  left: 0;
   width: 280px;
   background-color: #F2F4F5;
   border: 1px solid #E0E0E0;
@@ -5237,7 +5252,7 @@ footer {
 }
 @media (min-width: 768px) {
   .price-data__modal {
-    left: 20%;
+    width: 397px;
   }
 }
 .price-data__modal .price-input {
@@ -5344,10 +5359,12 @@ footer {
   padding: 15px;
   width: 100%;
   margin-top: 10px;
-  cursor: pointer;
+  z-index: 100;
 }
 .price-data__modal .modal__button-offer--active {
   background-color: #FE7333;
+  pointer-events: all;
+  cursor: pointer;
 }
 .price-data__modal .modal__button-offer--active:hover, .price-data__modal .modal__button-offer--active:focus, .price-data__modal .modal__button-offer--active:active {
   background-color: #FF9151;
@@ -5582,6 +5599,15 @@ footer {
   .price-card__reload-button {
     width: 100%;
   }
+}
+
+.favorite {
+  fill: #ffffff;
+  stroke: #686868;
+  cursor: pointer;
+}
+.favorite:hover, .favorite:focus, .favorite:active {
+  stroke: #43B02A;
 }
 
 .contacts .accordion__element {
@@ -7009,13 +7035,21 @@ footer {
 .checkbox:hover .checkbox__body,
 .checkbox:focus .checkbox__body,
 .checkbox:active .checkbox__body {
-  color: #43b02a;
+  color: #43B02A;
 }
 
 .checkbox:hover .checkbox__checkmark,
 .checkbox:focus .checkbox__checkmark,
 .checkbox:active .checkbox__checkmark {
-  border-color: #43b02a;
+  border-color: #43B02A;
+}
+
+.account .lots__text-wrapper .button-winner {
+  background-color: transparent;
+  color: #43B02A;
+}
+.account .lots__text-wrapper .button-winner svg {
+  margin-right: 15px;
 }
 
 footer {

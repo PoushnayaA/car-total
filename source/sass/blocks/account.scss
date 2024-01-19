@@ -592,11 +592,20 @@
 .checkbox:hover .checkbox__body,
 .checkbox:focus .checkbox__body,
 .checkbox:active .checkbox__body {
-  color: #43b02a;
+  color: $color-burnt-atlantis;
 }
 
 .checkbox:hover .checkbox__checkmark,
 .checkbox:focus .checkbox__checkmark,
 .checkbox:active .checkbox__checkmark {
- border-color: #43b02a;
+ border-color: $color-burnt-atlantis;
+}
+
+.account .lots__text-wrapper .button-winner {
+  background-color: transparent;
+  color: $color-burnt-atlantis;
+
+  svg {
+    margin-right: 15px;
+  }
 }

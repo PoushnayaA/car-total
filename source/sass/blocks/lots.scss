@@ -1,14 +1,14 @@
 .lots {
-  margin: 84px 0 41px;
+  margin: 0 0 41px;
 
-  @include vp-768 {
-    margin-top: 75px;
-  }
+  // @include vp-768 {
+  //   margin-top: 75px;
+  // }
 
-  @include vp-1440 {
-    margin-top: 112px;
-    margin-bottom: 80px;
-  }
+  // @include vp-1440 {
+  //   margin-top: 112px;
+  //   margin-bottom: 80px;
+  // }
 
   .lots__item {
     min-width: 224px;

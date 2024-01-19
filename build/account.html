@@ -137,26 +137,29 @@
                 Для изменения своих персональных данных отредактируйте необходимые поля формы.<br>
                 <span>*</span> - обязательное заполнение полей
               </div>
-              <form class="form-wrapper__form  connection" action="#" method="post">
+              <form class="form-wrapper__form connection" action="#" method="post">
                 <div class="connection__section">
                   <h3 class="connection__title">1. Главные</h3>
                   <div class="connection__wrapper connection__wrapper--wide">
                     <div class="connection__text-container connection__text-container--wide">
                       <label for="email" class="connection__label connection__label">Электронная почта
                         <span>*</span></label>
-                      <input class="connection__field" type="email" id="email" name="email"
-                        placeholder="Введите адрес электронной почты" required>
+                      <input class="connection__field connection__field--edit-email" type="email" id="email" name="email"
+                        placeholder="Введите адрес электронной почты">
+                        <span class="error-message error-message--edit-email visually-hidden">Некорректный ввод адреса почты</span>
                     </div>
                     <div class="connection__text-container">
                       <label for="password" class="connection__label">Пароль <span>*</span></label>
-                      <input class="connection__field" type="password" id="password" name="password"
-                        placeholder="Введите пароль" required>
+                      <input class="connection__field connection__field--edit-password" type="password" id="password" name="password"
+                        placeholder="Введите пароль">
                     </div>
                     <div class="connection__text-container">
                       <label for="password-repeat" class="connection__label">Повторите пароль
                         <span>*</span></label>
-                      <input class="connection__field" type="password" id="password-repeat" name="password-repeat"
-                        placeholder="Введите пароль" required>
+                      <input class="connection__field connection__field--edit-password-repeat" type="password" id="password-repeat" name="password-repeat"
+                        placeholder="Введите пароль">
+                        <span class="error-message error-message--edit visually-hidden">Пароли не совпадают</span>
+                        <span class="error-message error-message--edit-none visually-hidden">Поле не может быть пустым</span>
                     </div>
                   </div>
                 </div>
@@ -165,14 +168,14 @@
                   <div class="connection__wrapper connection__wrapper--wide">
                     <div class="connection__text-container connection__text-container--extra-wide">
                       <label for="name" class="connection__label">Ф.И.О. <span>*</span></label>
-                      <input class="connection__field" type="text" id="name" name="name"
+                      <input class="connection__field connection__field--edit-name" type="text" id="name" name="name"
                         placeholder="Фамилия Имя Отчество"
-                        onkeyup="this.value = this.value.replace (/[^a-zA-Zа-яА-ЯёЁ ]/i, '')" required>
+                        onkeyup="this.value = this.value.replace (/[^a-zA-Zа-яА-ЯёЁ ]/i, '')">
                     </div>
                     <div class="connection__text-container">
                       <label for="birth-date" class="connection__label">Дата рождения <span>*</span></label>
-                      <input class="connection__field" type="text" id="birth-date" name="birth-date"
-                        placeholder="__.__.____" required>
+                      <input class="connection__field connection__field--edit-birth-date" type="text" id="birth-date" name="birth-date"
+                        placeholder="__.__.____">
                     </div>
                   </div>
                 </div>
@@ -191,29 +194,29 @@
                     </div>
                     <div class="connection__text-container">
                       <label for="phone" class="connection__label">Контактный телефон <span>*</span></label>
-                      <input class="connection__field" type="text" id="phone" name="phone" placeholder="+7" required>
+                      <input class="connection__field connection__field--edit-phone" type="text" id="phone" name="phone" placeholder="+7">
                     </div>
                     <div class="connection__text-container">
                       <label for="phone-repeat" class="connection__label">Дополнительный телефон</span></label>
                       <input class="connection__field" type="text" id="phone-repeat" name="phone-repeat"
                         placeholder="+7">
                     </div>
-                    <div class="connection__text-container">
-                      <label for="note" class="connection__label">Премечания</span></label>
+                    <div class="connection__text-container connection__text-container--wide">
+                      <label for="note" class="connection__label">Примечания</span></label>
                       <input class="connection__field" type="text" id="note" name="note" placeholder="Введите текст">
                     </div>
                   </div>
                 </div>
                 <div class="connection__wrapper connection__wrapper--checkbox">
-                  <label class=" connection__checkbox checkbox">
-                    <input type="checkbox" name="notification" />
+                  <label class=" connection__checkbox checkbox checkbox--notification">
+                    <input class="checkbox__input" type="checkbox" name="notification" />
                     <div class="checkbox__checkmark"></div>
                     <div class="checkbox__body">Получать уведомление в случае если Ваша ставка была перебита другим
                       участником</div>
                   </label>
                 </div>
                 <div class="connection__wrapper">
-                  <a class="connection__button connection__button--submit disabled" type="submit">Сохранить</a>
+                  <a class="connection__button connection__button--submit" type="submit">Сохранить</a>
                 </div>
               </form>
             </div>
@@ -240,19 +243,17 @@
                         </svg>
                       </button>
                       <ul class="filter-sorting__select-list visually-hidden">
-                        <li class="filter-sorting__select-item filter-sorting__select-item--active"
-                          data-filter="lh-price">
-                          По возрастанию
-                          цены</li>
-                        <li class="filter-sorting__select-item" data-filter="hl-price">По убыванию цены</li>
-                        <li class="filter-sorting__select-item" data-filter="se-date">По дате начала</li>
-                        <li class="filter-sorting__select-item" data-filter="es-date">По дате завершения</li>
+                        <li class="filter-sorting__select-item" data-filter="ascending-price">
+                          По возрастанию цены</li>
+                        <li class="filter-sorting__select-item" data-filter="descending-price">По убыванию цены</li>
+                        <li class="filter-sorting__select-item" data-filter="start-date">По дате начала</li>
+                        <li class="filter-sorting__select-item" data-filter="end-date">По дате завершения</li>
                       </ul>
                     </div>
                   </div>
                 </div>
                 <ul class="lots__list">
-                  <li class="lots__item lots__item--favorite">
+                  <li class="lots__item lots__item--favorite" data-price="1000000" data-timer="Dec 6 2023 10:50:00 AM">
                     <div class="lots__img-wrapper">
                       <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
                     </div>
@@ -266,23 +267,23 @@
                       <a href="lots-card.html">
                         <div class="lots__description">
                           <h3 class="lots__lot-name">BMW M2 Competition</h3>
-                          <p class="lots__description-item">Начальная цена <span>1 222 000 ₽</span></p>
+                          <p class="lots__description-item">Начальная цена <span>1 000 000 ₽</span></p>
                           <p class="lots__description-item">Окончание торгов <span>06.12.2023 10:50</span></p>
                           <p class="lots__description-item">Местоположение <span>Санкт-Петербург</span></p>
                         </div>
-                        <button type="button">Повысить ставку</button>
-                        <div class="visually-hidden">
+                        <button class="" type="button">Повысить ставку</button>
+                        <button class="button-winner visually-hidden">
                           <svg width="20" height="20" viewBox="0 0 20 20" role="img">
                             <use href="img/sprite.svg#winner"></use>
                           </svg>
-                          <div>Ваша ставка лидирует</div>
-                        </div>
+                          Ваша ставка лидирует
+                        </button>
                       </a>
                     </div>
                   </li>
-                  <li class="lots__item lots__item--favorite">
+                  <li class="lots__item lots__item--favorite" data-price="1500000" data-timer="Dec 10 2023 10:00:00 AM">
                     <div class="lots__img-wrapper">
-                      <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                      <img class="lots__img" src="./img/content/car-2.jpg" width="192" height="167" alt="Фото лота.">
                     </div>
                     <div class="lots__text-wrapper">
                       <div class="lots__extra-inf-wrapper">
@@ -294,23 +295,23 @@
                       <a href="lots-card.html">
                         <div class="lots__description">
                           <h3 class="lots__lot-name">BMW M2 Competition</h3>
-                          <p class="lots__description-item">Начальная цена <span>1 222 000 ₽</span></p>
-                          <p class="lots__description-item">Окончание торгов <span>06.12.2023 10:50</span></p>
+                          <p class="lots__description-item">Начальная цена <span>1 500 000 ₽</span></p>
+                          <p class="lots__description-item">Окончание торгов <span>10.12.2023 10:50</span></p>
                           <p class="lots__description-item">Местоположение <span>Санкт-Петербург</span></p>
                         </div>
-                        <button type="button">Повысить ставку</button>
-                        <div class="visually-hidden">
+                        <button class="visually-hidden" type="button">Повысить ставку</button>
+                        <button class="button-winner">
                           <svg width="20" height="20" viewBox="0 0 20 20" role="img">
                             <use href="img/sprite.svg#winner"></use>
                           </svg>
-                          <div>Ваша ставка лидирует</div>
-                        </div>
+                          Ваша ставка лидирует
+                        </button>
                       </a>
                     </div>
                   </li>
-                  <li class="lots__item lots__item--favorite">
+                  <li class="lots__item lots__item--favorite" data-price="1350000" data-timer="Dec 15 2023 10:00:00 AM">
                     <div class="lots__img-wrapper">
-                      <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                      <img class="lots__img" src="./img/content/car-3.jpg" width="192" height="167" alt="Фото лота.">
                     </div>
                     <div class="lots__text-wrapper">
                       <div class="lots__extra-inf-wrapper">
@@ -322,21 +323,21 @@
                       <a href="lots-card.html">
                         <div class="lots__description">
                           <h3 class="lots__lot-name">BMW M2 Competition</h3>
-                          <p class="lots__description-item">Начальная цена <span>1 222 000 ₽</span></p>
-                          <p class="lots__description-item">Окончание торгов <span>06.12.2023 10:50</span></p>
+                          <p class="lots__description-item">Начальная цена <span>1 350 000 ₽</span></p>
+                          <p class="lots__description-item">Окончание торгов <span>15.12.2023 10:50</span></p>
                           <p class="lots__description-item">Местоположение <span>Санкт-Петербург</span></p>
                         </div>
-                        <button type="button">Повысить ставку</button>
-                        <div class="visually-hidden">
+                        <button class="visually-hidden" type="button">Повысить ставку</button>
+                        <button class="button-winner">
                           <svg width="20" height="20" viewBox="0 0 20 20" role="img">
                             <use href="img/sprite.svg#winner"></use>
                           </svg>
-                          <div>Ваша ставка лидирует</div>
-                        </div>
+                          Ваша ставка лидирует
+                        </button>
                       </a>
                     </div>
                   </li>
-                  <li class="lots__item lots__item--favorite">
+                  <li class="lots__item lots__item--favorite" data-price="1450000" data-timer="Dec 20 2023 10:00:00 AM">
                     <div class="lots__img-wrapper">
                       <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
                     </div>
@@ -350,23 +351,23 @@
                       <a href="lots-card.html">
                         <div class="lots__description">
                           <h3 class="lots__lot-name">BMW M2 Competition</h3>
-                          <p class="lots__description-item">Начальная цена <span>1 222 000 ₽</span></p>
-                          <p class="lots__description-item">Окончание торгов <span>06.12.2023 10:50</span></p>
+                          <p class="lots__description-item">Начальная цена <span>1 450 000 ₽</span></p>
+                          <p class="lots__description-item">Окончание торгов <span>20.12.2023 10:50</span></p>
                           <p class="lots__description-item">Местоположение <span>Санкт-Петербург</span></p>
                         </div>
-                        <button type="button">Повысить ставку</button>
-                        <div class="visually-hidden">
+                        <button class="" type="button">Повысить ставку</button>
+                        <button class="button-winner visually-hidden">
                           <svg width="20" height="20" viewBox="0 0 20 20" role="img">
                             <use href="img/sprite.svg#winner"></use>
                           </svg>
-                          <div>Ваша ставка лидирует</div>
-                        </div>
+                          Ваша ставка лидирует
+                        </button>
                       </a>
                     </div>
                   </li>
-                  <li class="lots__item lots__item--favorite">
+                  <li class="lots__item lots__item--favorite" data-price="1300000" data-timer="Dec 25 2023 10:00:00 AM">
                     <div class="lots__img-wrapper">
-                      <img class="lots__img" src="./img/content/car-1.jpg" width="192" height="167" alt="Фото лота.">
+                      <img class="lots__img" src="./img/content/car-2.jpg" width="192" height="167" alt="Фото лота.">
                     </div>
                     <div class="lots__text-wrapper">
                       <div class="lots__extra-inf-wrapper">
@@ -378,17 +379,17 @@
                       <a href="lots-card.html">
                         <div class="lots__description">
                           <h3 class="lots__lot-name">BMW M2 Competition</h3>
-                          <p class="lots__description-item">Начальная цена <span>1 222 000 ₽</span></p>
-                          <p class="lots__description-item">Окончание торгов <span>06.12.2023 10:50</span></p>
+                          <p class="lots__description-item">Начальная цена <span>1 300 000 ₽</span></p>
+                          <p class="lots__description-item">Окончание торгов <span>25.12.2023 10:50</span></p>
                           <p class="lots__description-item">Местоположение <span>Санкт-Петербург</span></p>
                         </div>
-                        <button type="button">Повысить ставку</button>
-                        <div class="visually-hidden">
+                        <button class="visually-hidden" type="button">Повысить ставку</button>
+                        <button class="button-winner">
                           <svg width="20" height="20" viewBox="0 0 20 20" role="img">
                             <use href="img/sprite.svg#winner"></use>
                           </svg>
-                          <div>Ваша ставка лидирует</div>
-                        </div>
+                          Ваша ставка лидирует
+                        </button>
                       </a>
                     </div>
                   </li>

@@ -166,6 +166,8 @@
                         <span>*</span></label>
                       <input class="connection__field connection__field--reg-password-repeat log-in__form" type="password" id="password-repeat-reg" name="password-repeat"
                         placeholder="Введите пароль" required>
+                        <span class="error-message error-message--reg-password visually-hidden">Пароли не совпадают</span>
+                        <span class="error-message error-message--reg-password-none visually-hidden">Поле не может быть пустым</span>
                     </div>
                   </div>
                 </div>
@@ -202,13 +204,18 @@
                   <label class=" connection__checkbox checkbox checkbox--agreement">
                     <input class="checkbox__input"  type="checkbox" name="agreement"/>
                     <div class="checkbox__checkmark"></div>
-                    <div class="checkbox__body">Согласен с <a href="#">условиями</a> аукциона</div>
+                    <div class="checkbox__body">Согласен с <a href="rules.html">условиями</a> аукциона</div>
                   </label>
                   <label class="connection__checkbox checkbox checkbox--notification">
                     <input class="checkbox__input" type="checkbox" name="notification"/>
                     <div class="checkbox__checkmark"></div>
                     <div class="checkbox__body">Получать уведомление в случае если Ваша ставка была перебита другим
                       участником</div>
+                  </label>
+                  <label class=" connection__checkbox checkbox checkbox--data">
+                    <input class="checkbox__input"  type="checkbox" name="data"/>
+                    <div class="checkbox__checkmark"></div>
+                    <div class="checkbox__body">Согласен на обработку персональных данных</div>
                   </label>
                 </div>
                 <div class="connection__wrapper">
