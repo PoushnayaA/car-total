@@ -293,17 +293,6 @@ buttonNavigation.addEventListener('click', function () {
   document.querySelector('.page').classList.toggle('page--dark');
 });
 
-// const zoomList = document.querySelector('.mySwiper2');
-// const zoomItems = zoomList.querySelectorAll('.lots__photo-item');
-// zoomItems.forEach(item => {
-//   item.addEventListener('click', function (e) {
-//     document.querySelector('.page').classList.toggle('page--dark');
-//     // e.target.querySelector()
-//     console.log(e.target);
-//     e.target.style.zIndex = "100";
-//     e.target.style.borderRadius = "15px";
-//   });
-// });
 
 const buttonFilter = document.querySelector('[data-button="change-filter"]');
 if (buttonFilter) {
