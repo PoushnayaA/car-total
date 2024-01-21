@@ -62,6 +62,7 @@
     "node": ">=16.15.1"
   },
   "dependencies": {
-    "imask": "^7.3.0"
+    "imask": "^7.3.0",
+    "lightbox2": "^2.11.4"
   }
 }

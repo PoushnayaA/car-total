@@ -294,6 +294,14 @@ buttonNavigation.addEventListener('click', function () {
 });
 
 
+const cardSigns = document.querySelector('.card__signs-wrapper');
+const favoriteCard = document.querySelector('.favorite');
+if (cardSigns && favoriteCard) {
+  favoriteCard.addEventListener('click', function () {
+    favoriteCard.classList.toggle('favorite--active');
+  });
+}
+
 const buttonFilter = document.querySelector('[data-button="change-filter"]');
 if (buttonFilter) {
   buttonFilter.addEventListener('click', function () {
@@ -396,18 +404,13 @@ if (document.querySelector('.filter-sorting__select-list')) {
 
 if (document.querySelectorAll('.lots__item')) {
   document.querySelectorAll('.lots__item').forEach(function (lot) {
-    lot.querySelector('.favorite').addEventListener('click', function () {
-      lot.classList.toggle('lots__item--favorite');
-    });
+    if (lot.querySelector('.favorite')) {
+      lot.querySelector('.favorite').addEventListener('click', function () {
+        lot.classList.toggle('lots__item--favorite');
+      });
+    }
   });
 }
-
-if (document.querySelector('.card__signs-wrapper').querySelector('.favorite')) {
-  document.querySelector('.card__signs-wrapper').querySelector('.favorite').addEventListener('click', function () {
-    document.querySelector('.card__signs-wrapper').querySelector('.favorite').classList.toggle('favorite--active');
-  });
-}
-
 
 if (document.querySelector('.price-data__button--auto')) {
   document.querySelector('.price-data__button--auto').addEventListener('click', function () {
@@ -606,140 +609,143 @@ if (document.querySelector('.account__form--personal')) {
   }
 }
 
-const emailEnter = document.querySelector('.log-in__form--main').querySelector('.connection__field--email');
-const passwordEnter = document.querySelector('.log-in__form--main').querySelector('.connection__field--password');
+if (document.querySelector('.log-in__form--main')) {
+  const emailEnter = document.querySelector('.log-in__form--main').querySelector('.connection__field--email');
+  const passwordEnter = document.querySelector('.log-in__form--main').querySelector('.connection__field--password');
 
-
-if (emailEnter && passwordEnter) {
-  passwordEnter.addEventListener('input', function () {
-    if (passwordEnter.value !== "" && emailEnter.value !== "" && EMAIL_REGEXP.test(emailEnter.value)) {
-      document.querySelector('.log-in__form--main').querySelector('.connection__button--submit').classList.add('connection__button--active');
-    } else {
-      document.querySelector('.log-in__form--main').querySelector('.connection__button--submit').classList.remove('connection__button--active');
+  if (emailEnter && passwordEnter) {
+    passwordEnter.addEventListener('input', function () {
+      if (passwordEnter.value !== "" && emailEnter.value !== "" && EMAIL_REGEXP.test(emailEnter.value)) {
+        document.querySelector('.log-in__form--main').querySelector('.connection__button--submit').classList.add('connection__button--active');
+      } else {
+        document.querySelector('.log-in__form--main').querySelector('.connection__button--submit').classList.remove('connection__button--active');
+      }
+    });
+    emailEnter.addEventListener('input', function () {
+      if (passwordEnter.value !== "" && emailEnter.value !== "" && EMAIL_REGEXP.test(emailEnter.value)) {
+        document.querySelector('.log-in__form--main').querySelector('.connection__button--submit').classList.add('connection__button--active');
+      } else {
+        document.querySelector('.log-in__form--main').querySelector('.connection__button--submit').classList.remove('connection__button--active');
+      }
+      if (!EMAIL_REGEXP.test(emailEnter.value)) {
+        document.querySelector('.error-message-enter').classList.remove('visually-hidden');
+        document.querySelector('.connection__field--email').classList.add('connection__field--error');
+      } else {
+        document.querySelector('.error-message-enter').classList.add('visually-hidden');
+        document.querySelector('.connection__field--email').classList.remove('connection__field--error');
+      }
     }
-  });
-  emailEnter.addEventListener('input', function () {
-    if (passwordEnter.value !== "" && emailEnter.value !== "" && EMAIL_REGEXP.test(emailEnter.value)) {
-      document.querySelector('.log-in__form--main').querySelector('.connection__button--submit').classList.add('connection__button--active');
-    } else {
-      document.querySelector('.log-in__form--main').querySelector('.connection__button--submit').classList.remove('connection__button--active');
-    }
-    if (!EMAIL_REGEXP.test(emailEnter.value)) {
-      document.querySelector('.error-message-enter').classList.remove('visually-hidden');
-      document.querySelector('.connection__field--email').classList.add('connection__field--error');
-    } else {
-      document.querySelector('.error-message-enter').classList.add('visually-hidden');
-      document.querySelector('.connection__field--email').classList.remove('connection__field--error');
-    }
+    );
   }
-  );
 }
 
-const emailReg = document.querySelector('.log-in__form--registration').querySelector('.connection__field--reg-email');
-const passwordReg = document.querySelector('.log-in__form--registration').querySelector('.connection__field--reg-password');
-const passwordRepeat = document.querySelector('.log-in__form--registration').querySelector('.connection__field--reg-password-repeat');
+if (document.querySelector('.log-in__form--registration')) {
+  const emailReg = document.querySelector('.log-in__form--registration').querySelector('.connection__field--reg-email');
+  const passwordReg = document.querySelector('.log-in__form--registration').querySelector('.connection__field--reg-password');
+  const passwordRepeat = document.querySelector('.log-in__form--registration').querySelector('.connection__field--reg-password-repeat');
 
-const name = document.querySelector('.log-in__form--registration').querySelector('.connection__field--name');
-const dateBirth = document.querySelector('.log-in__form--registration').querySelector('.connection__field--birth-date');
-const phone = document.querySelector('.log-in__form--registration').querySelector('.connection__field--phone');
+  const name = document.querySelector('.log-in__form--registration').querySelector('.connection__field--name');
+  const dateBirth = document.querySelector('.log-in__form--registration').querySelector('.connection__field--birth-date');
+  const phone = document.querySelector('.log-in__form--registration').querySelector('.connection__field--phone');
 
-const checkboxAgreementLabel = document.querySelector('.checkbox--agreement');
-const checkboxDataLabel = document.querySelector('.checkbox--data');
-const checkboxNotificationLabel = document.querySelector('.checkbox--notification');
-const checkboxAgreement = document.querySelector('.checkbox--agreement').querySelector('.checkbox__input');
-const checkboxData = document.querySelector('.checkbox--data').querySelector('.checkbox__input');
-const checkboxNotification = document.querySelector('.checkbox--notification').querySelector('.checkbox__input');
+  const checkboxAgreementLabel = document.querySelector('.checkbox--agreement');
+  const checkboxDataLabel = document.querySelector('.checkbox--data');
+  const checkboxNotificationLabel = document.querySelector('.checkbox--notification');
+  const checkboxAgreement = document.querySelector('.checkbox--agreement').querySelector('.checkbox__input');
+  const checkboxData = document.querySelector('.checkbox--data').querySelector('.checkbox__input');
+  const checkboxNotification = document.querySelector('.checkbox--notification').querySelector('.checkbox__input');
 
-if (emailReg && passwordReg && passwordRepeat && name && dateBirth && phone && checkboxAgreementLabel && checkboxNotificationLabel && checkboxDataLabel) {
-  passwordReg.addEventListener('input', function () {
-    if ((passwordRepeat.value === passwordReg.value) && EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxData.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value.length >= 10 && phone.value.length >= 18) {
-      document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
-    } else {
-      document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
+  if (emailReg && passwordReg && passwordRepeat && name && dateBirth && phone && checkboxAgreementLabel && checkboxNotificationLabel && checkboxDataLabel) {
+    passwordReg.addEventListener('input', function () {
+      if ((passwordRepeat.value === passwordReg.value) && EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxData.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value.length >= 10 && phone.value.length >= 18) {
+        document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
+      } else {
+        document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
+      }
+    });
+    emailReg.addEventListener('input', function () {
+      if ((passwordRepeat.value === passwordReg.value) && EMAIL_REGEXP.test(emailReg.value) && checkboxData.checked && checkboxNotification.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value.length >= 10 && phone.value.length >= 18) {
+        document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
+      } else {
+        document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
+      }
+      if (!EMAIL_REGEXP.test(emailReg.value)) {
+        document.querySelector('.error-message').classList.remove('visually-hidden');
+        document.querySelector('.connection__field--reg-email').classList.add('connection__field--error');
+      } else {
+        document.querySelector('.error-message').classList.add('visually-hidden');
+        document.querySelector('.connection__field--reg-email').classList.remove('connection__field--error');
+      }
     }
-  });
-  emailReg.addEventListener('input', function () {
-    if ((passwordRepeat.value === passwordReg.value) && EMAIL_REGEXP.test(emailReg.value) && checkboxData.checked && checkboxNotification.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value.length >= 10 && phone.value.length >= 18) {
-      document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
-    } else {
-      document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
+    );
+    passwordRepeat.addEventListener('input', function () {
+      if ((passwordRepeat.value === passwordReg.value) && EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxData.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value.length >= 10 && phone.value.length >= 18) {
+        document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
+      } else {
+        document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
+      }
+      if (passwordRepeat.value !== passwordReg.value) {
+        document.querySelector('.error-message--reg-password').classList.remove('visually-hidden');
+        passwordRepeat.classList.add('connection__field--error');
+      } else {
+        document.querySelector('.error-message--reg-password').classList.add('visually-hidden');
+        passwordRepeat.classList.remove('connection__field--error');
+      }
+      if (passwordRepeat.value === "") {
+        document.querySelector('.error-message--reg-password-none').classList.remove('visually-hidden');
+        passwordRepeat.classList.add('connection__field--error');
+      } else {
+        document.querySelector('.error-message--reg-password-none').classList.add('visually-hidden');
+        passwordRepeat.classList.remove('connection__field--error');
+      }
     }
-    if (!EMAIL_REGEXP.test(emailReg.value)) {
-      document.querySelector('.error-message').classList.remove('visually-hidden');
-      document.querySelector('.connection__field--reg-email').classList.add('connection__field--error');
-    } else {
-      document.querySelector('.error-message').classList.add('visually-hidden');
-      document.querySelector('.connection__field--reg-email').classList.remove('connection__field--error');
+    );
+    name.addEventListener('input', function () {
+      if ((passwordRepeat.value === passwordReg.value) && EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxData.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value.length >= 10 && phone.value.length >= 18) {
+        document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
+      } else {
+        document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
+      }
     }
+    );
+    dateBirth.addEventListener('input', function () {
+      if ((passwordRepeat.value === passwordReg.value) && EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxData.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value.length >= 10 && phone.value.length >= 18) {
+        document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
+      } else {
+        document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
+      }
+    }
+    );
+    phone.addEventListener('input', function () {
+      if ((passwordRepeat.value === passwordReg.value) && EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxData.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value.length >= 10 && phone.value.length >= 18) {
+        document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
+      } else {
+        document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
+      }
+    }
+    );
+    checkboxAgreementLabel.addEventListener('click', function () {
+      if ((passwordRepeat.value === passwordReg.value) && EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxData.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value.length >= 10 && phone.value.length >= 18) {
+        document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
+      } else {
+        document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
+      }
+    });
+    checkboxNotificationLabel.addEventListener('click', function () {
+      if ((passwordRepeat.value === passwordReg.value) && EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxData.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value.length >= 10 && phone.value.length >= 18) {
+        document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
+      } else {
+        document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
+      }
+    });
+    checkboxDataLabel.addEventListener('click', function () {
+      if ((passwordRepeat.value === passwordReg.value) && EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxData.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value.length >= 10 && phone.value.length >= 18) {
+        document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
+      } else {
+        document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
+      }
+    });
   }
-  );
-  passwordRepeat.addEventListener('input', function () {
-    if ((passwordRepeat.value === passwordReg.value) && EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxData.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value.length >= 10 && phone.value.length >= 18) {
-      document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
-    } else {
-      document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
-    }
-    if (passwordRepeat.value !== passwordReg.value) {
-      document.querySelector('.error-message--reg-password').classList.remove('visually-hidden');
-      passwordRepeat.classList.add('connection__field--error');
-    } else {
-      document.querySelector('.error-message--reg-password').classList.add('visually-hidden');
-      passwordRepeat.classList.remove('connection__field--error');
-    }
-    if (passwordRepeat.value === "") {
-      document.querySelector('.error-message--reg-password-none').classList.remove('visually-hidden');
-      passwordRepeat.classList.add('connection__field--error');
-    } else {
-      document.querySelector('.error-message--reg-password-none').classList.add('visually-hidden');
-      passwordRepeat.classList.remove('connection__field--error');
-    }
-  }
-  );
-  name.addEventListener('input', function () {
-    if ((passwordRepeat.value === passwordReg.value) && EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxData.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value.length >= 10 && phone.value.length >= 18) {
-      document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
-    } else {
-      document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
-    }
-  }
-  );
-  dateBirth.addEventListener('input', function () {
-    if ((passwordRepeat.value === passwordReg.value) && EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxData.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value.length >= 10 && phone.value.length >= 18) {
-      document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
-    } else {
-      document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
-    }
-  }
-  );
-  phone.addEventListener('input', function () {
-    if ((passwordRepeat.value === passwordReg.value) && EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxData.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value.length >= 10 && phone.value.length >= 18) {
-      document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
-    } else {
-      document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
-    }
-  }
-  );
-  checkboxAgreementLabel.addEventListener('click', function () {
-    if ((passwordRepeat.value === passwordReg.value) && EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxData.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value.length >= 10 && phone.value.length >= 18) {
-      document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
-    } else {
-      document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
-    }
-  });
-  checkboxNotificationLabel.addEventListener('click', function () {
-    if ((passwordRepeat.value === passwordReg.value) && EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxData.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value.length >= 10 && phone.value.length >= 18) {
-      document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
-    } else {
-      document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
-    }
-  });
-  checkboxDataLabel.addEventListener('click', function () {
-    if ((passwordRepeat.value === passwordReg.value) && EMAIL_REGEXP.test(emailReg.value) && checkboxNotification.checked && checkboxData.checked && checkboxAgreement.checked && passwordReg.value !== "" && emailReg.value !== "" && passwordRepeat.value !== "" && name.value !== "" && dateBirth.value.length >= 10 && phone.value.length >= 18) {
-      document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.add('connection__button--active');
-    } else {
-      document.querySelector('.log-in__form--registration').querySelector('.connection__button--submit').classList.remove('connection__button--active');
-    }
-  });
 }
 
 const emailRecovery = document.querySelector('.connection__field--recovery');

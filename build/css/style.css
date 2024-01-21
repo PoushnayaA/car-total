@@ -2262,15 +2262,14 @@ footer {
 
 .body--dark {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(41, 41, 41, 0.3019607843);
+  background-color: #292929;
+  opacity: 100%;
   background-size: 100vw 100vh;
+  z-index: 5000;
 }
 
 .navigation__list--desktop.navigation__list--open {
@@ -5608,6 +5607,10 @@ footer {
 }
 .favorite:hover, .favorite:focus, .favorite:active {
   stroke: #43B02A;
+}
+
+.card-page .swiper-slide {
+  border-radius: 15px;
 }
 
 .contacts .accordion__element {

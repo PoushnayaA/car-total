@@ -472,13 +472,15 @@
 
 .body--dark {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  // transform: translate(-50%, -50%);
   width: 100vw;
   height: 100vh;
-  background-color: $color-nero-30;
+  background-color: $color-nero;
+  opacity: 100%;
   background-size: 100vw 100vh;
+  z-index: 5000;
 }
 
 
