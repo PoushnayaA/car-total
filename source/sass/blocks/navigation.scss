@@ -366,6 +366,13 @@
   }
 
   &--main {
+
+    .navigation__button {
+      &:hover, &:focus, &:active {
+        opacity: 0.8;
+      }
+    }
+
     .navigation__wrapper {
       padding: 10px 20px;
 
@@ -379,7 +386,6 @@
     }
 
     .navigation__item {
-      // padding: 10px;
       &:hover, &:focus, &:active {
         a {
         color: #FF9151;
@@ -467,14 +473,12 @@
 
 .navigation__select-button {
   padding: 0;
-  // padding-left: 5px;
 }
 
 .body--dark {
   position: fixed;
   top: 0;
   left: 0;
-  // transform: translate(-50%, -50%);
   width: 100vw;
   height: 100vh;
   background-color: $color-nero;

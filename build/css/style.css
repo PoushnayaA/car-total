@@ -2163,6 +2163,9 @@ footer {
     height: 23px;
   }
 }
+.navigation--main .navigation__button:hover, .navigation--main .navigation__button:focus, .navigation--main .navigation__button:active {
+  opacity: 0.8;
+}
 .navigation--main .navigation__wrapper {
   padding: 10px 20px;
 }
@@ -5613,6 +5616,12 @@ footer {
   border-radius: 15px;
 }
 
+@media (min-width: 1440px) {
+  .price-card__reload-button {
+    margin-top: 10px;
+  }
+}
+
 .contacts .accordion__element {
   border: none;
   margin: 9px 0 20px;
@@ -6959,12 +6968,12 @@ footer {
   width: 19px;
   height: 19px;
   cursor: pointer;
-  -webkit-transition: opacity ease 0.5s;
-  transition: opacity ease 0.5s;
+  -webkit-transition: opacity ease 0.1s;
+  transition: opacity ease 0.1s;
   background-color: inherit;
 }
 .account__arhive-button:hover {
-  opacity: 1;
+  opacity: 0.8;
 }
 @media (min-width: 768px) {
   .account__arhive-button {

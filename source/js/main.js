@@ -759,4 +759,14 @@ if (emailRecovery) {
   });
 }
 
+const deleteButtons = document.querySelectorAll('.account__arhive-button--delete');
+if (deleteButtons) {
+  deleteButtons.forEach(i => {
+    i.addEventListener('click', function (e) {
+      // console.log(e.target.parentNode);
+      e.target.parentNode.remove();
+    });
+  });
+}
+
 // document.querySelector('.authorization').classList.add('visually-hidden');

@@ -851,3 +851,9 @@
 .card-page .swiper-slide {
   border-radius: 15px;
 }
+
+.price-card__reload-button {
+  @include vp-1440 {
+    margin-top: 10px;
+  }
+}
