@@ -7055,6 +7055,13 @@ footer {
   margin-right: 15px;
 }
 
+@media (min-width: 1440px) {
+  .account .connection__wrapper--wide {
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 footer {
   margin-top: auto;
 }

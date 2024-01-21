@@ -609,3 +609,9 @@
     margin-right: 15px;
   }
 }
+
+.account .connection__wrapper--wide {
+  @include vp-1440 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
