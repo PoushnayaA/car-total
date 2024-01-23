@@ -935,7 +935,7 @@
   text-align: center;
 
   @include vp-768 {
-    font-size: 24px;
+    // font-size: 24px;
     font-weight: 400;
     line-height: 31px;
     margin-top: 18px;
@@ -1114,4 +1114,10 @@
 
 .page-card:not(.page-card--dark) .mySwiper3 .swiper-slide {
   width: 100% !important;
+}
+
+.page-card:not(.page-card--dark) .mySwiper3 .swiper-wrapper {
+  @include vp-1440 {
+    transform: none !important;
+  }
 }

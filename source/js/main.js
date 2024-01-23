@@ -256,6 +256,7 @@ window.addEventListener('DOMContentLoaded', () => {
     slidesPerView: 'auto',
     freeMode: true,
     watchSlidesProgress: true,
+    // allowTouchMove: false,
   });
   // eslint-disable-next-line
   var swiper2 = new Swiper(".mySwiper2", {
@@ -318,8 +319,10 @@ window.addEventListener('DOMContentLoaded', () => {
       swiper2.update();
     }
     if (screenWidth >= 1440) {
-      swiper3.params.slidesPerView = 3;
+      swiper3.params.slidesPerView = 'auto';
     swiper3.params.spaceBetween = 0;
+    // swiper3.params.allowTouchMove = false;
+    //       console.log(swiper3.params.allowTouchMove, 'false');
       swiper3.update();
       swiper2.params.slidesPerView = 1;
       swiper2.update();
@@ -331,6 +334,8 @@ window.addEventListener('DOMContentLoaded', () => {
         if (screenWidth < 1440) {
           swiper3.params.slidesPerView = 4;
           swiper3.params.spaceBetween = 10;
+          // swiper3.params.allowTouchMove = true;
+          // console.log(swiper3.params.allowTouchMove, 'true');
           swiper3.update();
           swiper2.params.slidesPerView = 1;
           swiper2.update();
@@ -338,6 +343,8 @@ window.addEventListener('DOMContentLoaded', () => {
         if (screenWidth >= 1440) {
           swiper3.params.slidesPerView = 6;
           swiper3.params.spaceBetween = 10;
+          // swiper3.params.allowTouchMove = false;
+          // console.log(swiper3.params.allowTouchMove, 'false');
           swiper3.update();
           swiper2.params.slidesPerView = 1;
           swiper2.update();
@@ -369,12 +376,14 @@ window.addEventListener('DOMContentLoaded', () => {
         swiper2.update();
       }
       if (screenWidth >= 1440) {
-        swiper3.params.slidesPerView = 3;
+        swiper3.params.slidesPerView = 'auto';
         swiper3.params.spaceBetween = 0;
+        // swiper3.params.allowTouchMove = false;
+        // console.log(swiper3.params.allowTouchMove, 'false');
         swiper3.update();
         swiper2.params.slidesPerView = 1;
         swiper2.update();
-        location.reload();
+        // location.reload();
       }
     })
 
@@ -384,6 +393,8 @@ window.addEventListener('DOMContentLoaded', () => {
         if (screenWidth < 1440) {
           swiper3.params.slidesPerView = 4;
           swiper3.params.spaceBetween = 10;
+          // swiper3.params.allowTouchMove = true;
+          // console.log(swiper3.params.allowTouchMove, 'true');
           swiper3.update();
           swiper2.params.slidesPerView = 1;
           swiper2.update();
@@ -391,6 +402,8 @@ window.addEventListener('DOMContentLoaded', () => {
         if (screenWidth >= 1440) {
           swiper3.params.slidesPerView = 6;
           swiper3.params.spaceBetween = 10;
+          // swiper3.params.allowTouchMove = false;
+          // console.log(swiper3.params.allowTouchMove, 'false');
           swiper3.update();
           swiper2.params.slidesPerView = 1;
           swiper2.update();
@@ -415,13 +428,12 @@ window.addEventListener('DOMContentLoaded', () => {
           swiper2.update();
         }
         if (screenWidth >= 1440) {
-          swiper3.params.slidesPerView = 3;
+          swiper3.params.slidesPerView = 'auto';
         swiper3.params.spaceBetween = 0;
           swiper3.update();
           swiper2.params.slidesPerView = 1;
           swiper2.update();
-          location.reload();
-          location.reload();
+          // location.reload();
         }
       }
     });

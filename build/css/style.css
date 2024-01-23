@@ -5639,7 +5639,6 @@ footer {
 }
 @media (min-width: 768px) {
   .price-data__price {
-    font-size: 24px;
     font-weight: 400;
     line-height: 31px;
     margin-top: 18px;
@@ -5825,6 +5824,14 @@ footer {
 
 .page-card:not(.page-card--dark) .mySwiper3 .swiper-slide {
   width: 100% !important;
+}
+
+@media (min-width: 1440px) {
+  .page-card:not(.page-card--dark) .mySwiper3 .swiper-wrapper {
+    -webkit-transform: none !important;
+        -ms-transform: none !important;
+            transform: none !important;
+  }
 }
 
 .contacts .accordion__element {
