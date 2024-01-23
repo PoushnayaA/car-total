@@ -6,6 +6,10 @@
     margin-top: 20px;
   }
 
+  .zoom--closed {
+    display: none;
+  }
+
   .swiper-slide {
     text-align: center;
     font-size: 18px;
@@ -29,7 +33,9 @@
     stroke: #686868;
     cursor: pointer;
 
-    &:hover, &:focus, &:active {
+    &:hover,
+    &:focus,
+    &:active {
       stroke: $color-burnt-atlantis;
     }
 
@@ -37,6 +43,11 @@
       fill: $color-burnt-atlantis;
       stroke: $color-burnt-atlantis;
     }
+  }
+
+  .favorite__button {
+    border: none;
+    background-color: transparent;
   }
 
   .favorite--active {
@@ -72,6 +83,8 @@
     padding: 24px 0;
     overflow: hidden;
   }
+
+
 
   .mySwiper3 .swiper-slide {
     width: 100%;
@@ -119,14 +132,215 @@
 
     .swiper-wrapper {
       @include vp-1440 {
-        // display: flex;
-        // flex-wrap: wrap;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 24px;
       }
     }
   }
+
+  .card__slider.card__slider--zoom {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 820;
+
+    @include vp-768 {
+      width: 584px !important;
+    }
+
+    @include vp-1440 {
+      width: 818px !important;
+      max-width: none;
+      top: 30%;
+      // top: 0;
+    }
+
+    .zoom--closed {
+      display: block;
+      position: absolute;
+      top: -40px;
+      right: 0;
+      background-color: transparent;
+      border: none;
+      width: 24px;
+      height: 28px;
+      padding: 0;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 10px;
+        bottom: 0;
+        right: 0;
+        display: block;
+        width: 24px;
+        height: 3px;
+        background: #ffffff;
+        z-index: 1000;
+      }
+
+      &::before {
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        transform: rotate(-45deg);
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+
+        &::after,
+        &::before {
+          opacity: 80%;
+        }
+      }
+    }
+
+    .card__photo-list.swiper-wrapper {
+      // display: flex;
+    }
+
+    .mySwiper2 {
+      height: auto;
+      // overflow: visible;
+      @include vp-1440 {
+        width: 818px !important;
+      }
+
+      .swiper-slide {
+
+        @include vp-1440 {
+          width: 818px !important;
+          max-width: none;
+          max-height: 614px;
+          }
+      }
+
+      .card__photo-list {
+        @include vp-1440 {
+          padding-bottom: 17px;
+        }
+      }
+
+      .swiper-pagination {
+        @include vp-1440 {
+          display: block;
+          // top: 5px;
+          bottom: -3px;
+      }
+    }
+
+      .swiper-slide img,
+      .swiper-slide .picture {
+        @include vp-1440 {
+        width: 818px !important;
+        max-width: none;
+        }
+      }
+
+      // width: 100%;
+      .swiper-slide.swiper-slide-active, .swiper-slide {
+        width: 100%;
+      }
+
+      .swiper-wrapper {
+        @include vp-1440 {
+          max-width: none;
+          width: 818px !important;
+          max-height: none;
+          // height: 100%;
+        }
+      }
+
+      .lots__photo-item.swiper-slide.swiper-slide-active {
+        width: 280px !important;
+
+        @include vp-768 {
+          width: 584px !important;
+        }
+
+        @include vp-1440 {
+          max-width: none;
+          width: 818px !important;
+        }
+      }
+
+      @include vp-768 {
+        .swiper-button-next,
+        .swiper-button-prev {
+          display: block;
+        }
+
+        // .swiper-button-prev {
+        //   z-index: 1000;
+        //   left: -10px;
+        // }
+      }
+    }
+
+    .mySwiper3 {
+      display: flex;
+      flex-wrap: nowrap;
+      width: 280px;
+
+
+      @include vp-768 {
+        width: 584px;
+      }
+
+      @include vp-1440 {
+        width: 818px;
+        // height: 150px;
+        padding-top: 14px;
+      }
+
+      .lots__photo-item--hidden {
+        display: block !important;
+      }
+
+      .lots__photo-item {
+        // margin-right: 0 !important;
+      }
+
+      .swiper-wrapper {
+        display: flex;
+        // display: grid;
+        // grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        gap: 0;
+        width: 100%;
+      }
+
+      .swiper-slide,
+      .swiper-slide img {
+        border-radius: 5px;
+      }
+    }
+  }
+
+  //   .modal__button::before,
+  // .modal__button::after {
+  //   content: "";
+  //   position: absolute;
+  //   top: 10px;
+  //   display: block;
+  //   width: 24px;
+  //   height: 3px;
+  //   background: $color-nero;
+  // }
+
+  // .modal__button::before {
+  //   transform: rotate(45deg);
+  // }
+
+  // .modal__button::after {
+  //   transform: rotate(-45deg);
+  // }
 
   .swiper-pagination {
     display: block;
@@ -206,11 +420,15 @@
 
 .card__print {
   cursor: pointer;
+
   svg {
     stroke: #686868;
     fill: none;
   }
-  &:hover, &:focus, &:active {
+
+  &:hover,
+  &:focus,
+  &:active {
     svg {
       stroke: $color-burnt-atlantis;
     }
@@ -505,7 +723,7 @@
   z-index: 1;
   position: absolute;
   left: 50%;
-  transform:translate(-50%, 0);
+  transform: translate(-50%, 0);
   top: 60px;
   width: 280px;
   background-color: #F2F4F5;
@@ -526,7 +744,9 @@
     border-radius: 15px;
     outline: none;
 
-    &:hover, &:focus, &:active {
+    &:hover,
+    &:focus,
+    &:active {
       border-color: $color-burnt-atlantis;
     }
 
@@ -615,8 +835,10 @@
       pointer-events: all;
       cursor: pointer;
 
-      &:hover, &:focus, &:active {
-        background-color:  #FF9151;
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: #FF9151;
       }
     }
   }
@@ -715,8 +937,10 @@
   border-radius: 15px;
   width: 100%;
 
-  &:hover, &:focus, &:active {
-    background-color:  #FF9151;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: #FF9151;
   }
 
   @include vp-768 {
@@ -734,9 +958,11 @@
   color: $color-burnt-orange;
   background-color: transparent;
 
-  &:hover, &:focus, &:active {
+  &:hover,
+  &:focus,
+  &:active {
     background-color: transparent;
-    color:  #FF9151;
+    color: #FF9151;
   }
 
   @include vp-768 {
@@ -843,7 +1069,9 @@
   stroke: #686868;
   cursor: pointer;
 
-  &:hover, &:focus, &:active {
+  &:hover,
+  &:focus,
+  &:active {
     stroke: $color-burnt-atlantis;
   }
 }
@@ -856,4 +1084,8 @@
   @include vp-1440 {
     margin-top: 10px;
   }
+}
+
+.page-card:not(.page-card--dark) .mySwiper3 .swiper-slide {
+  width: 100% !important;
 }

@@ -10,7 +10,7 @@
 
   <link rel="icon" href="favicon.ico">
   <link rel="icon" href="img/favicons/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="images/favicons/apple.png">
+  <link rel="apple-touch-icon" href="img/favicons/apple.png">
   <link rel="manifest" href="manifest.webmanifest">
 
   <link rel="stylesheet" href="css/style.min.css">
@@ -22,7 +22,8 @@
 </head>
 
 <body>
-  <div class="page page-card">
+  <!-- <div class="page page-card page-card--dark"> -->
+    <div class="page page-card">
     <header class="page__header">
       <div class="navigation navigation--minor">
         <div class="navigation__wrapper">
@@ -124,9 +125,11 @@
                 <div class="card__description">BMW M2 Competition</div>
               </div>
               <div class="card__signs-wrapper">
-                <svg class="favorite authorization" width="14" height="18" viewBox="0 0 14 18" role="img">
-                  <use href="img/sprite.svg#like"></use>
-                </svg>
+                <button class="favorite__button" type="button">
+                  <svg class="favorite authorization" width="14" height="18" viewBox="0 0 14 18" role="img">
+                    <use href="img/sprite.svg#like"></use>
+                  </svg>
+                </button>
                 <a class="card__print" href="print.html">
                   <svg width="20" height="20" viewBox="0 0 20 20" role="img">
                     <use href="img/sprite.svg#print"></use>
@@ -135,7 +138,9 @@
               </div>
             </div>
           </div>
-          <div class="card__slider">
+          <!-- <div class="card__slider card__slider--zoom"> -->
+            <div class="card__slider">
+            <button class="zoom--closed"></button>
             <div class="swiper mySwiper2" data-slider="card-photo-swiper">
               <ul class="card__photo-list swiper-wrapper">
                 <li class="lots__photo-item swiper-slide">
@@ -338,9 +343,11 @@
                   <div class="card__description">BMW M2 Competition</div>
                 </div>
                 <div class="card__signs-wrapper">
-                  <svg class="favorite" width="14" height="18" viewBox="0 0 14 18" role="img">
+                  <button class="favorite__button" type="button">
+                  <svg class="favorite authorization" width="14" height="18" viewBox="0 0 14 18" role="img">
                     <use href="img/sprite.svg#like"></use>
                   </svg>
+                </button>
                   <a class="card__print" href="print.html">
                     <svg width="20" height="20" viewBox="0 0 20 20" role="img">
                       <use href="img/sprite.svg#print"></use>
@@ -390,23 +397,28 @@
                   type="button">Автоматическая ставка</button>
                 <button class="price-data__button" type="button">Предложить 1 666 000 ₽</button>
                 <section class="price-data__modal visually-hidden" data-modal="offer">
-                    <button class="modal__button" data-button="close-modal" type="button"><span class="visually-hidden">Закрыть.</span></button>
-                    <h3 class="modal__title">Задайте настройки автоматического повышения ставки для лота 13022679</h3>
-                    <div class="modal__text-wrapper">
-                      <div class="modal__text-flex"><p class="modal__text">Шаг аукциона:</p><span>111 000 ₽</span></div>
-                      <div class="connection__wrapper connection__wrapper--checkbox">
-                        <label class="connection__checkbox checkbox checkbox--offer">
-                          <input class="checkbox__input checkbox__input--offer" type="checkbox" name="offer"/>
-                          <div class="checkbox__checkmark"></div>
-                          <div class="checkbox__body">Автоматически повышать ставку</div>
-                        </label>
-                      </div>
-                      <div>
-                        <label for="max-price" class="input-max-price">Максимальная цена за лот, рублей</label>
-                        <input class="price-input" id="max-price" type="text" placeholder="Введите цену" onkeyup="this.value = this.value.replace (/\D/, '')" required>
-                      </div>
+                  <button class="modal__button" data-button="close-modal" type="button"><span
+                      class="visually-hidden">Закрыть.</span></button>
+                  <h3 class="modal__title">Задайте настройки автоматического повышения ставки для лота 13022679</h3>
+                  <div class="modal__text-wrapper">
+                    <div class="modal__text-flex">
+                      <p class="modal__text">Шаг аукциона:</p><span>111 000 ₽</span>
                     </div>
-                    <button type="button" class="connection__button--submit modal__button-offer" data-button="save-modal">Сохранить</button>
+                    <div class="connection__wrapper connection__wrapper--checkbox">
+                      <label class="connection__checkbox checkbox checkbox--offer">
+                        <input class="checkbox__input checkbox__input--offer" type="checkbox" name="offer" />
+                        <div class="checkbox__checkmark"></div>
+                        <div class="checkbox__body">Автоматически повышать ставку</div>
+                      </label>
+                    </div>
+                    <div>
+                      <label for="max-price" class="input-max-price">Максимальная цена за лот, рублей</label>
+                      <input class="price-input" id="max-price" type="text" placeholder="Введите цену"
+                        onkeyup="this.value = this.value.replace (/\D/, '')" required>
+                    </div>
+                  </div>
+                  <button type="button" class="connection__button--submit modal__button-offer"
+                    data-button="save-modal">Сохранить</button>
                 </section>
               </div>
               <div class="price-card__reload">

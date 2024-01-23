@@ -105,3 +105,20 @@ footer {
     }
   }
 }
+
+
+.page-card--dark {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: $color-nero;
+    background-size: 100vw 100vh;
+    z-index: 800;
+    opacity: 100%;
+  }
+
+}

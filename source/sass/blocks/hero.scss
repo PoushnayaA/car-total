@@ -26,7 +26,9 @@
     content: "";
     position: absolute;
     top: -33px;
-    left: 20px;
+    right: 50%;
+    left: 50%;
+    transform: translate(-50%, 0);
     width: 280px;
     height: 280px;
     opacity: 50%;
@@ -39,6 +41,9 @@
       height: 488px;
       border: 120px solid $color-default-white;
       top: -86px;
+      right: 20px;
+      left: auto;
+      transform: translate(0, 0);
     }
 
     @include vp-1440 {
