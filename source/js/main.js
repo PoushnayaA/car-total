@@ -248,19 +248,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
   }
 
-  // window.addEventListener('load', () => {
   setTimeout(initLotsSlider(), 1000);
   setTimeout(initNewsSlider(), 1000);
   setTimeout(initAccordions(), 1000);
-  // setTimeout(initPhotoSlider(), 1000);
 
   var swiper3 = new Swiper(".mySwiper3", {
-    // slidesPerView: 6,
     slidesPerView: 'auto',
     freeMode: true,
     watchSlidesProgress: true,
-    spaceBetween: 0,
-
   });
   // eslint-disable-next-line
   var swiper2 = new Swiper(".mySwiper2", {
@@ -304,17 +299,45 @@ window.addEventListener('DOMContentLoaded', () => {
     const photos = photoSwiper.querySelectorAll('.lots__photo-item');
     const closeZoomModal = document.querySelector('.zoom--closed');
 
+    if (screenWidth < 500) {
+      swiper3.params.slidesPerView = 3;
+      swiper3.update();
+      swiper2.params.slidesPerView = 1;
+      swiper2.update();
+    }
+    if (screenWidth >= 500 && screenWidth < 768) {
+      swiper3.params.slidesPerView = 3;
+      swiper3.update();
+      swiper2.params.slidesPerView = 2;
+      swiper2.update();
+    }
+    if (screenWidth >= 768 && screenWidth < 1440) {
+      swiper3.params.slidesPerView = 3;
+      swiper3.update();
+      swiper2.params.slidesPerView = 3;
+      swiper2.update();
+    }
+    if (screenWidth >= 1440) {
+      swiper3.params.slidesPerView = 3;
+    swiper3.params.spaceBetween = 0;
+      swiper3.update();
+      swiper2.params.slidesPerView = 1;
+      swiper2.update();
+    }
+
     photos.forEach(photo => {
       photo.addEventListener('click', function () {
         screenWidth = window.innerWidth;
         if (screenWidth < 1440) {
           swiper3.params.slidesPerView = 4;
+          swiper3.params.spaceBetween = 10;
           swiper3.update();
           swiper2.params.slidesPerView = 1;
           swiper2.update();
         }
         if (screenWidth >= 1440) {
           swiper3.params.slidesPerView = 6;
+          swiper3.params.spaceBetween = 10;
           swiper3.update();
           swiper2.params.slidesPerView = 1;
           swiper2.update();
@@ -351,6 +374,7 @@ window.addEventListener('DOMContentLoaded', () => {
         swiper3.update();
         swiper2.params.slidesPerView = 1;
         swiper2.update();
+        location.reload();
       }
     })
 
@@ -396,6 +420,8 @@ window.addEventListener('DOMContentLoaded', () => {
           swiper3.update();
           swiper2.params.slidesPerView = 1;
           swiper2.update();
+          location.reload();
+          location.reload();
         }
       }
     });
@@ -405,16 +431,12 @@ window.addEventListener('DOMContentLoaded', () => {
   if (btnText) {
     btnText.addEventListener('click', function () {
       document.querySelectorAll('.lots__photo-item--hidden').forEach(function (item) {
-        item.classList.toggle('lots__photo-item--hidden');
-        btnText.classList.toggle('visually-hidden');
+        item.classList.remove('lots__photo-item--hidden');
+        btnText.classList.add('visually-hidden');
       });
     });
   }
-
-  // });
 });
-
-// ---------------------------------
 
 const buttonCity = document.querySelector('[data-button="change-city"]');
 buttonCity.addEventListener('click', function () {
@@ -916,21 +938,5 @@ if (deleteButtons) {
     });
   });
 }
-
-// const photoSwiper = document.querySelector('.mySwiper2');
-// if (photoSwiper) {
-//   const photos = photoSwiper.querySelectorAll('.lots__photo-item');
-//   photos.forEach(photo => {
-//     photo.addEventListener('click', function () {
-//       // setTimeout(initPhotoSlider(), 1000);
-//       // document.querySelector('.mySwiper2').remove();
-//       // document.querySelector('.mySwiper3').update();
-//       // initPhotoSlider();
-//       document.querySelector('.page-card').classList.add('page-card--dark');
-//       document.querySelector('.card__slider').classList.add('card__slider--zoom');
-//     })
-//   })
-// }
-// swiper-slide-active
 
 // document.querySelector('.authorization').classList.add('visually-hidden');

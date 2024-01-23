@@ -146,23 +146,25 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 820;
+    min-width: 320px !important;
+    width: 100% !important;
+    padding: 0 20px;
+    max-width: 584px !important;
 
     @include vp-768 {
-      width: 584px !important;
+      max-width: 730px !important;
     }
 
     @include vp-1440 {
-      width: 818px !important;
-      max-width: none;
+      max-width: 818px !important;
       top: 30%;
-      // top: 0;
     }
 
     .zoom--closed {
       display: block;
       position: absolute;
       top: -40px;
-      right: 0;
+      right: 20px;
       background-color: transparent;
       border: none;
       width: 24px;
@@ -199,6 +201,14 @@
         &::before {
           opacity: 80%;
         }
+      }
+
+      // @include vp-768 {
+      //   right: 20px;
+      // }
+
+      @include vp-1440 {
+        right: -20px;
       }
     }
 
@@ -259,15 +269,22 @@
       }
 
       .lots__photo-item.swiper-slide.swiper-slide-active {
-        width: 280px !important;
+        // width: 280px !important;
+        min-width: 280px !important;
+        width: 100% !important;
+        max-width: 584px !important;
 
         @include vp-768 {
-          width: 584px !important;
+      //     // width: 584px !important;
+      //     min-width: 584px !important;
+      // max-width: 720px !important;
+      max-width: 690px !important;
+      // padding: 0 40px;
         }
 
         @include vp-1440 {
           max-width: none;
-          width: 818px !important;
+          max-width: 818px !important;
         }
       }
 
@@ -287,15 +304,22 @@
     .mySwiper3 {
       display: flex;
       flex-wrap: nowrap;
-      width: 280px;
+      // width: 280px;
+      min-width: 280px !important;
+        width: 100% !important;
+        max-width: 584px !important;
 
 
       @include vp-768 {
-        width: 584px;
+      //   // width: 584px;
+      //   min-width: 584px !important;
+      // max-width: 720px !important;
+      max-width: 690px !important;
+      // padding: 0 40px;
       }
 
       @include vp-1440 {
-        width: 818px;
+        max-width: 818px;
         // height: 150px;
         padding-top: 14px;
       }
@@ -507,7 +531,9 @@
 }
 
 .mySwiper2 .swiper-wrapper {
-  width: 280px !important;
+  // width: 280px !important;
+  min-width: 280px !important;
+        width: 100% !important;
   margin: 0 !important;
 
   @include vp-1440 {
