@@ -62,10 +62,11 @@ main {
   &-card {
     .lots {
       margin-top: 0px;
-
+      margin-bottom: 25px;
 
       @include vp-1440 {
         margin-top: 55px;
+        margin-bottom: 60px;
       }
     }
 
@@ -140,6 +141,10 @@ main {
     min-width: 320px;
     max-width: 1240px;
     padding: 0 20px;
+
+    @include vp-1440 {
+      padding: 0;
+    }
   }
 
   &--footer {
@@ -148,7 +153,8 @@ main {
       display: flex;
       flex-direction: row-reverse;
       justify-content: space-between;
-      width: 1240px;
+      max-width: 1280px;
+      margin: auto;
     }
   }
 
@@ -243,15 +249,16 @@ main {
 }
 
 .custom-main {
-  margin-top: 45px;
-  margin-bottom: 65px;
+  margin-top: 25px;
+  margin-bottom: 18px;
 
   @include vp-768 {
-    margin-bottom: 81px;
+    margin-bottom: 34px;
   }
 
   @include vp-1440 {
-    margin-bottom: 120px;
+    margin-top: 29px;
+    margin-bottom: 75px;
   }
 }
 

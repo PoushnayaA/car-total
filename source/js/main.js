@@ -12,6 +12,17 @@ import { initAccordions } from './modules/accordion/init-accordion';
 window.addEventListener('DOMContentLoaded', () => {
   iosVhFix();
 
+  window.addEventListener('resize', () => {
+    screenWidth = window.innerWidth;
+    if (document.querySelector('.navigation__list--open')) {
+      if (screenWidth >= 1440) {
+        document.querySelector('.navigation__list--desktop').classList.remove('navigation__list--open');
+        document.querySelector('.page').classList.remove('page--dark');
+        document.querySelector('.navigation__button').classList.remove('navigation__button--active');
+      }
+    }
+  });
+
   const lots = document.querySelectorAll('.lots__item');
   if (lots) {
     lots.forEach(function (item) {
@@ -22,6 +33,21 @@ window.addEventListener('DOMContentLoaded', () => {
         item.classList.remove('lots__item--active');
       };
     });
+  }
+
+  const viewPasswordButtons = document.querySelectorAll('.connection__view-password');
+  if (viewPasswordButtons) {
+    viewPasswordButtons.forEach(viewPassword => {
+      viewPassword.addEventListener('click', function () {
+        const passwordField = viewPassword.parentElement;
+        if (passwordField.querySelector('input').getAttribute('type') == 'password') {
+          passwordField.querySelector('input').setAttribute('type', 'text');
+        } else {
+          passwordField.querySelector('input').setAttribute('type', 'password');
+        }
+      })
+    })
+
   }
 
   const mapItems = document.querySelectorAll('.map__item');
@@ -109,46 +135,43 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // function getTimeRemaining(endtime) {
-  //   var t = Date.parse(endtime) - Date.parse(new Date());
-  //   var seconds = Math.floor((t / 1000) % 60);
-  //   var minutes = Math.floor((t / 1000 / 60) % 60);
-  //   var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-  //   var days = Math.floor(t / (1000 * 60 * 60 * 24));
-  //   return {
-  //     'total': t,
-  //     'days': days,
-  //     'hours': hours,
-  //     'minutes': minutes,
-  //     'seconds': seconds,
-  //   };
-  // }
+  const lotItems = document.querySelectorAll('.lots__item');
+  if (lotItems) {
+    lotItems.forEach(i => {
+      const addFavLotButton = i.querySelector('.favorite');
+      if (addFavLotButton) {
+        addFavLotButton.addEventListener('click', function (e) {
+          e.preventDefault();
+        })
+      }
+    });
+  }
 
-  // function initializeClock(timer, endtime, id) {
-  //   var clock = document.getElementById(id);
-  //   if (clock) {
-  //   var daysSpan = clock.querySelector('.days');
-  //   var hoursSpan = clock.querySelector('.hours');
-  //   var minutesSpan = clock.querySelector('.minutes');
+  const lotTitles = document.querySelectorAll('.lots__lot-name');
 
-  //   function updateClock() {
-  //     var t = getTimeRemaining(endtime);
+  function checkHeight() {
+    let maxHeight = 0;
+    lotTitles.forEach(i => {
+      if (i.offsetHeight > maxHeight) {
+        maxHeight = i.offsetHeight;
+      }
+    })
 
-  //     daysSpan.innerHTML = t.days;
-  //     hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-  //     minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+    lotTitles.forEach(i => {
+      i.style.height = maxHeight + "px";
 
-  //     if (t.total <= 0) {
-  //       clearInterval(timeinterval);
-  //     }
-  //   }
-  //   updateClock();
-  //   var timeinterval = setInterval(updateClock, 1000);
-  // }
-  // }
+    })
+  }
 
-  // const elements = document.querySelectorAll('.lots__timer');
-  // elements.forEach(i => initializeClock('.countdown', i.dataset.deadline, i.id));
+  checkHeight();
+
+  window.addEventListener('resize', () => {
+    lotTitles.forEach(i => {
+      i.style.height = "auto";
+    })
+
+    checkHeight();
+  });
 
   const phoneMask = document.getElementById('phone');
   const repeatPhoneMask = document.getElementById('phone-repeat');
@@ -165,6 +188,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   const dateMask = document.getElementById('birth-date');
+
   if (dateMask) {
     IMask(dateMask, {
       mask: Date,
@@ -191,6 +215,7 @@ window.addEventListener('DOMContentLoaded', () => {
       },
     });
   };
+
 
   const loginForm = document.querySelector('.log-in__navigation-item--login');
   const registrationForm = document.querySelector('.log-in__navigation-item--registration');
@@ -473,7 +498,6 @@ buttonNavigation.addEventListener('click', function () {
   document.querySelector('.page').classList.toggle('page--dark');
 });
 
-
 const cardSigns = document.querySelectorAll('.card__signs-wrapper');
 if (cardSigns) {
   cardSigns.forEach(i => {
@@ -633,6 +657,12 @@ if (offerModal) {
   });
 }
 
+document.querySelectorAll('.dropdown__button').forEach(function(item) {
+  item.addEventListener('click', function (evt) {
+    evt.preventDefault();
+  })
+})
+
 document.querySelectorAll('.dropdown').forEach(function (dropDownWrapper) {
   const dropDownBtn = dropDownWrapper.querySelector('.dropdown__button');
   const dropDownList = dropDownWrapper.querySelector('.dropdown__list');
@@ -646,12 +676,13 @@ document.querySelectorAll('.dropdown').forEach(function (dropDownWrapper) {
   });
 
   // Выбор элемента списка. Запомнить выбранное значение. Закрыть дропдаун
-  dropDownListItems.forEach(function (listItem) {
+  dropDownListItems.forEach(listItem => {
     listItem.addEventListener('click', function (e) {
-      e.stopPropagation();
+      // e.stopPropagation();
       dropDownBtn.innerText = listItem.innerText;
-      // dropDownBtn.focus();
       dropDownInput.dataset.option = listItem.dataset.value;
+      // dropDownInput.dataset.value = listItem.dataset.value;
+      dropDownInput.setAttribute('value', listItem.dataset.value);
       dropDownList.classList.remove('dropdown__list--visible');
       dropDownBtn.classList.remove('dropdown__button--active');
 
@@ -665,6 +696,7 @@ document.querySelectorAll('.dropdown').forEach(function (dropDownWrapper) {
 
   document.querySelector('.filter__reset').addEventListener('click', function () {
     location.reload();
+
   });
 
   // Клик снаружи дропдауна. Закрыть дропдаун
@@ -712,7 +744,7 @@ if (document.querySelector('.account__form--personal')) {
 
   if (emailEdit && passwordEdit && passwordRepeatEdit && nameEdit) {
     emailEdit.addEventListener('input', function () {
-      if (EMAIL_REGEXP.test(emailEdit.value) && checkboxNotificationEdit.checked && passwordEdit.value !== "" && (passwordEdit.value === passwordRepeatEdit.value
+      if (EMAIL_REGEXP.test(emailEdit.value) && passwordEdit.value !== "" && (passwordEdit.value === passwordRepeatEdit.value
         && nameEdit.value !== "" && dateBirthEdit.value.length >= 10 && phoneEdit.value.length >= 18)) {
         document.querySelector('.account__form--personal').querySelector('.connection__button--submit').classList.add('connection__button--active');
       } else {
@@ -727,7 +759,7 @@ if (document.querySelector('.account__form--personal')) {
       }
     });
     passwordEdit.addEventListener('input', function () {
-      if (EMAIL_REGEXP.test(emailEdit.value) && checkboxNotificationEdit.checked && passwordEdit.value !== "" && (passwordEdit.value === passwordRepeatEdit.value
+      if (EMAIL_REGEXP.test(emailEdit.value)  && passwordEdit.value !== "" && (passwordEdit.value === passwordRepeatEdit.value
         && nameEdit.value !== "" && dateBirthEdit.value.length >= 10 && phoneEdit.value.length >= 18)) {
         document.querySelector('.account__form--personal').querySelector('.connection__button--submit').classList.add('connection__button--active');
       } else {
@@ -735,7 +767,7 @@ if (document.querySelector('.account__form--personal')) {
       }
     });
     passwordRepeatEdit.addEventListener('input', function () {
-      if (EMAIL_REGEXP.test(emailEdit.value) && checkboxNotificationEdit.checked && passwordEdit.value !== "" && (passwordEdit.value === passwordRepeatEdit.value
+      if (EMAIL_REGEXP.test(emailEdit.value) && passwordEdit.value !== "" && (passwordEdit.value === passwordRepeatEdit.value
         && nameEdit.value !== "" && dateBirthEdit.value.length >= 10 && phoneEdit.value.length >= 18)) {
         document.querySelector('.account__form--personal').querySelector('.connection__button--submit').classList.add('connection__button--active');
       } else {
@@ -757,7 +789,7 @@ if (document.querySelector('.account__form--personal')) {
       }
     });
     nameEdit.addEventListener('input', function () {
-      if (EMAIL_REGEXP.test(emailEdit.value) && checkboxNotificationEdit.checked && passwordEdit.value !== "" && (passwordEdit.value === passwordRepeatEdit.value
+      if (EMAIL_REGEXP.test(emailEdit.value) && passwordEdit.value !== "" && (passwordEdit.value === passwordRepeatEdit.value
         && nameEdit.value !== "" && dateBirthEdit.value.length >= 10 && phoneEdit.value.length >= 18)) {
         document.querySelector('.account__form--personal').querySelector('.connection__button--submit').classList.add('connection__button--active');
       } else {
@@ -765,7 +797,7 @@ if (document.querySelector('.account__form--personal')) {
       }
     });
     dateBirthEdit.addEventListener('input', function () {
-      if (EMAIL_REGEXP.test(emailEdit.value) && checkboxNotificationEdit.checked && passwordEdit.value !== "" && (passwordEdit.value === passwordRepeatEdit.value
+      if (EMAIL_REGEXP.test(emailEdit.value) && passwordEdit.value !== "" && (passwordEdit.value === passwordRepeatEdit.value
         && nameEdit.value !== "" && dateBirthEdit.value.length >= 10 && phoneEdit.value.length >= 18)) {
         document.querySelector('.account__form--personal').querySelector('.connection__button--submit').classList.add('connection__button--active');
       } else {
@@ -773,7 +805,7 @@ if (document.querySelector('.account__form--personal')) {
       }
     });
     phoneEdit.addEventListener('input', function () {
-      if (EMAIL_REGEXP.test(emailEdit.value) && checkboxNotificationEdit.checked && passwordEdit.value !== "" && (passwordEdit.value === passwordRepeatEdit.value
+      if (EMAIL_REGEXP.test(emailEdit.value) && passwordEdit.value !== "" && (passwordEdit.value === passwordRepeatEdit.value
         && nameEdit.value !== "" && dateBirthEdit.value.length >= 10 && phoneEdit.value.length >= 18)) {
         document.querySelector('.account__form--personal').querySelector('.connection__button--submit').classList.add('connection__button--active');
       } else {
@@ -781,12 +813,7 @@ if (document.querySelector('.account__form--personal')) {
       }
     });
     checkboxNotificationEditLabel.addEventListener('click', function () {
-      if (EMAIL_REGEXP.test(emailEdit.value) && checkboxNotificationEdit.checked && passwordEdit.value !== "" && (passwordEdit.value === passwordRepeatEdit.value
-        && nameEdit.value !== "" && dateBirthEdit.value.length >= 10 && phoneEdit.value.length >= 18)) {
-        document.querySelector('.account__form--personal').querySelector('.connection__button--submit').classList.add('connection__button--active');
-      } else {
-        document.querySelector('.account__form--personal').querySelector('.connection__button--submit').classList.remove('connection__button--active');
-      }
+      document.querySelector('.account__form--personal').querySelector('.connection__button--submit').classList.add('connection__button--active');
     });
   }
 }
@@ -950,5 +977,8 @@ if (deleteButtons) {
     });
   });
 }
+
+
+
 
 // document.querySelector('.authorization').classList.add('visually-hidden');

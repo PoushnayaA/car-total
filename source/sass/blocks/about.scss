@@ -2,6 +2,10 @@
   border-radius: 15px;
   background-color: $color-default-white;
   padding: 0 20px;
+
+  @include vp-1440 {
+    margin: 120px 0 0;
+  }
 }
 
 .about__container {
@@ -16,6 +20,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 24px;
     padding-bottom: 30px;
+    padding-top: 30px;
   }
 
   @include vp-1440 {
@@ -104,8 +109,12 @@
   margin: 33px 0 0;
 
   @include vp-768 {
-    margin-top: 24px;
+    margin-top: 32px;
     width: 229px;
+  }
+
+  @include vp-1440 {
+    margin-top: 48px;
   }
 }
 

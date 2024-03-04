@@ -16,7 +16,7 @@ const initLotsSlider = () => {
           spaceBetween: 24,
         },
 
-        500: {
+        630: {
           slidesPerView: 2.5,
           // slidesPerView: 'auto',
           spaceBetween: 20,

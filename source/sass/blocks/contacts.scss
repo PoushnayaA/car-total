@@ -98,7 +98,7 @@
   }
 
   @include vp-1440 {
-    margin-top: 45px;
+    margin-top: 18px;
   }
 }
 
@@ -125,7 +125,8 @@
     font-size: 14px;
     font-weight: 500;
     line-height: 17px;
-    margin-bottom: 14px;
+    margin-bottom: 7px;
+    margin-top: 0px;
   }
 }
 
@@ -156,7 +157,7 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-  padding: 20px 0;
+  padding: 20px 0 44px;
   text-align: center;
 
   &--link {
@@ -169,6 +170,11 @@
     font-size: 18px;
     font-weight: 500;
     line-height: 27px;
+  }
+
+  @include vp-1440 {
+    padding-top: 63px;
+    padding-bottom: 40px;
   }
 }
 
@@ -187,7 +193,7 @@
   }
 }
 
-.contacts__wrapper--timetable {
+.contacts__wrapper--timetable, .contacts__wrapper--road {
   position: relative;
 
   &::after {
@@ -196,7 +202,7 @@
     height: 1px;
     width: 100%;
     background-color: #F2F4F5;
-    top: 140%;
+    top: 105%;
     left: 0;
     right: 0;
 
@@ -204,6 +210,10 @@
       top: 100%;
     }
   }
+}
+
+.contacts__wrapper .accordion__button {
+  margin-right: 0;
 }
 
 .contacts__wrapper--links {
@@ -215,7 +225,7 @@
     height: 1px;
     width: 100%;
     background-color: #F2F4F5;
-    top: 140%;
+    top: 95%;
     left: 0;
     right: 0;
 

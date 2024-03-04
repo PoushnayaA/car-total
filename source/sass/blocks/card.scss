@@ -1,13 +1,41 @@
 .card-page {
+  margin-top: 5px;
+
+  @include vp-1440 {
+    margin-top: 18px;
+  }
+
   .lots__description-item {
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
     margin-top: 20px;
+    margin-bottom: 15px;
   }
 
   .zoom--closed {
     display: none;
+    cursor: pointer;
+  }
+
+  .card__name-wrapper {
+    // margin-top: 25px;
+  }
+
+  .card__container {
+    margin-top: 30px;
+
+    @include vp-1440 {
+      margin-top: 50px;
+    }
+  }
+
+  .card__title {
+    margin-top: 0;
+  }
+
+  .card__signs-wrapper {
+    align-self: flex-start;
   }
 
   .swiper-slide {
@@ -25,7 +53,7 @@
   .card__signs-wrapper {
     display: flex;
     justify-content: center;
-    gap: 45px;
+    gap: 20px;
   }
 
   .favorite {
@@ -82,6 +110,12 @@
     box-sizing: border-box;
     padding: 24px 0;
     overflow: hidden;
+
+    img {
+      @include vp-1440 {
+        min-width: 187px;
+      }
+    }
   }
 
 
@@ -134,7 +168,7 @@
       @include vp-1440 {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        gap: 24px;
+        gap: 21px;
       }
     }
   }
@@ -347,25 +381,6 @@
     }
   }
 
-  //   .modal__button::before,
-  // .modal__button::after {
-  //   content: "";
-  //   position: absolute;
-  //   top: 10px;
-  //   display: block;
-  //   width: 24px;
-  //   height: 3px;
-  //   background: $color-nero;
-  // }
-
-  // .modal__button::before {
-  //   transform: rotate(45deg);
-  // }
-
-  // .modal__button::after {
-  //   transform: rotate(-45deg);
-  // }
-
   .swiper-pagination {
     display: block;
 
@@ -473,6 +488,7 @@
 
   @include vp-768 {
     grid-template-columns: 1fr 1fr;
+    margin-top: 10px;
   }
 
   @include vp-1440 {
@@ -486,6 +502,10 @@
   border-radius: 15px;
   display: flex;
   justify-content: space-between;
+
+  @include vp-768 {
+    padding: 10px 10px;
+  }
 }
 
 .card__information {
@@ -548,6 +568,10 @@
   font-weight: 400;
   line-height: 31px;
   color: #686868;
+
+  @include vp-768 {
+    margin-bottom: 40px;
+  }
 }
 
 .card__information--extra {
@@ -567,6 +591,28 @@
 
   .card__information-list--border {
     gap: 3px;
+
+    @include vp-768 {
+      gap: 15px 22px;
+      position: relative;
+
+      &::after {
+        content: "";
+      position: absolute;
+      right: 50%;
+      bottom: 0;
+      top: 0;
+      width: 1px;
+      height: 100%;
+      background-color: $color-gainsboro;
+      }
+    }
+
+    @include vp-1440 {
+      &::after {
+        content: none;
+      }
+    }
   }
 
   .card__information-list--last {
@@ -577,6 +623,7 @@
     border: none;
     position: relative;
     padding-left: 0;
+    padding-right: 0;
 
     &::after {
       content: "";
@@ -701,6 +748,8 @@
 
   .card__information-list--border {
     gap: 6px;
+
+
   }
 
   .card__information-item:last-child::after {
@@ -715,7 +764,7 @@
 }
 
 .card__price {
-  margin: 20px 0;
+  margin: 50px 0 70px;
 
   @include vp-768 {
     margin: 50px 0 40px;
@@ -959,7 +1008,7 @@
   color: $color-default-white;
   background-color: $color-burnt-orange;
   border: none;
-  padding: 15px;
+  padding: 20px;
   border-radius: 15px;
   width: 100%;
 
@@ -975,6 +1024,10 @@
     padding: 20px;
   }
 
+  @include vp-1440 {
+    width: 100%
+  }
+
 }
 
 .price-data__button--transparent {
@@ -983,6 +1036,7 @@
   line-height: 27px;
   color: $color-burnt-orange;
   background-color: transparent;
+  // margin-bottom: 7px;
 
   &:hover,
   &:focus,
@@ -1045,16 +1099,31 @@
   margin: 24px 0;
   display: flex;
   flex-direction: column;
-  padding: 0 15px 8px;
+  padding: 0 15px 0;
 
   @include vp-768 {
     flex-direction: row;
     justify-content: space-between;
-    padding-bottom: 15px;
+    // padding-bottom: 15px;
+    margin-top: 35px;
   }
 
   @include vp-1440 {
     flex-direction: column;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -5%;
+    width: 100%;
+    height: 1px;
+    background-color: $color-gainsboro;
+
+    @include vp-768 {
+      bottom: -2%;
+    }
   }
 }
 
@@ -1072,14 +1141,16 @@
   font-weight: 400;
   line-height: 24px;
   color: #686868;
+  margin-bottom: 15px;
 
-  @include vp-768 {
-    margin-bottom: 0;
-  }
+  // @include vp-768 {
+  //   margin-bottom: 0;
+  // }
 }
 
 .price-card__reload-button {
   background-color: transparent;
+  margin-top: 0px;
 
   @include vp-768 {
     width: 200px;
@@ -1107,8 +1178,11 @@
 }
 
 .price-card__reload-button {
+  height: max-content;
+  margin: auto 0;
   @include vp-1440 {
-    margin-top: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
   }
 }
 

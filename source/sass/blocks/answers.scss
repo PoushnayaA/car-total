@@ -144,6 +144,12 @@
   font-weight: 400;
   line-height: 24px;
   color: $color-burnt-atlantis;
+  margin-top: 25px;
+  margin-bottom: 10px;
+
+  @include vp-1440 {
+    margin-bottom: 7px;
+  }
 }
 
 .accordion__button {
@@ -162,8 +168,8 @@
 
   & span {
     position: absolute;
-    bottom: 35%;
-    right: 0;
+    bottom: 33%;
+    right: 5px;
 
     svg {
       stroke: $color-nero;
@@ -172,11 +178,20 @@
   }
 }
 
+.accordion__element {
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: $color-burnt-atlantis;
+
+  }
+}
+
 .answers .accordion__button {
   & span {
     right: -25px;
-    bottom: 47%;
-    // top: 44%;
+    bottom: 44%;
+
     @include vp-768 {
       right: 0;
       bottom: 38%;
@@ -218,6 +233,13 @@
     bottom: -13px;
     height: 1px;
     background-color: $color-gainsboro;
+    display: none;
+  }
+}
+
+.is-active .accordion__container {
+  &::after {
+    display: block;
   }
 }
 
@@ -249,6 +271,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-bottom: 44px;
 
   @include vp-1440 {
     padding: 0;
