@@ -150,6 +150,9 @@ window.addEventListener('DOMContentLoaded', () => {
   const lotTitles = document.querySelectorAll('.lots__lot-name');
 
   function checkHeight() {
+    lotTitles.forEach(i => {
+      i.style.height = "auto";
+    })
     let maxHeight = 0;
     lotTitles.forEach(i => {
       if (i.offsetHeight > maxHeight) {
@@ -163,7 +166,13 @@ window.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  checkHeight();
+  window.addEventListener('load', () => {
+    lotTitles.forEach(i => {
+      i.style.height = "auto";
+    })
+
+    checkHeight();
+  });
 
   window.addEventListener('resize', () => {
     lotTitles.forEach(i => {
@@ -345,9 +354,9 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     if (screenWidth >= 1440) {
       swiper3.params.slidesPerView = 'auto';
-    swiper3.params.spaceBetween = 0;
-    // swiper3.params.allowTouchMove = false;
-    //       console.log(swiper3.params.allowTouchMove, 'false');
+      swiper3.params.spaceBetween = 0;
+      // swiper3.params.allowTouchMove = false;
+      //       console.log(swiper3.params.allowTouchMove, 'false');
       swiper3.update();
       swiper2.params.slidesPerView = 1;
       swiper2.update();
@@ -454,7 +463,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
         if (screenWidth >= 1440) {
           swiper3.params.slidesPerView = 'auto';
-        swiper3.params.spaceBetween = 0;
+          swiper3.params.spaceBetween = 0;
           swiper3.update();
           swiper2.params.slidesPerView = 1;
           swiper2.update();
@@ -497,6 +506,61 @@ buttonNavigation.addEventListener('click', function () {
   document.querySelector('.navigation__list--desktop').classList.toggle('navigation__list--open');
   document.querySelector('.page').classList.toggle('page--dark');
 });
+
+
+const navigation = document.querySelector('.navigation__list--desktop');
+const cityList = document.querySelector('.navigation__select-list');
+const filter = document.querySelector('.filter-sorting__select-list');
+
+function clickOutside() {
+  document.addEventListener('click', function (event) {
+    const isClickInsideNav = navigation.contains(event.target);
+    const isClickInsideCity = cityList.contains(event.target);
+
+    if (filter) {
+      const isClickInsideSort = filter.contains(event.target);
+    }
+    const isIgnoredElement = Array.from(document.querySelectorAll('button, a, input, textarea, select')).some(el => el.contains(event.target));
+
+    if (navigation.classList.contains('navigation__list--open')) {
+      if (!isClickInsideNav && !isIgnoredElement && navigation.classList.contains('navigation__list--open')) {
+        buttonNavigation.classList.remove('navigation__button--active');
+        document.querySelector('.navigation__list--desktop').classList.remove('navigation__list--open');
+        document.querySelector('.page').classList.remove('page--dark');
+      }
+    }
+
+    if (buttonCity.classList.contains('navigation__select-button--open-nav')) {
+      if (!isClickInsideCity && !isIgnoredElement && buttonCity.classList.contains('navigation__select-button--open-nav')) {
+        document.querySelector('.navigation__select-list').classList.add('visually-hidden');
+        buttonCity.classList.remove('navigation__select-button--open-nav');
+      }
+    }
+
+    if (filter) {
+      if (document.querySelector('.filter-sorting__select-button').classList.contains('filter-sorting__select-button--open-nav'))
+      {
+       if (!isClickInsideSort && !isIgnoredElement && document.querySelector('.filter-sorting__select-button').classList.contains('filter-sorting__select-button--open-nav')) {
+         document.querySelector('.filter-sorting__select-button--open-nav').classList.remove('filter-sorting__select-button--open-nav');
+         filter.classList.add('visually-hidden');
+       }
+     }
+    }
+  });
+}
+
+if (navigation) {
+  clickOutside();
+}
+
+if (buttonCity) {
+  clickOutside();
+}
+
+if (filter) {
+  clickOutside();
+}
+
 
 const cardSigns = document.querySelectorAll('.card__signs-wrapper');
 if (cardSigns) {
@@ -657,7 +721,7 @@ if (offerModal) {
   });
 }
 
-document.querySelectorAll('.dropdown__button').forEach(function(item) {
+document.querySelectorAll('.dropdown__button').forEach(function (item) {
   item.addEventListener('click', function (evt) {
     evt.preventDefault();
   })
@@ -759,7 +823,7 @@ if (document.querySelector('.account__form--personal')) {
       }
     });
     passwordEdit.addEventListener('input', function () {
-      if (EMAIL_REGEXP.test(emailEdit.value)  && passwordEdit.value !== "" && (passwordEdit.value === passwordRepeatEdit.value
+      if (EMAIL_REGEXP.test(emailEdit.value) && passwordEdit.value !== "" && (passwordEdit.value === passwordRepeatEdit.value
         && nameEdit.value !== "" && dateBirthEdit.value.length >= 10 && phoneEdit.value.length >= 18)) {
         document.querySelector('.account__form--personal').querySelector('.connection__button--submit').classList.add('connection__button--active');
       } else {

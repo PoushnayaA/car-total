@@ -1,12 +1,16 @@
 .map {
   padding: 0 20px;
   max-width: 1280px;
-  margin: 20px auto 80px;
   transition: 1s ease all;
 
+  margin: 64px auto 64px;
+
+  @include vp-768 {
+    margin: 80px auto 80px;
+  }
+
   @include vp-1440 {
-    margin-top: 80px;
-    margin-bottom: 120px;
+    margin: 120px auto 120px;
   }
 }
 
@@ -100,7 +104,7 @@
 
     @include vp-1440 {
       left: 35%;
-    top: 45%;
+      top: 45%;
     }
   }
 
@@ -321,9 +325,6 @@
 }
 
 .map__item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   position: relative;
   cursor: pointer;
   z-index: 1;
@@ -361,11 +362,22 @@
 }
 
 .map__item {
-  &:hover, &:focus, &:active {
-    .map__name, .map__number {
-    color: #FF9151;
-    transition: 0.3s ease all;
+
+  &:hover,
+  &:focus,
+  &:active {
+
+    .map__name,
+    .map__number {
+      color: #FF9151;
+      transition: 0.3s ease all;
     }
+  }
+
+  a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
@@ -380,12 +392,14 @@
   align-items: center;
   position: relative;
 
-  &:hover, &:focus, &:active {
+  &:hover,
+  &:focus,
+  &:active {
     color: #FF9151;
     transition: 0.3s ease all;
   }
 
-  @include vp-768{
+  @include vp-768 {
     width: 33px;
     height: 33px;
   }

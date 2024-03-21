@@ -1685,7 +1685,7 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100%;
+  height: auto;
 }
 
 footer {
@@ -2656,12 +2656,16 @@ footer {
 }
 
 .lots {
-  margin: 0 0 41px;
+  margin: 64px 0 64px;
+}
+@media (min-width: 768px) {
+  .lots {
+    margin: 80px 0 80px;
+  }
 }
 @media (min-width: 1440px) {
   .lots {
-    margin-top: 120px;
-    margin-bottom: 80px;
+    margin: 120px 0 120px;
   }
 }
 .lots .lots__item {
@@ -3152,19 +3156,19 @@ footer {
 }
 
 .news {
-  margin: 0 0 50px;
+  margin: 64px 0 64px;
 }
 .news--news-card-page .container {
   padding: 0 20px;
 }
 @media (min-width: 768px) {
   .news {
-    margin: 3px 0 135px;
+    margin: 80px 0 80px;
   }
 }
 @media (min-width: 1440px) {
   .news {
-    margin: 12px 0 150px;
+    margin: 120px 0 120px;
   }
 }
 @media (min-width: 768px) {
@@ -3238,7 +3242,7 @@ footer {
 }
 @media (min-width: 1440px) {
   .news__button {
-    margin-top: 0px;
+    margin-top: 0;
   }
 }
 
@@ -3247,7 +3251,7 @@ footer {
 }
 
 .news__container {
-  padding: 20px 0 0;
+  padding: 21px 0 40px;
 }
 @media (min-width: 768px) {
   .news__container {
@@ -3260,7 +3264,7 @@ footer {
   }
 }
 .news__container .swiper-pagination {
-  bottom: 8px;
+  bottom: 0;
 }
 
 .news--news-page .container {
@@ -3390,14 +3394,18 @@ footer {
 .map {
   padding: 0 20px;
   max-width: 1280px;
-  margin: 20px auto 80px;
   -webkit-transition: 1s ease all;
   transition: 1s ease all;
+  margin: 64px auto 64px;
+}
+@media (min-width: 768px) {
+  .map {
+    margin: 80px auto 80px;
+  }
 }
 @media (min-width: 1440px) {
   .map {
-    margin-top: 80px;
-    margin-bottom: 120px;
+    margin: 120px auto 120px;
   }
 }
 
@@ -3725,15 +3733,6 @@ footer {
 }
 
 .map__item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   position: relative;
   cursor: pointer;
   z-index: 1;
@@ -3768,10 +3767,24 @@ footer {
   }
 }
 
-.map__item:hover .map__name, .map__item:hover .map__number, .map__item:focus .map__name, .map__item:focus .map__number, .map__item:active .map__name, .map__item:active .map__number {
+.map__item:hover .map__name,
+.map__item:hover .map__number, .map__item:focus .map__name,
+.map__item:focus .map__number, .map__item:active .map__name,
+.map__item:active .map__number {
   color: #FF9151;
   -webkit-transition: 0.3s ease all;
   transition: 0.3s ease all;
+}
+.map__item a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .map__number {
@@ -3830,10 +3843,16 @@ svg {
   border-radius: 15px;
   background-color: #ffffff;
   padding: 0 20px;
+  margin: 64px 0 64px;
+}
+@media (min-width: 768px) {
+  .about {
+    margin: 80px 0 80px;
+  }
 }
 @media (min-width: 1440px) {
   .about {
-    margin: 120px 0 0;
+    margin: 120px 0 80px;
   }
 }
 
@@ -4130,7 +4149,7 @@ svg {
 .filter-sorting__select-item--active {
   color: #FE7333;
 }
-.filter-sorting__select-item:hover, .filter-sorting__select-item:focus, .filter-sorting__select-item:active {
+.filter-sorting__select-item:hover, .filter-sorting__select-item:focus, .filter-sorting__select-item:active a {
   color: #FF9151;
 }
 
@@ -5062,11 +5081,6 @@ svg {
   padding: 24px 0;
   overflow: hidden;
 }
-@media (min-width: 1440px) {
-  .card-page .mySwiper3 img {
-    min-width: 187px;
-  }
-}
 .card-page .mySwiper3 .swiper-slide {
   width: 100%;
   height: 100%;
@@ -5431,6 +5445,14 @@ svg {
 }
 .card__information--price {
   color: #292929;
+}
+
+.card__information--price * {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #292929;
+  margin: 0;
 }
 
 @media (min-width: 1440px) {
@@ -6476,7 +6498,8 @@ svg {
   width: 24px;
   height: 24px;
   right: 24px;
-  top: 35px;
+  right: 10px;
+  top: 47px;
   background-color: transparent;
   border: none;
 }
@@ -6484,6 +6507,8 @@ svg {
   position: absolute;
   width: 100%;
   height: 100%;
+  left: 0;
+  top: 0;
   fill: transparent;
   stroke: #686868;
 }
@@ -6642,7 +6667,9 @@ svg {
 }
 @media (min-width: 1440px) {
   .log-in__form--registration .connection__text-container--wide {
-    -ms-grid-column-span: 2;
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    -ms-grid-column-span: 1;
     grid-column-end: 2;
   }
 }
