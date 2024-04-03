@@ -4983,6 +4983,23 @@ svg {
     margin-top: 18px;
   }
 }
+.card-page .mySwiper3 li {
+  max-height: 130px;
+}
+.card-page .swiper-slide {
+  height: auto !important;
+  max-height: 300px;
+}
+.card-page .card__slider--zoom .swiper-slide {
+  max-height: 500px;
+}
+.card-page .card__slider--zoom .mySwiper3 img {
+  max-height: 70px;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 .card-page .lots__description-item {
   font-size: 16px;
   font-weight: 400;
@@ -5232,7 +5249,8 @@ svg {
     max-width: none;
   }
 }
-.card-page .card__slider.card__slider--zoom .mySwiper2 .swiper-slide.swiper-slide-active, .card-page .card__slider.card__slider--zoom .mySwiper2 .swiper-slide {
+.card-page .card__slider.card__slider--zoom .mySwiper2 .swiper-slide.swiper-slide-active,
+.card-page .card__slider.card__slider--zoom .mySwiper2 .swiper-slide {
   width: 100%;
 }
 @media (min-width: 1440px) {
@@ -5662,6 +5680,10 @@ svg {
 }
 .card-page-print .lot-print__item img {
   border-radius: 15px;
+  width: 100%;
+}
+.card-page-print .card__information-list--border::after {
+  content: none;
 }
 .card-page-print .card__information-title {
   font-size: 32px;

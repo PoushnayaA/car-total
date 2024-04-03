@@ -5,6 +5,34 @@
     margin-top: 18px;
   }
 
+
+
+  .mySwiper3 li {
+    max-height: 130px;
+  }
+
+  .swiper-slide {
+    height: auto !important;
+    max-height: 300px;
+  }
+
+  .card__slider--zoom .swiper-slide {
+    max-height: 500px;
+  }
+
+  .card__slider--zoom .mySwiper3 img {
+    max-height: 70px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+
+
+
+
+
+
   .lots__description-item {
     font-size: 16px;
     font-weight: 400;
@@ -246,6 +274,7 @@
 
     .mySwiper2 {
       height: auto;
+
       // overflow: visible;
       @include vp-1440 {
         width: 818px !important;
@@ -257,7 +286,7 @@
           width: 818px !important;
           max-width: none;
           max-height: 614px;
-          }
+        }
       }
 
       .card__photo-list {
@@ -271,19 +300,20 @@
           display: block;
           // top: 5px;
           bottom: -3px;
+        }
       }
-    }
 
       .swiper-slide img,
       .swiper-slide .picture {
         @include vp-1440 {
-        width: 818px !important;
-        max-width: none;
+          width: 818px !important;
+          max-width: none;
         }
       }
 
       // width: 100%;
-      .swiper-slide.swiper-slide-active, .swiper-slide {
+      .swiper-slide.swiper-slide-active,
+      .swiper-slide {
         width: 100%;
       }
 
@@ -303,11 +333,11 @@
         max-width: 584px !important;
 
         @include vp-768 {
-      //     // width: 584px !important;
-      //     min-width: 584px !important;
-      // max-width: 720px !important;
-      max-width: 690px !important;
-      // padding: 0 40px;
+          //     // width: 584px !important;
+          //     min-width: 584px !important;
+          // max-width: 720px !important;
+          max-width: 690px !important;
+          // padding: 0 40px;
         }
 
         @include vp-1440 {
@@ -317,6 +347,7 @@
       }
 
       @include vp-768 {
+
         .swiper-button-next,
         .swiper-button-prev {
           display: block;
@@ -334,16 +365,16 @@
       flex-wrap: nowrap;
       // width: 280px;
       min-width: 280px !important;
-        width: 100% !important;
-        max-width: 584px !important;
+      width: 100% !important;
+      max-width: 584px !important;
 
 
       @include vp-768 {
-      //   // width: 584px;
-      //   min-width: 584px !important;
-      // max-width: 720px !important;
-      max-width: 690px !important;
-      // padding: 0 40px;
+        //   // width: 584px;
+        //   min-width: 584px !important;
+        // max-width: 720px !important;
+        max-width: 690px !important;
+        // padding: 0 40px;
       }
 
       @include vp-1440 {
@@ -555,7 +586,7 @@
 .mySwiper2 .swiper-wrapper {
   // width: 280px !important;
   min-width: 280px !important;
-        width: 100% !important;
+  width: 100% !important;
   margin: 0 !important;
 
   @include vp-1440 {
@@ -600,13 +631,13 @@
 
       &::after {
         content: "";
-      position: absolute;
-      right: 50%;
-      bottom: 0;
-      top: 0;
-      width: 1px;
-      height: 100%;
-      background-color: $color-gainsboro;
+        position: absolute;
+        right: 50%;
+        bottom: 0;
+        top: 0;
+        width: 1px;
+        height: 100%;
+        background-color: $color-gainsboro;
       }
     }
 
@@ -732,7 +763,12 @@
 
     img {
       border-radius: 15px;
+      width: 100%;
     }
+  }
+
+  .card__information-list--border::after {
+    content: none;
   }
 
   .card__information-title {
@@ -1182,6 +1218,7 @@
 .price-card__reload-button {
   height: max-content;
   margin: auto 0;
+
   @include vp-1440 {
     margin-top: 5px;
     margin-bottom: 10px;

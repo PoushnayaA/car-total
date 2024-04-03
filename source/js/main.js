@@ -508,14 +508,40 @@ buttonNavigation.addEventListener('click', function () {
 });
 
 
+
+
+
+
+
+const editSources = document.querySelectorAll('.lots__photo-item');
+if (editSources) {
+  editSources.forEach(item => {
+    const pictureElement = item.querySelector('picture');
+    if (pictureElement) {
+      const imgElement = pictureElement.querySelector('img');
+      if (imgElement) {
+        pictureElement.outerHTML = `<!--${pictureElement.outerHTML.replace(imgElement.outerHTML, '')}-->${imgElement.outerHTML}`;
+      }
+    }
+  });
+}
+
+
+
+
+
+
 const navigation = document.querySelector('.navigation__list--desktop');
 const cityList = document.querySelector('.navigation__select-list');
 const filter = document.querySelector('.filter-sorting__select-list');
+const cardPage = document.querySelector('.card-page');
 
 function clickOutside() {
   document.addEventListener('click', function (event) {
     const isClickInsideNav = navigation.contains(event.target);
     const isClickInsideCity = cityList.contains(event.target);
+    const isClickInsideZoom1 = document.querySelector('.mySwiper2').contains(event.target);
+    const isClickInsideZoom2 = document.querySelector('.mySwiper3').contains(event.target);
 
     if (filter) {
       const isClickInsideSort = filter.contains(event.target);
@@ -546,6 +572,15 @@ function clickOutside() {
        }
      }
     }
+
+    if (cardPage) {
+      console.log(1);
+      if (!isClickInsideZoom1 && !isClickInsideZoom2 && !isIgnoredElement) {
+        document.querySelector('.page-card').classList.remove('page-card--dark');
+      document.querySelector('.card__slider').classList.remove('card__slider--zoom');
+        console.log(2);
+      }
+    }
   });
 }
 
@@ -558,6 +593,10 @@ if (buttonCity) {
 }
 
 if (filter) {
+  clickOutside();
+}
+
+if (cardPage) {
   clickOutside();
 }
 
@@ -770,6 +809,7 @@ document.querySelectorAll('.dropdown').forEach(function (dropDownWrapper) {
       dropDownList.classList.remove('dropdown__list--visible');
     }
   });
+
 
   // Нажатие на Tab или Escape. Закрыть дропдаун
   document.addEventListener('keydown', function (e) {
