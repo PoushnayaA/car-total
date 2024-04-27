@@ -545,6 +545,7 @@
 }
 
 .card__information--price * {
+  font-family: $ff-default !important;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -1158,6 +1159,7 @@
     width: 100%;
     height: 1px;
     background-color: $color-gainsboro;
+    background-color: red;
 
     @include vp-768 {
       bottom: -2%;
@@ -1233,4 +1235,57 @@
   @include vp-1440 {
     transform: none !important;
   }
+}
+
+.page--print {
+  .card__discription {
+    br {
+      display: none;
+    }
+  }
+
+  .card__information--extra {
+    padding: 10px 0;
+  }
+
+  .card__information--extra::before {
+    top: 30px;
+  }
+
+  .card__information-item:first-of-type .card__information--extra::before {
+    content: none;
+  }
+
+  .card__information-list--last li:last-of-type .card__information--extra::before {
+    top: 0px;
+  }
+}
+
+@media print {
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  @page {
+    margin: 20px;
+  }
+  html, body {
+    height: auto;
+    overflow: visible;
+  }
+}
+
+
+.account__arhive-item {
+  cursor: pointer;
+  border: 1px solid transparent;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: $color-burnt-orange;
+  }
+
 }

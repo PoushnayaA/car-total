@@ -355,8 +355,6 @@ window.addEventListener('DOMContentLoaded', () => {
     if (screenWidth >= 1440) {
       swiper3.params.slidesPerView = 'auto';
       swiper3.params.spaceBetween = 0;
-      // swiper3.params.allowTouchMove = false;
-      //       console.log(swiper3.params.allowTouchMove, 'false');
       swiper3.update();
       swiper2.params.slidesPerView = 1;
       swiper2.update();
@@ -368,8 +366,6 @@ window.addEventListener('DOMContentLoaded', () => {
         if (screenWidth < 1440) {
           swiper3.params.slidesPerView = 4;
           swiper3.params.spaceBetween = 10;
-          // swiper3.params.allowTouchMove = true;
-          // console.log(swiper3.params.allowTouchMove, 'true');
           swiper3.update();
           swiper2.params.slidesPerView = 1;
           swiper2.update();
@@ -377,8 +373,6 @@ window.addEventListener('DOMContentLoaded', () => {
         if (screenWidth >= 1440) {
           swiper3.params.slidesPerView = 6;
           swiper3.params.spaceBetween = 10;
-          // swiper3.params.allowTouchMove = false;
-          // console.log(swiper3.params.allowTouchMove, 'false');
           swiper3.update();
           swiper2.params.slidesPerView = 1;
           swiper2.update();
@@ -412,65 +406,110 @@ window.addEventListener('DOMContentLoaded', () => {
       if (screenWidth >= 1440) {
         swiper3.params.slidesPerView = 'auto';
         swiper3.params.spaceBetween = 0;
-        // swiper3.params.allowTouchMove = false;
-        // console.log(swiper3.params.allowTouchMove, 'false');
         swiper3.update();
         swiper2.params.slidesPerView = 1;
         swiper2.update();
-        // location.reload();
       }
     })
 
+    // window.addEventListener('resize', () => {
+    //   screenWidth = window.innerWidth;
+    //   if (document.querySelector('.card__slider--zoom')) {
+    //     if (screenWidth < 1440) {
+    //       swiper3.params.slidesPerView = 4;
+    //       swiper3.params.spaceBetween = 10;
+    //       swiper3.update();
+    //       swiper2.params.slidesPerView = 1;
+    //       swiper2.update();
+    //     }
+    //     if (screenWidth >= 1440) {
+    //       swiper3.params.slidesPerView = 6;
+    //       swiper3.params.spaceBetween = 10;
+    //       swiper3.update();
+    //       swiper2.params.slidesPerView = 1;
+    //       swiper2.update();
+    //     }
+    //   } else {
+    //     if (screenWidth < 500) {
+    //       swiper3.params.slidesPerView = 3;
+    //       swiper3.update();
+    //       swiper2.params.slidesPerView = 1;
+    //       swiper2.update();
+    //     }
+    //     if (screenWidth >= 500 && screenWidth < 768) {
+    //       swiper3.params.slidesPerView = 3;
+    //       swiper3.update();
+    //       swiper2.params.slidesPerView = 2;
+    //       swiper2.update();
+    //     }
+    //     if (screenWidth >= 768 && screenWidth < 1440) {
+    //       swiper3.params.slidesPerView = 3;
+    //       swiper3.update();
+    //       swiper2.params.slidesPerView = 3;
+    //       swiper2.update();
+    //     }
+    //     if (screenWidth >= 1440) {
+    //       swiper3.params.slidesPerView = 'auto';
+    //       swiper3.params.spaceBetween = 0;
+    //       swiper3.update();
+    //       swiper2.params.slidesPerView = 1;
+    //       swiper2.update();
+    //     }
+    //   }
+    // });
     window.addEventListener('resize', () => {
-      screenWidth = window.innerWidth;
-      if (document.querySelector('.card__slider--zoom')) {
-        if (screenWidth < 1440) {
-          swiper3.params.slidesPerView = 4;
-          swiper3.params.spaceBetween = 10;
-          // swiper3.params.allowTouchMove = true;
-          // console.log(swiper3.params.allowTouchMove, 'true');
-          swiper3.update();
-          swiper2.params.slidesPerView = 1;
-          swiper2.update();
-        }
-        if (screenWidth >= 1440) {
-          swiper3.params.slidesPerView = 6;
-          swiper3.params.spaceBetween = 10;
-          // swiper3.params.allowTouchMove = false;
-          // console.log(swiper3.params.allowTouchMove, 'false');
-          swiper3.update();
-          swiper2.params.slidesPerView = 1;
-          swiper2.update();
-        }
-      } else {
-        if (screenWidth < 500) {
-          swiper3.params.slidesPerView = 3;
-          swiper3.update();
-          swiper2.params.slidesPerView = 1;
-          swiper2.update();
-        }
-        if (screenWidth >= 500 && screenWidth < 768) {
-          swiper3.params.slidesPerView = 3;
-          swiper3.update();
-          swiper2.params.slidesPerView = 2;
-          swiper2.update();
-        }
-        if (screenWidth >= 768 && screenWidth < 1440) {
-          swiper3.params.slidesPerView = 3;
-          swiper3.update();
-          swiper2.params.slidesPerView = 3;
-          swiper2.update();
-        }
-        if (screenWidth >= 1440) {
-          swiper3.params.slidesPerView = 'auto';
-          swiper3.params.spaceBetween = 0;
-          swiper3.update();
-          swiper2.params.slidesPerView = 1;
-          swiper2.update();
-          // location.reload();
-        }
-      }
+      checkSwiper();
     });
+    window.addEventListener('load', () => {
+      checkSwiper();
+    })
+
+  }
+
+  function checkSwiper() {
+    screenWidth = window.innerWidth;
+    if (document.querySelector('.card__slider--zoom')) {
+      if (screenWidth < 1440) {
+        swiper3.params.slidesPerView = 4;
+        swiper3.params.spaceBetween = 10;
+        swiper3.update();
+        swiper2.params.slidesPerView = 1;
+        swiper2.update();
+      }
+      if (screenWidth >= 1440) {
+        swiper3.params.slidesPerView = 6;
+        swiper3.params.spaceBetween = 10;
+        swiper3.update();
+        swiper2.params.slidesPerView = 1;
+        swiper2.update();
+      }
+    } else {
+      if (screenWidth < 500) {
+        swiper3.params.slidesPerView = 3;
+        swiper3.update();
+        swiper2.params.slidesPerView = 1;
+        swiper2.update();
+      }
+      if (screenWidth >= 500 && screenWidth < 768) {
+        swiper3.params.slidesPerView = 3;
+        swiper3.update();
+        swiper2.params.slidesPerView = 2;
+        swiper2.update();
+      }
+      if (screenWidth >= 768 && screenWidth < 1440) {
+        swiper3.params.slidesPerView = 3;
+        swiper3.update();
+        swiper2.params.slidesPerView = 3;
+        swiper2.update();
+      }
+      if (screenWidth >= 1440) {
+        swiper3.params.slidesPerView = 'auto';
+        swiper3.params.spaceBetween = 0;
+        swiper3.update();
+        swiper2.params.slidesPerView = 1;
+        swiper2.update();
+      }
+    }
   }
 
   const btnText = document.querySelector('.lots__more-button');
@@ -528,6 +567,39 @@ if (editSources) {
 
 
 
+const swiper2 = document.querySelector('.mySwiper2');
+const swiper3 = document.querySelector('.mySwiper3');
+const swiperInformation = document.querySelector('.card__information-wrapper');
+const swiperParent = document.querySelector('.container--lot-card');
+
+let sliderHeight = 0;
+var screenWidth = window.innerWidth;
+
+
+window.addEventListener('load', () => {
+  screenWidth = window.innerWidth;
+  if (swiper3 && swiper2) {
+    sliderHeight = swiper2.offsetHeight + swiper3.offsetHeight;
+    if (screenWidth >= 1440 && (swiperInformation.offsetHeight < sliderHeight)) {
+      swiperParent.style.height = sliderHeight + "px"
+    }
+  }
+});
+
+window.addEventListener('resize', () => {
+  screenWidth = window.innerWidth;
+  if (swiper3 && swiper2) {
+    if (screenWidth >= 1440 && (swiperInformation.offsetHeight < (swiper2.offsetHeight + swiper3.offsetHeight))) {
+      sliderHeight = swiper2.offsetHeight + swiper3.offsetHeight;
+      swiperParent.style.height = sliderHeight + "px";
+    } else if (screenWidth < 1440) {
+      swiperParent.style.height = "auto";
+      sliderHeight = 0;
+    }
+  }
+});
+
+
 
 
 
@@ -538,10 +610,13 @@ const cardPage = document.querySelector('.card-page');
 
 function clickOutside() {
   document.addEventListener('click', function (event) {
-    const isClickInsideNav = navigation.contains(event.target);
+    if (navigation && cityList && document.querySelector('.mySwiper2') && document.querySelector('.mySwiper3')) {
+      const isClickInsideNav = navigation.contains(event.target);
     const isClickInsideCity = cityList.contains(event.target);
     const isClickInsideZoom1 = document.querySelector('.mySwiper2').contains(event.target);
     const isClickInsideZoom2 = document.querySelector('.mySwiper3').contains(event.target);
+    }
+
 
     if (filter) {
       const isClickInsideSort = filter.contains(event.target);
@@ -574,11 +649,9 @@ function clickOutside() {
     }
 
     if (cardPage) {
-      console.log(1);
       if (!isClickInsideZoom1 && !isClickInsideZoom2 && !isIgnoredElement) {
         document.querySelector('.page-card').classList.remove('page-card--dark');
       document.querySelector('.card__slider').classList.remove('card__slider--zoom');
-        console.log(2);
       }
     }
   });
@@ -1076,13 +1149,149 @@ const deleteButtons = document.querySelectorAll('.account__arhive-button--delete
 if (deleteButtons) {
   deleteButtons.forEach(i => {
     i.addEventListener('click', function (e) {
-      // console.log(e.target.parentNode);
       e.target.parentNode.remove();
     });
   });
 }
 
+// function createSlider(numPhotos) {
+//   const photoItems = generatePhotoItems(numPhotos);
+//   const sliderHtml = `
+//   <div class="card__slider card__slider--zoom">
+//       <button class="zoom--closed"></button>
+//       <div class="swiper mySwiper2" data-slider="card-photo-swiper">
+//         <ul class="card__photo-list swiper-wrapper">
+//           ${photoItems}
+//         </ul>
+//         <div class="swiper-button-next"></div>
+//         <div class="swiper-button-prev"></div>
+//         <div class="swiper-pagination"></div>
+//       </div>
+//       <div thumbsSlider="" class="swiper mySwiper3 swiper--desktop">
+//         <ul class="card__photo-list swiper-wrapper">
+//           ${photoItems}
+//         </ul>
+//       </div>
+// </div>
+//   `;
+
+//   return sliderHtml;
+// }
+
+// function generatePhotoItems(numPhotos) {
+//   let photoItems = '';
+
+//   for (let i = 1; i <= numPhotos; i++) {
+//     photoItems += `
+//       <li class="lots__photo-item swiper-slide">
+//         <picture>
+//           <source type="image/jpeg" src="./img/content/card-photo-${i}.webp">
+//           <img src="./img/content/card-photo-${i}.jpg" />
+//         </picture>
+//       </li>
+//     `;
+//   }
+
+//   return photoItems;
+// }
+
+// // Обработчик клика на кнопку
+// function handleButtonClick(event) {
+//   document.querySelector('.page').classList.add('page-card--dark')
+
+//   const button = event.target;
+//   // const numPhotos = parseInt(button.id.split('-')[1]);
+//   const sliderContainer = document.createElement('div');
+//   sliderContainer.classList.add('card__slider--zoom');
+//   sliderContainer.classList.add('card__slider');
+//   const sliderHtml = createSlider(5);
+//   // sliderContainer.innerHTML = sliderHtml;
+//   // document.body.appendChild(sliderContainer);
+//   document.querySelector('.page').innerHTML += sliderHtml;
+
+//   // Инициализация Swiper после вставки разметки
+//   // ...
+// }
+
+// // Получаем все кнопки из списка
+// const buttons = document.querySelectorAll('.account__arhive-item');
+
+// // Добавляем обработчик клика на каждую кнопку
+// buttons.forEach(button => {
+//   button.addEventListener('click', handleButtonClick);
+// });
 
 
 
-// document.querySelector('.authorization').classList.add('visually-hidden');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function hasArchiveClass() {
+  const bodyElement = document.querySelector('body');
+  return bodyElement.querySelector('.account__arhive-item') !== null;
+}
+
+// Проверяем наличие класса archive
+if (hasArchiveClass()) {
+  const buttons = document.querySelectorAll('.account__arhive-item');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', handleButtonClick);
+  });
+}
+
+function handleButtonClick(event) {
+  const buttonId = event.currentTarget.id;
+  const url = new URL('http://localhost:3002/lots-card.html');
+  url.searchParams.set('from', 'archive');
+  window.location.href = url.toString();
+}
+
+window.addEventListener('load', function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const fromArchive = urlParams.get('from') === 'archive';
+
+
+  if (window.location.href.includes('http://localhost:3002/lots-card.html') && fromArchive) {
+    addZoomClass();
+    addCloseListener();
+  }
+});
+
+function addZoomClass() {
+  const slider = document.querySelector('.card__slider');
+  const page = document.querySelector('.page-card');
+  const zoom = document.querySelector('.zoom--closed');
+
+  if (slider && page && zoom) {
+    slider.classList.add('card__slider--zoom');
+    page.classList.add('page-card--dark');
+    zoom.classList.add('zoom--closed-link');
+  }
+}
+
+function addCloseListener() {
+  const closeLink = document.querySelector('.zoom--closed-link');
+  if (closeLink) {
+    closeLink.addEventListener('click', function() {
+      history.back();
+    });
+  }
+}
+
+
+
+
+

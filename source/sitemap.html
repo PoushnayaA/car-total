@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="">
+  <title>Car-total</title>
+  <link rel="stylesheet" href="css/style.min.css">
+  <style>
+    ol {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    li {
+      list-style-type: decimal;
+    }
+
+    ol ol {
+      gap: 0;
+    }
+
+    ol ol li {
+      list-style-type: none;
+    }
+
+    a {
+      padding: 5px;
+      display: inline-block;
+    }
+
+    a:hover {
+      opacity: 60%;
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <h1>Разводящая страница</h1>
+          <ol>
+            <li>
+              <a href="index.html">Главная — index.html</a>
+            </li>
+            <li>
+              <a href="auctions.html">Аукционы — auctions.html</a>
+              <ol>
+                <li>
+                  <a href="lots-card.html">Карточка лота — lots-card.html</a>
+                </li>
+                <li>
+                  <a href="print">Страница печати — print.html</a>
+                </li>
+              </ol>
+            </li>
+            <li>
+              <a href="about.html">О нас — about.html</a>
+            </li>
+            <li>
+              <a href="questions-answers.html">Вопросы и ответы — questions-answers.html</a>
+            </li>
+            <li>
+              <a href="rules.html">Правила — rules.html</a>
+            </li>
+            <li>
+              <a href="news.html">Новости — news.html</a>
+              <ol>
+                <li>
+                  <a href="news-card.html">Внутрення новость — news-card.html</a>
+                </li>
+              </ol>
+            </li>
+            <li>
+              <a href="contacts.html">Контакты — contacts.html</a>
+            </li>
+            <li>
+              <a href="log-in.html">Вход и регистрация — log-in.html</a>
+              <ol>
+                <li>
+                  <a href="account.html">Личный кабинет — account.html</a>
+                </li>
+              </ol>
+            </li>
+            <li>
+              <a href="error.html">Страница 404 — error.html</a>
+            </li>
+          </ol>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="container"></div>
+    </footer>
+  </div>
+</body>
+
+</html>
