@@ -1254,7 +1254,7 @@ if (hasArchiveClass()) {
 
 function handleButtonClick(event) {
   const buttonId = event.currentTarget.id;
-  const url = new URL('http://localhost:3002/lots-card.html');
+  const url = new URL('https://car-total.netlify.app/lots-card');
   url.searchParams.set('from', 'archive');
   window.location.href = url.toString();
 }
@@ -1264,7 +1264,7 @@ window.addEventListener('load', function() {
   const fromArchive = urlParams.get('from') === 'archive';
 
 
-  if (window.location.href.includes('http://localhost:3002/lots-card.html') && fromArchive) {
+  if (window.location.href.includes('https://car-total.netlify.app/lots-card') && fromArchive) {
     addZoomClass();
     addCloseListener();
   }
